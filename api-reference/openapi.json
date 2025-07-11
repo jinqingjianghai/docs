@@ -1,217 +1,1077 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
+    "title": "Genbo API",
+    "description": "",
     "version": "1.0.0"
   },
-  "servers": [
+  "tags": [
     {
-      "url": "http://sandbox.mintlify.com"
-    }
-  ],
-  "security": [
+      "name": "Chat"
+    },
     {
-      "bearerAuth": []
+      "name": "Image Generation Model"
+    },
+    {
+      "name": "Video Generation Model"
+    },
+    {
+      "name": "Video Model"
     }
   ],
   "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
+    "/v1/chat/completions": {
+      "post": {
+        "summary": "Chat Conversation (OpenAI Format)",
+        "deprecated": false,
+        "description": "Given a prompt, the model will return one or more predicted completions, and can also return the probability of alternative tokens at each position.\nCreates a completion for the provided prompt and parameters.",
+        "tags": [
+          "Chat"
+        ],
         "parameters": [
           {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{YOUR_API_KEY}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "type": "string",
+                    "description": "The ID of the model to use. For details on which models can be used with the chat API, see the model endpoint compatibility table."
+                  },
+                  "messages": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "description": "The list of messages in the conversation so far. Python code example."
+                  },
+                  "temperature": {
+                    "type": "integer",
+                    "description": "Sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both."
+                  },
+                  "n": {
+                    "type": "integer",
+                    "description": "Defaults to 1. How many chat completion choices to generate for each input message."
+                  },
+                  "top_p": {
+                    "type": "integer",
+                    "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both."
+                  },
+                  "stream": {
+                    "type": "boolean",
+                    "description": "Defaults to false. If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as server-sent events as they become available, with data: [DONE] message terminating the stream."
+                  },
+                  "stop": {
+                    "type": "string",
+                    "description": "Defaults to null. Up to 4 sequences where the API will stop generating further tokens."
+                  },
+                  "max_tokens": {
+                    "type": "integer",
+                    "description": "Defaults to inf. The maximum number of tokens to generate in the chat completion. The total length of input tokens and generated tokens is limited by the model's context length."
+                  },
+                  "presence_penalty": {
+                    "type": "number",
+                    "description": "Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics."
+                  },
+                  "frequency_penalty": {
+                    "type": "number",
+                    "description": "Defaults to 0. Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+                  },
+                  "logit_bias": {
+                    "type": "null",
+                    "description": "Modify the likelihood of specified tokens appearing in the completion. Accepts a JSON object that maps tokens (specified by token ID as given by the tokenizer) to an associated bias value between -100 and 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood; values like -100 or 100 should result in a ban or exclusive selection of the relevant token."
+                  },
+                  "user": {
+                    "type": "string",
+                    "description": "A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse."
+                  },
+                  "response_format": {
+                    "type": "object",
+                    "properties": {},
+                    "description": "An object specifying the format that the model must output. Use { \"type\": \"json_object\" } to enable JSON mode, which ensures the model's message is valid JSON. Important: When using JSON mode, you must also instruct the model to produce JSON via system or user message. If you do not, the model may generate an endless stream of whitespace until generation hits the token limit, resulting in increased latency and a 'stuck' request. Also note that if finish_reason=\"length\", the message content may be cut off, indicating generation exceeded max_tokens or the conversation exceeded the maximum context length."
+                  },
+                  "seed": {
+                    "type": "integer",
+                    "description": "This feature is experimental. If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed, and you should refer to the system_fingerprint response parameter to monitor for backend changes."
+                  },
+                  "tools": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "A set of tools the model can call. Currently, only functions are supported as tools. Use this to provide a list of functions the model can generate JSON inputs for."
+                  },
+                  "tool_choice": {
+                    "type": "object",
+                    "properties": {},
+                    "description": "Controls which function (if any) the model calls. none means the model will not call a function and will instead generate a message. auto means the model can decide to generate a message or call a function. Use {\"type\": \"function\", \"function\": {\"name\": \"my_function\"}} to force the model to call that function. If no functions exist, defaults to none. If functions exist, defaults to auto. Show possible types."
+                  }
+                },
+                "required": [
+                  "model",
+                  "messages"
+                ]
+              },
+              "example": {
+                "model": "Qwen2.5-7B-Instruct",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a helpful assistant."
+                  },
+                  {
+                    "role": "user",
+                    "content": "Hello!"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "object": {
+                      "type": "string"
+                    },
+                    "created": {
+                      "type": "integer"
+                    },
+                    "choices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "index": {
+                            "type": "integer"
+                          },
+                          "message": {
+                            "type": "object",
+                            "properties": {
+                              "role": {
+                                "type": "string"
+                              },
+                              "content": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "role",
+                              "content"
+                            ]
+                          },
+                          "finish_reason": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "usage": {
+                      "type": "object",
+                      "properties": {
+                        "prompt_tokens": {
+                          "type": "integer"
+                        },
+                        "completion_tokens": {
+                          "type": "integer"
+                        },
+                        "total_tokens": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "prompt_tokens",
+                        "completion_tokens",
+                        "total_tokens"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "object",
+                    "created",
+                    "choices",
+                    "usage"
+                  ]
+                },
+                "example": {
+                  "id": "chatcmpl-123",
+                  "object": "chat.completion",
+                  "created": 1677652288,
+                  "choices": [
+                    {
+                      "index": 0,
+                      "message": {
+                        "role": "assistant",
+                        "content": "\n\nHello there, how may I assist you today?"
+                      },
+                      "finish_reason": "stop"
+                    }
+                  ],
+                  "usage": {
+                    "prompt_tokens": 9,
+                    "completion_tokens": 12,
+                    "total_tokens": 21
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/images/generations": {
+      "post": {
+        "summary": "Submit Image to Image Task",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Image Generation Model"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{YOUR_API_KEY}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "type": "string",
+                    "description": "Model"
+                  },
+                  "prompt": {
+                    "type": "string",
+                    "description": "Prompt"
+                  },
+                  "img_url": {
+                    "type": "string",
+                    "description": "Image URL"
+                  }
+                },
+                "required": [
+                  "model",
+                  "prompt",
+                  "img_url"
+                ]
+              },
+              "example": {
+                "model": "flux.1-kontext-dev",
+                "prompt": "Change the car color to red",
+                "img_url": "https://online.genbo.ai/img2video/61a107f1-af67-4410-9e87-0b6ab3a435a3.jpg"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "task_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "task_id"
+                  ]
+                },
+                "example": {
+                  "task_id": "string"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "get": {
+        "summary": "Get Image Generation Result (List)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Image Generation Model"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": 10,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "Page Number",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{YOUR_API_KEY}}",
+            "schema": {
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Plant response",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plant"
+                    "type": "object",
+                    "properties": {
+                      "task_id": {
+                        "type": "string"
+                      },
+                      "task_status": {
+                        "type": "string",
+                        "title": "Task Status"
+                      },
+                      "fail_reason": {
+                        "type": "string",
+                        "title": "Failure Reason"
+                      },
+                      "task_result": {
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "properties": {
+                          "url": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "Generated Image URL"
+                          }
+                        },
+                        "required": [
+                          "url"
+                        ]
+                      },
+                      "created_at": {
+                        "type": "integer",
+                        "title": "Task Creation Time (s)"
+                      },
+                      "updated_at": {
+                        "type": "integer",
+                        "title": "Task Update Time (s)"
+                      }
+                    },
+                    "required": [
+                      "task_id",
+                      "task_status",
+                      "fail_reason",
+                      "task_result",
+                      "created_at",
+                      "updated_at"
+                    ]
                   }
+                },
+                "example": {
+                  "task_id": "72fe4b63-eb36-4bbb-bd62-414d5a34cc11",
+                  "task_status": "SUCCESS",
+                  "fail_reason": "",
+                  "task_result": {
+                    "url": [
+                      "http://online.genbo.ai/genbo/genbo_ai_data/LDX_Image_00019_.png",
+                      "http://online.genbo.ai/genbo/genbo_ai_data/LDX_Image_00020_.png"
+                    ]
+                  },
+                  "created_at": 1745369939,
+                  "updated_at": 1745370059
                 }
               }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
+            },
+            "headers": {}
           }
-        }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
         },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
+        "security": []
       }
     },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
+    "/v1/images/generations/{id}": {
+      "get": {
+        "summary": "Get Image Generation Result (Single)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Image Generation Model"
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID of plant to delete",
+            "description": "Task ID",
             "required": true,
+            "example": "77808f7d-6d8c-4b2b-a63f-f46789204d0c",
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{YOUR_API_KEY}}",
+            "schema": {
+              "type": "string"
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
+          "200": {
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "type": "object",
+                  "properties": {
+                    "task_id": {
+                      "type": "string"
+                    },
+                    "task_status": {
+                      "type": "string",
+                      "title": "Task Status"
+                    },
+                    "fail_reason": {
+                      "type": "string",
+                      "title": "Failure Reason"
+                    },
+                    "task_result": {
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "url": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "Generated Image URL"
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "integer",
+                      "title": "Task Creation Time (s)"
+                    },
+                    "updated_at": {
+                      "type": "integer",
+                      "title": "Task Update Time (s)"
+                    }
+                  },
+                  "required": [
+                    "task_id",
+                    "task_status",
+                    "fail_reason",
+                    "task_result",
+                    "created_at",
+                    "updated_at"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success Example",
+                    "value": {
+                      "task_id": "4d07b504-5ce0-45e1-a51b-b1a7639c04c2",
+                      "task_status": "SUCCESS",
+                      "fail_reason": "",
+                      "task_result": {
+                        "url": [
+                          "http://online.genbo.ai/genbo/genbo_ai_data/LDX_Image_00035_.png"
+                        ]
+                      },
+                      "created_at": 1744596109,
+                      "updated_at": 1744596142
+                    }
+                  },
+                  "2": {
+                    "summary": "Task Not Started",
+                    "value": {
+                      "task_id": "14dd0c61-8321-4f47-be59-7041d47ff1a7",
+                      "task_status": "NOT_START",
+                      "fail_reason": "",
+                      "task_result": null,
+                      "created_at": 1744356776,
+                      "updated_at": 1744356776
+                    }
+                  },
+                  "3": {
+                    "summary": "Task Failure",
+                    "value": {
+                      "task_id": "1d425b20-57ec-47c4-971a-f0e863adcae1",
+                      "task_status": "FAILURE",
+                      "fail_reason": "Failed to get channel information, please contact the administrator, channel ID: 27",
+                      "task_result": null,
+                      "created_at": 1744767040,
+                      "updated_at": 1744767982
+                    }
+                  },
+                  "4": {
+                    "summary": "Exception Example",
+                    "value": {
+                      "error": {
+                        "message": "User has not submitted this task",
+                        "type": "task_not_exist"
+                      }
+                    }
+                  }
                 }
               }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/video/generations": {
+      "post": {
+        "summary": "Submit Text to Video Task",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Video Generation Model",
+          "Video Model"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{YOUR_API_KEY}}",
+            "schema": {
+              "type": "string"
             }
           }
-        }
-      }
-    }
-  },
-  "webhooks": {
-    "/plant/webhook": {
-      "post": {
-        "description": "Information about a new plant added to the store",
+        ],
         "requestBody": {
-          "description": "Plant added to the store",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "type": "string",
+                    "description": "Model"
+                  },
+                  "prompt": {
+                    "type": "string",
+                    "description": "Prompt"
+                  },
+                  "img_url": {
+                    "type": "string",
+                    "description": "Image for Video"
+                  },
+                  "resolution": {
+                    "type": "string",
+                    "description": "Video Resolution Currently Only Supports 720P"
+                  },
+                  "duration": {
+                    "type": "string",
+                    "description": "Currently Only Supports 5 Seconds"
+                  }
+                },
+                "required": [
+                  "model",
+                  "prompt",
+                  "img_url"
+                ]
+              },
+              "example": {
+                "model": "Wan2_1-T2V-14B",
+                "prompt": "A cat running on grass",
+                "resolution": "720P",
+                "duration": "5"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Return a 200 status to indicate that the data was received successfully"
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "task_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "task_id"
+                  ]
+                },
+                "example": {
+                  "task_id": "string"
+                }
+              }
+            },
+            "headers": {}
           }
-        }
+        },
+        "security": []
+      }
+    },
+    "/v1/videos/generations/{id}": {
+      "get": {
+        "summary": "Get Video Generation Result (Single)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Video Generation Model",
+          "Video Model"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Task ID",
+            "required": true,
+            "example": "2189c7a5-18f2-443c-a6eb-5c8be012e15b",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{YOUR_API_KEY}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "task_id": {
+                      "type": "string"
+                    },
+                    "task_status": {
+                      "type": "string",
+                      "title": "Task Status"
+                    },
+                    "fail_reason": {
+                      "type": "string",
+                      "title": "Failure Reason"
+                    },
+                    "task_result": {
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "title": "Video URL"
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "integer",
+                      "title": "Task Creation Time (s)"
+                    },
+                    "updated_at": {
+                      "type": "integer",
+                      "title": "Task Update Time (s)"
+                    }
+                  },
+                  "required": [
+                    "task_id",
+                    "task_status",
+                    "fail_reason",
+                    "task_result",
+                    "created_at",
+                    "updated_at"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success Example",
+                    "value": {
+                      "task_id": "b5fa1530-f314-4741-9659-bc9273b1969f",
+                      "task_status": "SUCCESS",
+                      "fail_reason": "",
+                      "task_result": {
+                        "url": "http://online.genbo.ai/genbo/genbo_ai_data/WanVideoWrapper_I2V_00028.mp4"
+                      },
+                      "created_at": 1745289303,
+                      "updated_at": 1745289549
+                    }
+                  },
+                  "2": {
+                    "summary": "Task Not Started",
+                    "value": {
+                      "task_id": "14dd0c61-8321-4f47-be59-7041d47ff1a7",
+                      "task_status": "NOT_START",
+                      "fail_reason": "",
+                      "task_result": null,
+                      "created_at": 1744356776,
+                      "updated_at": 1744356776
+                    }
+                  },
+                  "3": {
+                    "summary": "Task Failure",
+                    "value": {
+                      "task_id": "1d425b20-57ec-47c4-971a-f0e863adcae1",
+                      "task_status": "FAILURE",
+                      "fail_reason": "Failed to get channel information, please contact the administrator, channel ID: 27",
+                      "task_result": null,
+                      "created_at": 1744767040,
+                      "updated_at": 1744767982
+                    }
+                  },
+                  "4": {
+                    "summary": "Exception Example",
+                    "value": {
+                      "error": {
+                        "message": "User has not submitted this task",
+                        "type": "task_not_exist"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/videos/generations": {
+      "get": {
+        "summary": "Get Video Generation Result (List)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Video Generation Model",
+          "Video Model"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": 10,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "Page Number",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{YOUR_API_KEY}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "task_id": {
+                        "type": "string"
+                      },
+                      "task_status": {
+                        "type": "string",
+                        "title": "Task Status"
+                      },
+                      "fail_reason": {
+                        "type": "string",
+                        "title": "Failure Reason"
+                      },
+                      "task_result": {
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "title": "Video URL"
+                          }
+                        },
+                        "required": [
+                          "url"
+                        ]
+                      },
+                      "created_at": {
+                        "type": "integer",
+                        "title": "Task Creation Time (s)"
+                      },
+                      "updated_at": {
+                        "type": "integer",
+                        "title": "Task Update Time (s)"
+                      }
+                    },
+                    "required": [
+                      "task_id",
+                      "task_status",
+                      "fail_reason",
+                      "task_result",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  }
+                },
+                "example": {
+                  "task_id": "e19cfe76-5b91-4f83-9502-36754e235984",
+                  "task_status": "SUCCESS",
+                  "fail_reason": "",
+                  "task_result": {
+                    "url": "http://online.genbo.ai/genbo/genbo_ai_data/WanVideoWrapper_I2V_00025.mp4"
+                  },
+                  "created_at": 1745287222,
+                  "updated_at": 1745287455
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
       }
     }
   },
   "components": {
     "schemas": {
-      "Plant": {
+      "Pet": {
         "required": [
-          "name"
+          "name",
+          "photoUrls",
+          "id",
+          "category",
+          "tags",
+          "status"
         ],
         "type": "object",
         "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "description": "Pet ID"
           },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
+          "category": {
+            "$ref": "#/components/schemas/Category",
+            "description": "group"
+          },
+          "name": {
+            "type": "string",
+            "description": "name",
+            "examples": [
+              "doggie"
+            ]
+          },
+          "photoUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "image URL"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            },
+            "description": "tag"
+          },
+          "status": {
+            "type": "string",
+            "description": "Pet Sales Status",
+            "enum": [
+              "available",
+              "pending",
+              "sold"
+            ]
           }
         }
       },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+      "Category": {
         "type": "object",
         "properties": {
-          "error": {
+          "id": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64",
+            "minimum": 1,
+            "description": "Category ID"
           },
-          "message": {
-            "type": "string"
+          "name": {
+            "type": "string",
+            "description": "Category Name"
+          }
+        }
+      },
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "description": "Tag ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Tag Name"
           }
         }
       }
     },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
-      }
+    "securitySchemes": {}
+  },
+  "servers": [
+    {
+      "url": "https://api.genbo.ai"
     }
-  }
+  ],
+  "security": []
 }
