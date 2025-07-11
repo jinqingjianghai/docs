@@ -7,29 +7,17 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "GUIDES",
         "groups": [
           {
-            "group": "Get Started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Essentials",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+            "group":"GUIDES",
+            "pages":
+            [
+              "api-reference/introduction"
             ]
           }
         ]
@@ -38,65 +26,33 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "Chat",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/chat/chat-conversation-openai-format"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Image Generation Model",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/image-generation-model/submit-image-to-image-task",
+              "api-reference/image-generation-model/get-image-generation-result-single",
+              "api-reference/image-generation-model/get-image-generation-result-list"
+            ]
+          },
+          {
+            "group": "Video Generation Model",
+            "pages": [
+              "api-reference/video-generation-model/submit-text-to-video-task",
+              "api-reference/video-generation-model/get-video-generation-result-single",
+              "api-reference/video-generation-model/get-video-generation-result-list"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    "light": "/logo/light.png",
+    "dark": "/logo/light.png"
   }
 }

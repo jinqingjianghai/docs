@@ -1,33 +1,47 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'Welcome to the home of Genbo AI Docs'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Product Overview
 
-## Welcome
+### 1. Introduction
+Powered by leading foundation models, our platform offers **cost-effective GenAI services**.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+### 2. Key Features
+As an all-in-one cloud service platform integrating top-tier AI models, we aim to provide developers with **faster, cheaper, more comprehensive, and smoother** model APIs.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+- A wide selection of models already available: Large Language Models, Text-to-Image Models, Code Generation Models, Vector & Re-ranking Models, and Multimodal Models.
+- Developers and product teams can focus on innovation without worrying about compute costs during development or scaling, achieving true **"Token Freedom."**
+- Ready-to-use model inference acceleration services offer **faster and more efficient user experiences** for your GenAI applications.
 
-## Authentication
+---
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+## Quick Start
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+### 1. Log in to the platform
+### 2. Browse the model list and model details
+### 3. Obtain your **API Key** and **Base URL**
+### 4. Start making API calls
+
+We are **fully aligned with OpenAI's official OpenAI Docs and API Reference**, and our usage method is **100% compatible**.
+Thanks to **Model Endpoint Compatibility**, simply replace `api.openai.com` with your platform's `Base_URL` wherever OpenAI's API is used.
+
+#### Example Replacement:
+- **Official:** `https://api.openai.com/v1/chat/completions`
+- **Ours:** `https://{{Base_URL}}/v1/chat/completions`
+
+#### Note:
+In some apps or websites, the API base may be:
+- `https://api.openai.com` or
+- `https://api.openai.com/v1`
+
+In this case, replace it with:
+- `https://{{Base_URL}}` or
+- `https://{{Base_URL}}/v1`
+
+#### Important for Developers:
+When calling APIs in code, include your API key in the `Authorization` header like so:
+
+```http
+Authorization: Bearer sk-xxxxxxxxxxxx
