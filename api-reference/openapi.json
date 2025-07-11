@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Genbo API copy",
+    "title": "Genbo API",
     "description": "",
     "version": "1.0.0"
   },
@@ -26,16 +26,6 @@
           "Chat"
         ],
         "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "application/json",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "Authorization",
             "in": "header",
@@ -266,26 +256,6 @@
           "Image Generation Model"
         ],
         "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "application/json",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "application/json",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "Authorization",
             "in": "header",
@@ -624,26 +594,6 @@
           "Video Model"
         ],
         "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "application/json",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "application/json",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "Authorization",
             "in": "header",
@@ -1062,6 +1012,11 @@
     },
     "securitySchemes": {}
   },
-  "servers": [],
+  "servers": [
+    {
+      "url": "https://api.genbo.ai",
+      "description": "Prod Env"
+    }
+  ],
   "security": []
 }
