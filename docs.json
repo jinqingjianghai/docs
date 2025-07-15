@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Genbo",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/genbo-favicon.png",
   "navigation": {
     "tabs": [
       {
@@ -17,7 +17,8 @@
             "group":"GUIDES",
             "pages":
             [
-              "api-reference/introduction"
+              "guides/introduction",
+              "guides/quickstart"
             ]
           }
         ]
@@ -28,23 +29,23 @@
           {
             "group": "Chat",
             "pages": [
-              "api-reference/chat/chat-conversation-openai-format"
+              "api-reference/chat/chat-completions"
             ]
           },
           {
-            "group": "Image Generation Model",
+            "group": "Image",
             "pages": [
-              "api-reference/image-generation-model/submit-image-to-image-task",
-              "api-reference/image-generation-model/get-image-generation-result-single",
-              "api-reference/image-generation-model/get-image-generation-result-list"
+              "api-reference/images/images-generations",
+              "api-reference/images/get-result-single",
+              "api-reference/images/get-result-list"
             ]
           },
           {
-            "group": "Video Generation Model",
+            "group": "Video",
             "pages": [
-              "api-reference/video-generation-model/submit-text-to-video-task",
-              "api-reference/video-generation-model/get-video-generation-result-single",
-              "api-reference/video-generation-model/get-video-generation-result-list"
+              "api-reference/videos/videos-generations",
+              "api-reference/videos/get-result-single",
+              "api-reference/videos/get-result-list"
             ]
           }
         ]
@@ -52,7 +53,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.png",
-    "dark": "/logo/light.png"
+    "light": "/logo/genbo-light.png",
+    "dark": "/logo/genbo-dark.png",
+    "href": "https://genbo.ai"
   }
 }

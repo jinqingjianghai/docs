@@ -25,18 +25,7 @@
         "tags": [
           "Chat"
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{YOUR_API_KEY}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
@@ -45,7 +34,10 @@
                 "properties": {
                   "model": {
                     "type": "string",
-                    "description": "The ID of the model to use. For details on which models can be used with the chat API, see the model endpoint compatibility table."
+                    "description": "Corresponding Model Name. ",
+                    "enum": [
+                      "Qwen2.5-7B-Instruct"
+                    ]
                   },
                   "messages": {
                     "type": "array",
@@ -53,30 +45,43 @@
                       "type": "object",
                       "properties": {
                         "role": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "The role of the messages author. Choice between: system, user, or assistant.",
+                          "enum": [
+                            "user",
+                            "assistant",
+                            "system"
+                          ]
                         },
                         "content": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "The contents of the message."
                         }
                       }
                     },
-                    "description": "The list of messages in the conversation so far. Python code example."
+                    "description": "The list of messages in the conversation so far."
                   },
                   "temperature": {
                     "type": "integer",
-                    "description": "Sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both."
+                    "description": "Sampling temperature to use, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both.",
+                    "minimum": 0,
+                    "maximum": 1
                   },
                   "n": {
                     "type": "integer",
-                    "description": "Defaults to 1. How many chat completion choices to generate for each input message."
+                    "description": "Defaults to 1. How many chat completion choices to generate for each input message.",
+                    "default": 1
                   },
                   "top_p": {
                     "type": "integer",
-                    "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both."
+                    "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both.",
+                    "minimum": 0,
+                    "maximum": 1
                   },
                   "stream": {
                     "type": "boolean",
-                    "description": "Defaults to false. If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as server-sent events as they become available, with data: [DONE] message terminating the stream."
+                    "description": "Defaults to false. If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as server-sent events as they become available, with data: [DONE] message terminating the stream.",
+                    "default": false
                   },
                   "stop": {
                     "type": "string",
@@ -84,7 +89,9 @@
                   },
                   "max_tokens": {
                     "type": "integer",
-                    "description": "Defaults to inf. The maximum number of tokens to generate in the chat completion. The total length of input tokens and generated tokens is limited by the model's context length."
+                    "description": "Defaults to inf. The maximum number of tokens to generate in the chat completion. The total length of input tokens and generated tokens is limited by the model's context length.",
+                    "minimum": 1,
+                    "maximum": 16384
                   },
                   "presence_penalty": {
                     "type": "number",
@@ -92,7 +99,10 @@
                   },
                   "frequency_penalty": {
                     "type": "number",
-                    "description": "Defaults to 0. Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+                    "description": "Defaults to 0. Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+                    "default": 0,
+                    "minimum": -2,
+                    "maximum": 2
                   },
                   "logit_bias": {
                     "type": "null",
@@ -133,12 +143,8 @@
                 "model": "Qwen2.5-7B-Instruct",
                 "messages": [
                   {
-                    "role": "system",
-                    "content": "You are a helpful assistant."
-                  },
-                  {
                     "role": "user",
-                    "content": "Hello!"
+                    "content": "What opportunities and challenges will the Chinese large model industry face in 2025?"
                   }
                 ]
               }
@@ -220,82 +226,137 @@
                   ]
                 },
                 "example": {
-                  "id": "chatcmpl-123",
+                  "id": "<string>",
                   "object": "chat.completion",
-                  "created": 1677652288,
+                  "created": 1752470588,
+                  "model": "Qwen2.5-7B-Instruct",
                   "choices": [
                     {
                       "index": 0,
                       "message": {
                         "role": "assistant",
-                        "content": "\n\nHello there, how may I assist you today?"
+                        "reasoning_content": null,
+                        "content": "<string>",
+                        "tool_calls": []
                       },
-                      "finish_reason": "stop"
+                      "logprobs": null,
+                      "finish_reason": "stop",
+                      "stop_reason": null
                     }
                   ],
                   "usage": {
-                    "prompt_tokens": 9,
-                    "completion_tokens": 12,
-                    "total_tokens": 21
-                  }
+                    "prompt_tokens": 47,
+                    "total_tokens": 592,
+                    "completion_tokens": 545,
+                    "prompt_tokens_details": null
+                  },
+                  "prompt_logprobs": null
                 }
               }
             },
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/v1/images/generations": {
       "post": {
-        "summary": "Submit Image to Image Task",
+        "summary": "Submit Image Task",
         "deprecated": false,
         "description": "",
         "tags": [
           "Image Generation Model"
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{YOUR_API_KEY}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "model": {
-                    "type": "string",
-                    "description": "Model"
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "Model",
+                        "enum": [
+                          "FLUX.1 [dev]",
+                          "SD3",
+                          "Hunyuan-DiT v1.2",
+                          "FLUX.1 - Authentic Sketch",
+                          "FLUX.1 - Shamanic Infusion",
+                          "FLUX.1 - Vivid Dreamscape",
+                          "FLUX.1 - Vintage Tropical Home"
+                        ]
+                      },
+                      "prompt": {
+                        "type": "string",
+                        "description": "Prompt"
+                      },
+                      "seed": {
+                        "type": "integer",
+                        "description": "Default Random [0, 2147483647]",
+                        "maximum": 2147483647,
+                        "minimum": 0
+                      },
+                      "size": {
+                        "type": "string",
+                        "description": "Output Image Resolution. Default value is 1024*1024. The pixel range of image width and height sides is: [512, 1440]",
+                        "default": "1024*1024"
+                      },
+                      "n": {
+                        "type": "integer",
+                        "description": "Number. Default 1",
+                        "default": 1
+                      }
+                    },
+                    "required": [
+                      "model",
+                      "prompt"
+                    ],
+                    "title": "Text to Image",
+                    "description": "Text to Image"
                   },
-                  "prompt": {
-                    "type": "string",
-                    "description": "Prompt"
-                  },
-                  "img_url": {
-                    "type": "string",
-                    "description": "Image URL"
+                  {
+                    "type": "object",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "Model",
+                        "enum": [
+                          "flux.1-kontext-dev"
+                        ]
+                      },
+                      "prompt": {
+                        "type": "string",
+                        "description": "Prompt"
+                      },
+                      "img_url": {
+                        "type": "string",
+                        "description": "Image URL"
+                      }
+                    },
+                    "required": [
+                      "model",
+                      "prompt",
+                      "img_url"
+                    ],
+                    "title": "Image to Image",
+                    "description": "Image to Image"
                   }
-                },
-                "required": [
-                  "model",
-                  "prompt",
-                  "img_url"
                 ]
               },
               "example": {
-                "model": "flux.1-kontext-dev",
-                "prompt": "Change the car color to red",
-                "img_url": "https://online.genbo.ai/img2video/61a107f1-af67-4410-9e87-0b6ab3a435a3.jpg"
+                "model": "FLUX.1 [dev]",
+                "prompt": "a cat holding a skateboard which has 'Genbo' written on it in red spray paint",
+                "seed": 1147483647,
+                "size": "1024*1024",
+                "n": 1
               }
             }
           }
@@ -317,14 +378,18 @@
                   ]
                 },
                 "example": {
-                  "task_id": "string"
+                  "task_id": "<string>"
                 }
               }
             },
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       },
       "get": {
         "summary": "Get Image Generation Result (List)",
@@ -352,16 +417,6 @@
             "example": 1,
             "schema": {
               "type": "integer"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{YOUR_API_KEY}}",
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -424,13 +479,12 @@
                   }
                 },
                 "example": {
-                  "task_id": "72fe4b63-eb36-4bbb-bd62-414d5a34cc11",
+                  "task_id": "<string>",
                   "task_status": "SUCCESS",
                   "fail_reason": "",
                   "task_result": {
                     "url": [
-                      "http://online.genbo.ai/genbo/genbo_ai_data/LDX_Image_00019_.png",
-                      "http://online.genbo.ai/genbo/genbo_ai_data/LDX_Image_00020_.png"
+                      "<string>"
                     ]
                   },
                   "created_at": 1745369939,
@@ -441,7 +495,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/v1/images/generations/{id}": {
@@ -459,16 +517,6 @@
             "description": "Task ID",
             "required": true,
             "example": "77808f7d-6d8c-4b2b-a63f-f46789204d0c",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{YOUR_API_KEY}}",
             "schema": {
               "type": "string"
             }
@@ -533,12 +581,12 @@
                   "1": {
                     "summary": "Success Example",
                     "value": {
-                      "task_id": "4d07b504-5ce0-45e1-a51b-b1a7639c04c2",
+                      "task_id": "<string>",
                       "task_status": "SUCCESS",
                       "fail_reason": "",
                       "task_result": {
                         "url": [
-                          "http://online.genbo.ai/genbo/genbo_ai_data/LDX_Image_00035_.png"
+                          "<string>"
                         ]
                       },
                       "created_at": 1744596109,
@@ -548,7 +596,7 @@
                   "2": {
                     "summary": "Task Not Started",
                     "value": {
-                      "task_id": "14dd0c61-8321-4f47-be59-7041d47ff1a7",
+                      "task_id": "<string>",
                       "task_status": "NOT_START",
                       "fail_reason": "",
                       "task_result": null,
@@ -559,9 +607,9 @@
                   "3": {
                     "summary": "Task Failure",
                     "value": {
-                      "task_id": "1d425b20-57ec-47c4-971a-f0e863adcae1",
+                      "task_id": "<string>",
                       "task_status": "FAILURE",
-                      "fail_reason": "Failed to get channel information, please contact the administrator, channel ID: 27",
+                      "fail_reason": "<string>",
                       "task_result": null,
                       "created_at": 1744767040,
                       "updated_at": 1744767982
@@ -582,67 +630,118 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/v1/video/generations": {
       "post": {
-        "summary": "Submit Text to Video Task",
+        "summary": "Submit Video Task",
         "deprecated": false,
         "description": "",
         "tags": [
           "Video Model"
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{YOUR_API_KEY}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "model": {
-                    "type": "string",
-                    "description": "Model"
+                "anyOf": [
+                  {
+                    "title": "Text to Video",
+                    "description": "Text to Video",
+                    "type": "object",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "Model",
+                        "enum": [
+                          "Wan2_1-T2V-14B"
+                        ]
+                      },
+                      "prompt": {
+                        "type": "string",
+                        "description": "Prompt"
+                      },
+                      "size": {
+                        "type": "string",
+                        "description": "Text-to-video resolution options: 1280*720 (default), 720*1280, 960*960, 832*1088, 1088*832",
+                        "enum": [
+                          "1280*720",
+                          "720*1280",
+                          "960*960",
+                          "832*1088",
+                          "1088*832"
+                        ],
+                        "default": "1280*720"
+                      },
+                      "duration": {
+                        "type": "string",
+                        "description": "Currently only supports 5 seconds",
+                        "default": "5",
+                        "enum": [
+                          "5"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "model",
+                      "prompt"
+                    ]
                   },
-                  "prompt": {
-                    "type": "string",
-                    "description": "Prompt"
-                  },
-                  "img_url": {
-                    "type": "string",
-                    "description": "Image for Video"
-                  },
-                  "resolution": {
-                    "type": "string",
-                    "description": "Video Resolution Currently Only Supports 720P"
-                  },
-                  "duration": {
-                    "type": "string",
-                    "description": "Currently Only Supports 5 Seconds"
+                  {
+                    "title": "Image to Video",
+                    "description": "Image to Video",
+                    "type": "object",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "Model",
+                        "enum": [
+                          "Wan2_1-I2V-14B-720P"
+                        ]
+                      },
+                      "prompt": {
+                        "type": "string",
+                        "description": "Prompt"
+                      },
+                      "img_url": {
+                        "type": "string",
+                        "description": "Image for Video"
+                      },
+                      "resolution": {
+                        "type": "string",
+                        "description": "Video Resolution Currently Only Supports 720P",
+                        "enum": [
+                          "720P"
+                        ],
+                        "default": "720P"
+                      },
+                      "duration": {
+                        "type": "string",
+                        "description": "Currently Only Supports 5 Seconds",
+                        "enum": [
+                          "5"
+                        ],
+                        "default": "5"
+                      }
+                    },
+                    "required": [
+                      "model",
+                      "prompt",
+                      "img_url"
+                    ]
                   }
-                },
-                "required": [
-                  "model",
-                  "prompt",
-                  "img_url"
                 ]
               },
               "example": {
                 "model": "Wan2_1-T2V-14B",
-                "prompt": "A cat running on grass",
-                "resolution": "720P",
-                "duration": "5"
+                "size": "1280*720",
+                "prompt": "A luxury yatch sets sail in the Bosphorus Strait. As it gracefully navigates through the current, the Maiden's Tower comes into view. While continuing its journey, seagulls greet it. The sounds of waves and seagulls can be heard."
               }
             }
           }
@@ -664,14 +763,18 @@
                   ]
                 },
                 "example": {
-                  "task_id": "string"
+                  "task_id": "<string>"
                 }
               }
             },
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/v1/videos/generations/{id}": {
@@ -689,16 +792,6 @@
             "description": "Task ID",
             "required": true,
             "example": "2189c7a5-18f2-443c-a6eb-5c8be012e15b",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{YOUR_API_KEY}}",
             "schema": {
               "type": "string"
             }
@@ -760,11 +853,11 @@
                   "1": {
                     "summary": "Success Example",
                     "value": {
-                      "task_id": "b5fa1530-f314-4741-9659-bc9273b1969f",
+                      "task_id": "<string>",
                       "task_status": "SUCCESS",
                       "fail_reason": "",
                       "task_result": {
-                        "url": "http://online.genbo.ai/genbo/genbo_ai_data/WanVideoWrapper_I2V_00028.mp4"
+                        "url": "<string>"
                       },
                       "created_at": 1745289303,
                       "updated_at": 1745289549
@@ -773,7 +866,7 @@
                   "2": {
                     "summary": "Task Not Started",
                     "value": {
-                      "task_id": "14dd0c61-8321-4f47-be59-7041d47ff1a7",
+                      "task_id": "<string>",
                       "task_status": "NOT_START",
                       "fail_reason": "",
                       "task_result": null,
@@ -784,9 +877,9 @@
                   "3": {
                     "summary": "Task Failure",
                     "value": {
-                      "task_id": "1d425b20-57ec-47c4-971a-f0e863adcae1",
+                      "task_id": "<string>",
                       "task_status": "FAILURE",
-                      "fail_reason": "Failed to get channel information, please contact the administrator, channel ID: 27",
+                      "fail_reason": "<string>",
                       "task_result": null,
                       "created_at": 1744767040,
                       "updated_at": 1744767982
@@ -807,7 +900,11 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/v1/videos/generations": {
@@ -837,16 +934,6 @@
             "example": 1,
             "schema": {
               "type": "integer"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "example": "Bearer {{YOUR_API_KEY}}",
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -906,11 +993,11 @@
                   }
                 },
                 "example": {
-                  "task_id": "e19cfe76-5b91-4f83-9502-36754e235984",
+                  "task_id": "<string>",
                   "task_status": "SUCCESS",
                   "fail_reason": "",
                   "task_result": {
-                    "url": "http://online.genbo.ai/genbo/genbo_ai_data/WanVideoWrapper_I2V_00025.mp4"
+                    "url": "<string>"
                   },
                   "created_at": 1745287222,
                   "updated_at": 1745287455
@@ -920,10 +1007,15 @@
             "headers": {}
           }
         },
-        "security": []
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     }
   },
+  "webhooks": {},
   "components": {
     "schemas": {
       "Pet": {
@@ -1010,7 +1102,13 @@
         }
       }
     },
-    "securitySchemes": {}
+    "securitySchemes": {
+      "Authorization": {
+        "scheme": "bearer",
+        "type": "http",
+        "description": "Use the following format for authentication: Bearer [<your api key>](https://genbo.ai/apiTokens)"
+      }
+    }
   },
   "servers": [
     {
@@ -1018,5 +1116,9 @@
       "description": "Prod Env"
     }
   ],
-  "security": []
+  "security": [
+    {
+      "Authorization": []
+    }
+  ]
 }
