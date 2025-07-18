@@ -735,6 +735,52 @@
                       "prompt",
                       "img_url"
                     ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "Model",
+                        "enum": [
+                          "thinksound"
+                        ]
+                      },
+                      "video_url": {
+                        "type": "string",
+                        "description": "Video for Video"
+                      },
+                      "prompt": {
+                        "type": "string",
+                        "description": "Prompt"
+                      },
+                      "steps": {
+                        "type": "integer",
+                        "description": "The number of inference steps for audio generation. Default value: 35",
+                        "minimum": 0,
+                        "maximum": 100,
+                        "default": 35
+                      },
+                      "cfg_scale": {
+                        "type": "number",
+                        "description": "The classifier-free guidance scale for audio generation. Default value: 6.0",
+                        "minimum": 0,
+                        "maximum": 20,
+                        "default": 6
+                      },
+                      "seed": {
+                        "type": "integer",
+                        "description": "The seed for the random number generator.",
+                        "minimum": 0,
+                        "maximum": 2147483647
+                      }
+                    },
+                    "required": [
+                      "model",
+                      "video_url"
+                    ],
+                    "description": "Video to Video",
+                    "title": "Video to Video"
                   }
                 ]
               },
