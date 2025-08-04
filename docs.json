@@ -47,6 +47,12 @@
               "api-reference/videos/get-result-single",
               "api-reference/videos/get-result-list"
             ]
+          },
+          {
+            "group": "Upload",
+            "pages": [
+              "api-reference/upload/upload-files"
+            ]
           }
         ]
       }

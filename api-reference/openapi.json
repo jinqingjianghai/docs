@@ -1031,6 +1031,85 @@
           }
         ]
       }
+    },
+    "/v1/upload/files": {
+      "post": {
+        "summary": "Upload Files",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "format": "binary",
+                    "type": "string",
+                    "description": "support JPG, PNG, MP4, MOV, WEBM, M4V and GIF",
+                    "example": ""
+                  }
+                },
+                "required": [
+                  "file"
+                ]
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "full_url": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "full_url"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "message",
+                    "success"
+                  ]
+                },
+                "example": {
+                  "data": {
+                    "full_url": "https://genbo-1253229617.cos.na-ashburn.myqcloud.com/2ad7bfb0-cd9a-444b-a10d-d61014f0b418.png"
+                  },
+                  "message": "",
+                  "success": true
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
     }
   },
   "webhooks": {},
