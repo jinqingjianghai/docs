@@ -277,87 +277,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "anyOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "model": {
-                        "type": "string",
-                        "description": "Model",
-                        "enum": [
-                          "FLUX.1 [dev]",
-                          "SD3",
-                          "Hunyuan-DiT v1.2",
-                          "FLUX.1 - Authentic Sketch",
-                          "FLUX.1 - Shamanic Infusion",
-                          "FLUX.1 - Vivid Dreamscape",
-                          "FLUX.1 - Vintage Tropical Home"
-                        ]
-                      },
-                      "prompt": {
-                        "type": "string",
-                        "description": "Prompt"
-                      },
-                      "seed": {
-                        "type": "integer",
-                        "description": "Default Random [0, 2147483647]",
-                        "maximum": 2147483647,
-                        "minimum": 0
-                      },
-                      "size": {
-                        "type": "string",
-                        "description": "Output Image Resolution. Default value is 1024*1024. The pixel range of image width and height sides is: [512, 1440]",
-                        "default": "1024*1024"
-                      },
-                      "n": {
-                        "type": "integer",
-                        "description": "Number. Default 1",
-                        "default": 1
-                      }
-                    },
-                    "required": [
-                      "model",
-                      "prompt"
-                    ],
-                    "title": "Text to Image",
-                    "description": "Text to Image"
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "model": {
-                        "type": "string",
-                        "description": "Model",
-                        "enum": [
-                          "flux.1-kontext-dev"
-                        ]
-                      },
-                      "prompt": {
-                        "type": "string",
-                        "description": "Prompt"
-                      },
-                      "img_url": {
-                        "type": "string",
-                        "description": "Image URL"
-                      }
-                    },
-                    "required": [
-                      "model",
-                      "prompt",
-                      "img_url"
-                    ],
-                    "title": "Image to Image",
-                    "description": "Image to Image"
-                  }
-                ]
+                "$ref": "#/components/schemas/image"
               },
-              "example": {
-                "model": "FLUX.1 [dev]",
-                "prompt": "a cat holding a skateboard which has 'Genbo' written on it in red spray paint",
-                "seed": 1147483647,
-                "size": "1024*1024",
-                "n": 1
-              }
+              "examples": {}
             }
           }
         },
@@ -466,6 +388,9 @@
                       "updated_at": {
                         "type": "integer",
                         "title": "Task Update Time (s)"
+                      },
+                      "input": {
+                        "$ref": "#/components/schemas/image"
                       }
                     },
                     "required": [
@@ -474,22 +399,112 @@
                       "fail_reason",
                       "task_result",
                       "created_at",
-                      "updated_at"
+                      "updated_at",
+                      "input"
                     ]
                   }
                 },
-                "example": {
-                  "task_id": "<string>",
-                  "task_status": "SUCCESS",
-                  "fail_reason": "",
-                  "task_result": {
-                    "url": [
-                      "<string>"
-                    ]
+                "example": [
+                  {
+                    "task_id": "9710c9f6-04b1-4d3a-8871-1f11f37afb09",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": [
+                        "https://online.genbo.ai/genbo/6bb01109-be01-4e2e-a31f-a6dcfbb47612.png"
+                      ]
+                    },
+                    "created_at": 1754286885,
+                    "updated_at": 1754286905,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "FLUX.1 [dev]",
+                      "ratio": "1024x1024",
+                      "steps": 20,
+                      "prompt": "A hyperdetailed photograph of a Cat dressed as a mafia boss holding a fish walking down a Japanese fish market with an angry face, 8k resolution, best quality, beautiful photograph, dynamic lighting,",
+                      "denoise": 1,
+                      "scheduler": "normal",
+                      "batch_size": 1,
+                      "sampler_name": "euler",
+                      "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                    }
                   },
-                  "created_at": 1745369939,
-                  "updated_at": 1745370059
-                }
+                  {
+                    "task_id": "4cc2aa27-40a0-4d2c-9c41-72f002a4cd64",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": [
+                        "https://online.genbo.ai/genbo/4d0986dc-7ad8-41bc-ae49-dd8fc214c612.png"
+                      ]
+                    },
+                    "created_at": 1754119381,
+                    "updated_at": 1754119412,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "FLUX.1-Lora",
+                      "ratio": "1024x1024",
+                      "steps": 20,
+                      "prompt": "sketch,white background,long hair,white hair,armor,upper body,sfw,simple background,final fantasy,white armor,solo,1boy,blue eyes,final fantasy xiv,male focus,looking at viewer,jewelry,male focus,parted lips,earrings,white_hairband,hairband,closed mouth,pauldrons,bangs,white shirt,long sleeves,shirt,pauldron,original,bust,parted bangs,collarbone,",
+                      "denoise": 1,
+                      "lora_name": "F.1手绘二次元_真的像是人工画的_v1.0.safetensors",
+                      "batch_size": 1,
+                      "strength_clip": 0.8,
+                      "strength_model": 0.8,
+                      "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                    }
+                  },
+                  {
+                    "task_id": "fa4f0f94-5936-4f87-942a-a0eb19ddfd20",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": [
+                        "https://online.genbo.ai/genbo/89256261-29ef-4e27-8a08-9ff06b5251fd.png"
+                      ]
+                    },
+                    "created_at": 1754119379,
+                    "updated_at": 1754119428,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "flux.1-kontext-dev",
+                      "ratio": "1024x1024",
+                      "steps": 6,
+                      "prompt": "Change the car color to red",
+                      "denoise": 1,
+                      "guidance": 2.5,
+                      "input_image": "https://online.genbo.ai/img2video/23a5e6ec-5963-4b0f-b1cd-ad0c96637753.jpg"
+                    }
+                  },
+                  {
+                    "task_id": "2b9be8ab-f0bb-4cf8-bce3-be5491dc59eb",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": [
+                        "https://online.genbo.ai/genbo/a049041e-4dfe-4765-b9a4-40f5c7aadaab.png"
+                      ]
+                    },
+                    "created_at": 1754119373,
+                    "updated_at": 1754119397,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "FLUX.1 [dev]",
+                      "ratio": "1024x1024",
+                      "steps": 20,
+                      "prompt": "A hyperdetailed photograph of a Cat dressed as a mafia boss holding a fish walking down a Japanese fish market with an angry face, 8k resolution, best quality, beautiful photograph, dynamic lighting,",
+                      "denoise": 1,
+                      "scheduler": "normal",
+                      "batch_size": 1,
+                      "sampler_name": "euler",
+                      "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                    }
+                  }
+                ]
               }
             },
             "headers": {}
@@ -516,7 +531,7 @@
             "in": "path",
             "description": "Task ID",
             "required": true,
-            "example": "77808f7d-6d8c-4b2b-a63f-f46789204d0c",
+            "example": "fa4f0f94-5936-4f87-942a-a0eb19ddfd20",
             "schema": {
               "type": "string"
             }
@@ -530,100 +545,99 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "task_id": {
-                      "type": "string"
-                    },
-                    "task_status": {
-                      "type": "string",
-                      "title": "Task Status"
-                    },
-                    "fail_reason": {
-                      "type": "string",
-                      "title": "Failure Reason"
-                    },
-                    "task_result": {
-                      "type": [
-                        "object",
-                        "null"
-                      ],
+                    "data": {
+                      "type": "object",
                       "properties": {
-                        "url": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
+                        "task_id": {
+                          "type": "string"
+                        },
+                        "task_status": {
+                          "type": "string",
+                          "title": "Task Status"
+                        },
+                        "fail_reason": {
+                          "type": "string",
+                          "title": "Failure Reason"
+                        },
+                        "task_result": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "url": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "title": "Generated Image URL"
+                            }
                           },
-                          "title": "Generated Image URL"
+                          "required": [
+                            "url"
+                          ]
+                        },
+                        "created_at": {
+                          "type": "integer",
+                          "title": "Task Creation Time (s)"
+                        },
+                        "updated_at": {
+                          "type": "integer",
+                          "title": "Task Update Time (s)"
+                        },
+                        "input": {
+                          "$ref": "#/components/schemas/image"
                         }
                       },
                       "required": [
-                        "url"
+                        "task_id",
+                        "task_status",
+                        "fail_reason",
+                        "task_result",
+                        "created_at",
+                        "updated_at",
+                        "input"
                       ]
                     },
-                    "created_at": {
-                      "type": "integer",
-                      "title": "Task Creation Time (s)"
+                    "success": {
+                      "type": "boolean"
                     },
-                    "updated_at": {
-                      "type": "integer",
-                      "title": "Task Update Time (s)"
+                    "message": {
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "task_id",
-                    "task_status",
-                    "fail_reason",
-                    "task_result",
-                    "created_at",
-                    "updated_at"
+                    "data",
+                    "success",
+                    "message"
                   ]
                 },
-                "examples": {
-                  "1": {
-                    "summary": "Success Example",
-                    "value": {
-                      "task_id": "<string>",
-                      "task_status": "SUCCESS",
-                      "fail_reason": "",
-                      "task_result": {
-                        "url": [
-                          "<string>"
-                        ]
-                      },
-                      "created_at": 1744596109,
-                      "updated_at": 1744596142
+                "example": {
+                  "data": {
+                    "task_id": "fa4f0f94-5936-4f87-942a-a0eb19ddfd20",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": [
+                        "https://online.genbo.ai/genbo/89256261-29ef-4e27-8a08-9ff06b5251fd.png"
+                      ]
+                    },
+                    "created_at": 1754119379,
+                    "updated_at": 1754119428,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "flux.1-kontext-dev",
+                      "ratio": "1024x1024",
+                      "steps": 6,
+                      "prompt": "Change the car color to red",
+                      "denoise": 1,
+                      "guidance": 2.5,
+                      "input_image": "https://online.genbo.ai/img2video/23a5e6ec-5963-4b0f-b1cd-ad0c96637753.jpg"
                     }
                   },
-                  "2": {
-                    "summary": "Task Not Started",
-                    "value": {
-                      "task_id": "<string>",
-                      "task_status": "NOT_START",
-                      "fail_reason": "",
-                      "task_result": null,
-                      "created_at": 1744356776,
-                      "updated_at": 1744356776
-                    }
-                  },
-                  "3": {
-                    "summary": "Task Failure",
-                    "value": {
-                      "task_id": "<string>",
-                      "task_status": "FAILURE",
-                      "fail_reason": "<string>",
-                      "task_result": null,
-                      "created_at": 1744767040,
-                      "updated_at": 1744767982
-                    }
-                  },
-                  "4": {
-                    "summary": "Exception Example",
-                    "value": {
-                      "error": {
-                        "message": "User has not submitted this task",
-                        "type": "task_not_exist"
-                      }
-                    }
-                  }
+                  "message": "",
+                  "success": true
                 }
               }
             },
@@ -650,145 +664,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "anyOf": [
-                  {
-                    "title": "Text to Video",
-                    "description": "Text to Video",
-                    "type": "object",
-                    "properties": {
-                      "model": {
-                        "type": "string",
-                        "description": "Model",
-                        "enum": [
-                          "Wan2_1-T2V-14B"
-                        ]
-                      },
-                      "prompt": {
-                        "type": "string",
-                        "description": "Prompt"
-                      },
-                      "size": {
-                        "type": "string",
-                        "description": "Text-to-video resolution options: 1280*720 (default), 720*1280, 960*960, 832*1088, 1088*832",
-                        "enum": [
-                          "1280*720",
-                          "720*1280",
-                          "960*960",
-                          "832*1088",
-                          "1088*832"
-                        ],
-                        "default": "1280*720"
-                      },
-                      "duration": {
-                        "type": "string",
-                        "description": "Currently only supports 5 seconds",
-                        "default": "5",
-                        "enum": [
-                          "5"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "model",
-                      "prompt"
-                    ]
-                  },
-                  {
-                    "title": "Image to Video",
-                    "description": "Image to Video",
-                    "type": "object",
-                    "properties": {
-                      "model": {
-                        "type": "string",
-                        "description": "Model",
-                        "enum": [
-                          "Wan2_1-I2V-14B-720P"
-                        ]
-                      },
-                      "prompt": {
-                        "type": "string",
-                        "description": "Prompt"
-                      },
-                      "img_url": {
-                        "type": "string",
-                        "description": "Image for Video"
-                      },
-                      "resolution": {
-                        "type": "string",
-                        "description": "Video Resolution Currently Only Supports 720P",
-                        "enum": [
-                          "720P"
-                        ],
-                        "default": "720P"
-                      },
-                      "duration": {
-                        "type": "string",
-                        "description": "Currently Only Supports 5 Seconds",
-                        "enum": [
-                          "5"
-                        ],
-                        "default": "5"
-                      }
-                    },
-                    "required": [
-                      "model",
-                      "prompt",
-                      "img_url"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "model": {
-                        "type": "string",
-                        "description": "Model",
-                        "enum": [
-                          "thinksound"
-                        ]
-                      },
-                      "video_url": {
-                        "type": "string",
-                        "description": "Video for Video"
-                      },
-                      "prompt": {
-                        "type": "string",
-                        "description": "Prompt"
-                      },
-                      "steps": {
-                        "type": "integer",
-                        "description": "The number of inference steps for audio generation. Default value: 35",
-                        "minimum": 0,
-                        "maximum": 100,
-                        "default": 35
-                      },
-                      "cfg_scale": {
-                        "type": "number",
-                        "description": "The classifier-free guidance scale for audio generation. Default value: 6.0",
-                        "minimum": 0,
-                        "maximum": 20,
-                        "default": 6
-                      },
-                      "seed": {
-                        "type": "integer",
-                        "description": "The seed for the random number generator.",
-                        "minimum": 0,
-                        "maximum": 2147483647
-                      }
-                    },
-                    "required": [
-                      "model",
-                      "video_url"
-                    ],
-                    "description": "Video to Video",
-                    "title": "Video to Video"
-                  }
-                ]
+                "$ref": "#/components/schemas/video"
               },
-              "example": {
-                "model": "Wan2_1-T2V-14B",
-                "size": "1280*720",
-                "prompt": "A luxury yatch sets sail in the Bosphorus Strait. As it gracefully navigates through the current, the Maiden's Tower comes into view. While continuing its journey, seagulls greet it. The sounds of waves and seagulls can be heard."
-              }
+              "examples": {}
             }
           }
         },
@@ -851,95 +729,99 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "task_id": {
-                      "type": "string"
-                    },
-                    "task_status": {
-                      "type": "string",
-                      "title": "Task Status"
-                    },
-                    "fail_reason": {
-                      "type": "string",
-                      "title": "Failure Reason"
-                    },
-                    "task_result": {
-                      "type": [
-                        "object",
-                        "null"
-                      ],
+                    "data": {
+                      "type": "object",
                       "properties": {
-                        "url": {
+                        "task_id": {
+                          "type": "string"
+                        },
+                        "task_status": {
                           "type": "string",
-                          "title": "Video URL"
+                          "title": "Task Status"
+                        },
+                        "fail_reason": {
+                          "type": "string",
+                          "title": "Failure Reason"
+                        },
+                        "task_result": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "title": "Generated Image URL"
+                            }
+                          },
+                          "required": [
+                            "url"
+                          ]
+                        },
+                        "created_at": {
+                          "type": "integer",
+                          "title": "Task Creation Time (s)"
+                        },
+                        "updated_at": {
+                          "type": "integer",
+                          "title": "Task Update Time (s)"
+                        },
+                        "input": {
+                          "$ref": "#/components/schemas/video"
                         }
                       },
                       "required": [
-                        "url"
+                        "task_id",
+                        "task_status",
+                        "fail_reason",
+                        "task_result",
+                        "created_at",
+                        "updated_at",
+                        "input"
                       ]
                     },
-                    "created_at": {
-                      "type": "integer",
-                      "title": "Task Creation Time (s)"
+                    "success": {
+                      "type": "boolean"
                     },
-                    "updated_at": {
-                      "type": "integer",
-                      "title": "Task Update Time (s)"
+                    "message": {
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "task_id",
-                    "task_status",
-                    "fail_reason",
-                    "task_result",
-                    "created_at",
-                    "updated_at"
+                    "data",
+                    "success",
+                    "message"
                   ]
                 },
-                "examples": {
-                  "1": {
-                    "summary": "Success Example",
-                    "value": {
-                      "task_id": "<string>",
-                      "task_status": "SUCCESS",
-                      "fail_reason": "",
-                      "task_result": {
-                        "url": "<string>"
-                      },
-                      "created_at": 1745289303,
-                      "updated_at": 1745289549
+                "example": {
+                  "data": {
+                    "task_id": "98b9e109-56d6-498c-8c98-a936f7c998c6",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": "https://online.genbo.ai/genbo/c9937897-937d-43b8-862b-60fc6ea06c57.mp4"
+                    },
+                    "created_at": 1754119392,
+                    "updated_at": 1754119704,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "Wan2_2-I2V-14B-720P",
+                      "ratio": "1280x720",
+                      "shift": 8,
+                      "steps": 6,
+                      "prompt": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
+                      "steps1": 3,
+                      "batch_size": 1,
+                      "frame_rate": 16,
+                      "num_frames": 81,
+                      "input_image": "https://online.genbo.ai/img2video/d480bf71-4f2d-4841-bce3-8b1e1c0b81a8.jpg",
+                      "upscale_method": "lanczos",
+                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards"
                     }
                   },
-                  "2": {
-                    "summary": "Task Not Started",
-                    "value": {
-                      "task_id": "<string>",
-                      "task_status": "NOT_START",
-                      "fail_reason": "",
-                      "task_result": null,
-                      "created_at": 1744356776,
-                      "updated_at": 1744356776
-                    }
-                  },
-                  "3": {
-                    "summary": "Task Failure",
-                    "value": {
-                      "task_id": "<string>",
-                      "task_status": "FAILURE",
-                      "fail_reason": "<string>",
-                      "task_result": null,
-                      "created_at": 1744767040,
-                      "updated_at": 1744767982
-                    }
-                  },
-                  "4": {
-                    "summary": "Exception Example",
-                    "value": {
-                      "error": {
-                        "message": "User has not submitted this task",
-                        "type": "task_not_exist"
-                      }
-                    }
-                  }
+                  "message": "",
+                  "success": true
                 }
               }
             },
@@ -1026,6 +908,9 @@
                       "updated_at": {
                         "type": "integer",
                         "title": "Task Update Time (s)"
+                      },
+                      "input": {
+                        "$ref": "#/components/schemas/video"
                       }
                     },
                     "required": [
@@ -1034,20 +919,107 @@
                       "fail_reason",
                       "task_result",
                       "created_at",
-                      "updated_at"
+                      "updated_at",
+                      "input"
                     ]
                   }
                 },
-                "example": {
-                  "task_id": "<string>",
-                  "task_status": "SUCCESS",
-                  "fail_reason": "",
-                  "task_result": {
-                    "url": "<string>"
+                "example": [
+                  {
+                    "task_id": "340f3c8f-e8e0-488b-8e8b-d1e209edd745",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": "https://online.genbo.ai/genbo/47712e2e-724e-489e-a933-98cb1f5817a1.mp4"
+                    },
+                    "created_at": 1754119419,
+                    "updated_at": 1754119520,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "Wan2_1-I2V-14B-720P",
+                      "ratio": "1280x720",
+                      "shift": 2,
+                      "steps": 5,
+                      "prompt": "Bathed in the warm glow of a single, strategically placed lamp, the jeweler’s weathered hands delicately cradle a fiery opal, its iridescent depths shimmering like a captured sunset; each careful turn reveals new constellations of color, while the close-up shot emphasizes the stone’s alluring texture, a mesmerizing dance of light and shadow playing across its surface.",
+                      "frame_rate": 16,
+                      "num_frames": 81,
+                      "input_image": "https://online.genbo.ai/img2video/6bf72fa3-7c8a-4572-a612-48e4ba3b4dde.jpg",
+                      "upscale_method": "lanczos",
+                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, style, artwork, painting, still, gray overall, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still image, cluttered background, many people in background, walking backwards"
+                    }
                   },
-                  "created_at": 1745287222,
-                  "updated_at": 1745287455
-                }
+                  {
+                    "task_id": "75a348bb-6459-4818-841d-d66d3c07b7cc",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": "https://online.genbo.ai/genbo/d1cdd018-8eb7-46e7-854c-c2e3b8305389.mp4"
+                    },
+                    "created_at": 1754119412,
+                    "updated_at": 1754119627,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "Wan2_1-T2V-14B",
+                      "ratio": "1280x720",
+                      "steps": 5,
+                      "prompt": "A luxury yatch sets sail in the Bosphorus Strait. As it gracefully navigates through the current, the Maiden's Tower comes into view. While continuing its journey, seagulls greet it. The sounds of waves and seagulls can be heard.",
+                      "frame_rate": 16,
+                      "num_frames": 81,
+                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards"
+                    }
+                  },
+                  {
+                    "task_id": "85f4c75a-8254-4b34-8271-4d47f9beed6c",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": "https://online.genbo.ai/genbo/461d1c83-9230-4790-a891-363a71617f92.mp4"
+                    },
+                    "created_at": 1754119394,
+                    "updated_at": 1754119688,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "Wan2_2-T2V-14B",
+                      "ratio": "1280x720",
+                      "steps": 8,
+                      "prompt": "A medium shot establishes a modern, minimalist office setting: clean lines, muted grey walls, and polished wood surfaces. The focus shifts to a close-up on a woman in sharp, navy blue business attire. Her crisp white blouse contrasts with the deep blue of her tailored suit jacket. The subtle texture of the fabric is visible—a fine weave with a slight sheen. Her expression is serious, yet engaging, as she speaks to someone unseen just beyond the frame. Close-up on her eyes, showing the intensity of her gaze and the fine lines around them that hint at experience and focus. Her lips are slightly parted, as if mid-sentence. The light catches the subtle highlights in her auburn hair, meticulously styled. Note the slight catch of light on the silver band of her watch. High resolution 4k",
+                      "steps1": 4,
+                      "batch_size": 1,
+                      "frame_rate": 16,
+                      "num_frames": 81,
+                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards"
+                    }
+                  },
+                  {
+                    "task_id": "98b9e109-56d6-498c-8c98-a936f7c998c6",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": "https://online.genbo.ai/genbo/c9937897-937d-43b8-862b-60fc6ea06c57.mp4"
+                    },
+                    "created_at": 1754119392,
+                    "updated_at": 1754119704,
+                    "input": {
+                      "cfg": 1,
+                      "seed": 1,
+                      "model": "Wan2_2-I2V-14B-720P",
+                      "ratio": "1280x720",
+                      "shift": 8,
+                      "steps": 6,
+                      "prompt": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
+                      "steps1": 3,
+                      "batch_size": 1,
+                      "frame_rate": 16,
+                      "num_frames": 81,
+                      "input_image": "https://online.genbo.ai/img2video/d480bf71-4f2d-4841-bce3-8b1e1c0b81a8.jpg",
+                      "upscale_method": "lanczos",
+                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards"
+                    }
+                  }
+                ]
               }
             },
             "headers": {}
@@ -1064,88 +1036,869 @@
   "webhooks": {},
   "components": {
     "schemas": {
-      "Pet": {
-        "required": [
-          "name",
-          "photoUrls",
-          "id",
-          "category",
-          "tags",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "minimum": 1,
-            "description": "Pet ID"
+      "image": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "FLUX.1 [dev]"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "A rubber duck flows in the golden river",
+                "description": "A positive description used to generate the image. The more specific, the better the result."
+              },
+              "negative_prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
+                "description": "Exclude unwanted contents (e.g., blur, noise, deformation, low quality)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "default": 1,
+                "description": "Same prompt + same seed reproduces the result; leave empty for random."
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 20,
+                "description": "More steps give finer details but slower generation (recommended 6–50)."
+              },
+              "cfg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30,
+                "multipleOf": 0.1,
+                "default": 1,
+                "description": "Higher values adhere more to the prompt, but too high may hurt quality (recommended 1–10)."
+              },
+              "denoise": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.01,
+                "default": 1,
+                "description": "0–1. Lower keeps more details of the source (commonly used for image-to-image)."
+              },
+              "ratio": {
+                "type": "string",
+                "enum": [
+                  "1024x1024",
+                  "1024x576",
+                  "576x1024"
+                ],
+                "default": "1024x1024",
+                "description": "Select the width × height ratio."
+              },
+              "batch_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 16,
+                "default": 1,
+                "description": "Number of images generated per run (watch GPU VRAM usage)."
+              },
+              "sampler_name": {
+                "type": "string",
+                "enum": [
+                  "euler",
+                  "ddpm",
+                  "ddim",
+                  "dpmpp_2m"
+                ],
+                "default": "euler",
+                "description": "Choose the sampling algorithm for generation."
+              },
+              "scheduler": {
+                "type": "string",
+                "enum": [
+                  "normal",
+                  "karras",
+                  "exponential",
+                  "beta"
+                ],
+                "default": "normal",
+                "description": "Step scheduling strategy affecting details and convergence speed."
+              }
+            },
+            "required": [
+              "model",
+              "prompt"
+            ],
+            "title": "FLUX.1 [dev]"
           },
-          "category": {
-            "$ref": "#/components/schemas/Category",
-            "description": "group"
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Hunyuan-DiT v1.2"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "Summer Girl",
+                "description": "A positive description for image generation. The more specific, the better."
+              },
+              "negative_prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
+                "description": "Exclude content you don’t want (e.g., blur, noise, deformities, low quality)."
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 20,
+                "description": "More steps produce finer detail but take longer (recommended 10–50)."
+              },
+              "cfg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20,
+                "default": 4.5,
+                "description": "Higher values adhere more to the prompt; too high may affect quality (recommended 1–12)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10000000000000000,
+                "default": 1,
+                "description": "Same prompt + same seed reproduces the result; leave empty for random."
+              },
+              "ratio": {
+                "type": "string",
+                "enum": [
+                  "1024x1024",
+                  "1024x576",
+                  "576x1024"
+                ],
+                "default": "1024x576",
+                "description": "Select the width × height ratio."
+              },
+              "batch_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 16,
+                "default": 1,
+                "description": "The batch size of the image. Default value: 1"
+              }
+            },
+            "required": [
+              "model",
+              "prompt"
+            ],
+            "title": "Hunyuan-DiT v1.2"
           },
-          "name": {
-            "type": "string",
-            "description": "name",
-            "examples": [
-              "doggie"
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "FLUX.1-Lora"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "A chubby bird perches on a snow-covered branch, with an old red wall in the background.",
+                "description": "A positive description for image generation. The more specific it is, the better the result."
+              },
+              "negative_prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
+                "description": "Exclude content you don’t want (e.g., blur, noise, distortion, low quality)."
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 20,
+                "description": "More steps produce finer details but take longer (recommended 6–50)."
+              },
+              "cfg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30,
+                "default": 1,
+                "description": "Higher values adhere more to the prompt; too high may reduce quality (recommended 1–10)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "default": 1,
+                "description": "Same prompt + same seed reproduces the result. Leave empty for random."
+              },
+              "denoise": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "default": 1,
+                "description": "Range 0–1. Lower values keep more details of the source (commonly used for image-to-image)."
+              },
+              "ratio": {
+                "type": "string",
+                "enum": [
+                  "1024x1024",
+                  "1024x576",
+                  "576x1024"
+                ],
+                "default": "576x1024",
+                "description": "Select the width × height ratio."
+              },
+              "batch_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 16,
+                "default": 1,
+                "description": "Number of images generated per run (watch GPU memory usage)."
+              },
+              "lora_name": {
+                "type": "string",
+                "enum": [
+                  "F.1手绘二次元_真的像是人工画的_v1.0.safetensors",
+                  "MAJICFLUS_麦橘超飒 YUAN_saman.safetensors",
+                  "超现实主义插画   造梦大师_Pop扁平插画_V.1.safetensors",
+                  "室内设计 装修风格 东南亚复古风 客厅_极致的软装风格_v1.0.safetensors"
+                ],
+                "default": "F.1手绘二次元_真的像是人工画的_v1.0.safetensors",
+                "description": "The LoRA model to use for generation. Default: Authentic Sketch."
+              },
+              "strength_model": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1.5,
+                "default": 0.8,
+                "description": "Blend strength of the LoRA into the U-Net (0–1.5)."
+              },
+              "strength_clip": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1.5,
+                "default": 0.8,
+                "description": "Blend strength of the LoRA into the text encoder (0–1.5)."
+              }
+            },
+            "title": "FLUX.1-Lora",
+            "required": [
+              "model",
+              "prompt"
             ]
           },
-          "photoUrls": {
-            "type": "array",
-            "items": {
-              "type": "string"
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "SD3"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "A cartoon of a family of three camping in the wild",
+                "description": "A positive description for image generation. The more specific, the better."
+              },
+              "negative_prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
+                "description": "Exclude content you don’t want (e.g., blur, noise, deformities, low quality)."
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 20,
+                "description": "More steps produce finer detail but take longer (recommended 6–50)."
+              },
+              "cfg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30,
+                "default": 1,
+                "description": "Higher values adhere more to the prompt; too high may reduce quality (recommended 1–10)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "default": 1,
+                "description": "Same prompt + same seed reproduces the result; leave empty for random."
+              },
+              "denoise": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "default": 1,
+                "description": "Range 0–1. Lower values keep more of the original details (useful for img2img)."
+              },
+              "ratio": {
+                "type": "string",
+                "enum": [
+                  "1024x1024",
+                  "1024x576",
+                  "576x1024"
+                ],
+                "default": "1024x1024",
+                "description": "Select the width × height ratio."
+              },
+              "batch_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 16,
+                "default": 1,
+                "description": "Number of images generated per run (watch GPU memory usage)."
+              },
+              "sampler_name": {
+                "type": "string",
+                "enum": [
+                  "euler",
+                  "ddpm",
+                  "ddim",
+                  "dpmpp_2m"
+                ],
+                "default": "euler",
+                "description": "Choose the sampling algorithm for generation."
+              },
+              "scheduler": {
+                "type": "string",
+                "enum": [
+                  "normal",
+                  "karras",
+                  "exponential",
+                  "beta"
+                ],
+                "default": "normal",
+                "description": "Step schedule strategy affecting detail and convergence speed."
+              }
             },
-            "description": "image URL"
+            "title": "SD3",
+            "required": [
+              "model",
+              "prompt"
+            ]
           },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "flux.1-kontext-dev"
+                ]
+              },
+              "input_image": {
+                "type": "string",
+                "format": "uri",
+                "default": "https://online.genbo.ai/img2video/412e68c5-1cad-4c0c-8a97-f14c40c412f2.jpg",
+                "description": "Upload the reference image to edit."
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "Add a twig to the bird's beak",
+                "description": "A positive description used to generate the image. The more specific, the better the result."
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 6,
+                "description": "More steps give finer details but slower generation (recommended 6–50)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "default": 1,
+                "description": "Same prompt + same seed reproduces the result; leave empty for random."
+              },
+              "cfg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30,
+                "default": 1,
+                "description": "Higher values adhere more to the prompt, but too high may hurt quality (recommended 1–10)."
+              },
+              "denoise": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "default": 1,
+                "description": "0–1. Lower keeps more details of the source (commonly used for image-to-image)."
+              },
+              "ratio": {
+                "type": "string",
+                "enum": [
+                  "1024x1024",
+                  "1024x576",
+                  "576x1024"
+                ],
+                "default": "1024x1024",
+                "description": "Select the width × height ratio."
+              },
+              "guidance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20,
+                "default": 2.5,
+                "description": "Control the strength of FluxGuidance (0–20)."
+              }
             },
-            "description": "tag"
-          },
-          "status": {
-            "type": "string",
-            "description": "Pet Sales Status",
-            "enum": [
-              "available",
-              "pending",
-              "sold"
+            "title": "flux.1-kontext-dev",
+            "required": [
+              "model",
+              "prompt",
+              "input_image"
             ]
           }
-        }
+        ]
       },
-      "Category": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "minimum": 1,
-            "description": "Category ID"
+      "video": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2_1-T2V-14B"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "A little girl leans on the window, watching snowflakes slowly fall outside.",
+                "description": "Guides the video content and style. The more specific, the more stable the result."
+              },
+              "negative_prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards",
+                "description": "Exclude undesired results (e.g., blur, noise, deformities, low quality)."
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 40,
+                "default": 5,
+                "description": "More steps yield finer details but take longer (recommended 2–40)."
+              },
+              "cfg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30,
+                "default": 1,
+                "description": "Higher values adhere more to the prompt; too high may reduce quality (recommended 1–10)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "default": 1,
+                "description": "Same prompt + same seed reproduces the result; empty = random."
+              },
+              "ratio": {
+                "type": "string",
+                "enum": [
+                  "1280x720",
+                  "720x480",
+                  "320x240"
+                ],
+                "default": "1280x720",
+                "description": "Select output width × height."
+              },
+              "num_frames": {
+                "type": "integer",
+                "minimum": 81,
+                "maximum": 160,
+                "default": 81,
+                "description": "Total number of frames; affects duration & cost (recommended 81–100)."
+              },
+              "frame_rate": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 25,
+                "default": 16,
+                "description": "Playback speed (5–24 recommended). Default 16."
+              }
+            },
+            "required": [
+              "model",
+              "prompt"
+            ],
+            "title": "Wan2_1-T2V-14B",
+            "description": ""
           },
-          "name": {
-            "type": "string",
-            "description": "Category Name"
-          }
-        }
-      },
-      "Tag": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "minimum": 1,
-            "description": "Tag ID"
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2_1-I2V-14B-720P"
+                ]
+              },
+              "input_image": {
+                "type": "string",
+                "format": "uri",
+                "default": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+                "description": "Upload one reference image to improve detail/structure consistency."
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "Make the scene move; snowflakes are falling.",
+                "description": "Guides the content and style of the video. More specific prompts are more stable."
+              },
+              "negative_prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "gaudy, overexposed, static, blurred details, subtitles, style, artwork, painting, still, gray overall, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still image, cluttered background, many people in background, walking backwards",
+                "description": "Exclude unwanted results (e.g., blur, noise, deformities, low quality)."
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 40,
+                "default": 5,
+                "description": "More steps yield finer results but take longer (recommended 2–40)."
+              },
+              "cfg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30,
+                "default": 1,
+                "description": "Higher values adhere more to the prompt; too high may hurt quality (recommended 1–10)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "default": 1,
+                "description": "Same prompt + same seed reproduces the result; empty = random."
+              },
+              "shift": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10,
+                "default": 2,
+                "description": "Controls how much the scene changes; larger values = stronger motion."
+              },
+              "ratio": {
+                "type": "string",
+                "enum": [
+                  "1280x720",
+                  "720x480",
+                  "320x240"
+                ],
+                "default": "1280x720",
+                "description": "Select output width × height."
+              },
+              "upscale_method": {
+                "type": "string",
+                "enum": [
+                  "lanczos",
+                  "nearest-exact",
+                  "bilinear",
+                  "bicubic",
+                  "area"
+                ],
+                "default": "lanczos",
+                "description": "Image resampling method used during resizing."
+              },
+              "num_frames": {
+                "type": "integer",
+                "minimum": 16,
+                "maximum": 161,
+                "default": 81,
+                "description": "Total number of frames (affects duration & cost; recommended 81–100)."
+              },
+              "frame_rate": {
+                "type": "integer",
+                "minimum": 5,
+                "maximum": 24,
+                "default": 16,
+                "description": "Playback speed, 5–24 FPS; default 16."
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "input_image"
+            ],
+            "title": "Wan2_1-I2V-14B-720P",
+            "description": ""
           },
-          "name": {
-            "type": "string",
-            "description": "Tag Name"
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "thinksound"
+                ]
+              },
+              "input_video": {
+                "type": "string",
+                "format": "uri",
+                "default": "https://online.genbo.ai/img2video/f2ba8d17-fb12-48d7-86d1-422cc88ad457.mp4",
+                "description": "Upload the video that needs background music generation/addition."
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "Loud baby crying, with gentle adult laughter in the background.",
+                "description": "Describe the desired music style/mood/tempo; leave empty to auto-generate from the video."
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100,
+                "default": 35,
+                "description": "More steps yield finer results but take longer (recommended 10–60)."
+              },
+              "cfg_scale": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 20,
+                "default": 6,
+                "description": "Higher values adhere more to the text description; too high may reduce naturalness (recommended 1–10)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000000000000000,
+                "default": 1,
+                "description": "Same video & prompt + same seed reproduces the same music; leave empty for random."
+              }
+            },
+            "required": [
+              "model",
+              "input_video"
+            ],
+            "title": "thinksound",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2_2-T2V-14B"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
+                "description": "Guides the video's content and style. The more specific, the more stable."
+              },
+              "negative_prompt": {
+                "type": "string",
+                "description": "Exclude undesired content (e.g., blur, noise, deformities, low quality).",
+                "maxLength": 800,
+                "default": "gaudy, overexposed, static, blurred details, subtitles, style, artwork, painting, still, gray overall, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still image, cluttered background, many people in background, walking backwards"
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 40,
+                "default": 8,
+                "description": "Higher steps produce finer detail but are slower (recommended 2–40)."
+              },
+              "steps1": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 20,
+                "default": 4,
+                "description": "Higher steps produce finer detail but are slower (recommended 2–40). Total steps should be greater than intermediate steps."
+              },
+              "cfg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30,
+                "default": 1,
+                "description": "Higher values adhere more to the prompt; too high may reduce quality (recommended 1–10)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "default": 1,
+                "description": "Same prompt + same seed reproduces results; empty = random."
+              },
+              "ratio": {
+                "type": "string",
+                "enum": [
+                  "1280x720",
+                  "720x480",
+                  "320x240"
+                ],
+                "default": "1280x720",
+                "description": "Select output width × height."
+              },
+              "batch_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4,
+                "default": 1,
+                "description": "Number of videos generated per run (watch GPU memory usage)."
+              },
+              "num_frames": {
+                "type": "integer",
+                "minimum": 81,
+                "maximum": 160,
+                "default": 81,
+                "description": "Total number of frames; affects duration and cost (recommended 81–100)."
+              },
+              "frame_rate": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 25,
+                "default": 16,
+                "description": "Playback speed (5–24), recommended 16."
+              }
+            },
+            "required": [
+              "prompt",
+              "model"
+            ],
+            "title": "Wan2_2-T2V-14B",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2_2-I2V-14B-720P"
+                ]
+              },
+              "input_image": {
+                "type": "string",
+                "format": "uri",
+                "default": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+                "description": "Upload a reference image to enhance detail/consistency."
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "Make the scene move with gently falling snowflakes",
+                "description": "Guides the video's content and style. More specific = more stable."
+              },
+              "negative_prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards",
+                "description": "Exclude undesired results (e.g., blur, noise, deformities, low quality)."
+              },
+              "steps": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 40,
+                "default": 6,
+                "description": "Higher steps = finer detail but slower (recommended 2–40)."
+              },
+              "steps1": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 20,
+                "default": 3,
+                "description": "Higher steps = finer detail but slower (recommended 2–40). Total steps should be greater than intermediate steps."
+              },
+              "cfg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30,
+                "default": 1,
+                "description": "Higher values adhere more to the prompt; too high may reduce quality (recommended 1–10)."
+              },
+              "seed": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "default": 1,
+                "description": "Same prompt + same seed reproduces the result; empty = random."
+              },
+              "shift": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 100,
+                "default": 8,
+                "description": "Controls motion intensity; larger values produce more noticeable movement."
+              },
+              "ratio": {
+                "type": "string",
+                "enum": [
+                  "1280x720",
+                  "720x480",
+                  "320x240"
+                ],
+                "default": "1280x720",
+                "description": "Select output width × height."
+              },
+              "upscale_method": {
+                "type": "string",
+                "enum": [
+                  "lanczos",
+                  "nearest-exact",
+                  "bilinear",
+                  "bicubic",
+                  "area"
+                ],
+                "default": "lanczos",
+                "description": "Image resampling method."
+              },
+              "num_frames": {
+                "type": "integer",
+                "minimum": 16,
+                "maximum": 161,
+                "default": 81,
+                "description": "Total number of frames; affects duration & cost (recommended 81–100)."
+              },
+              "batch_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4,
+                "default": 1,
+                "description": "Number of videos generated per run (watch GPU memory usage)."
+              },
+              "frame_rate": {
+                "type": "integer",
+                "minimum": 5,
+                "maximum": 24,
+                "default": 16,
+                "description": "Playback speed (5–24), default 16."
+              }
+            },
+            "required": [
+              "input_image",
+              "prompt",
+              "model"
+            ],
+            "title": "Wan2_2-I2V-14B-720P",
+            "description": ""
           }
-        }
+        ]
       }
     },
     "securitySchemes": {
