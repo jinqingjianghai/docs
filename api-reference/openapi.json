@@ -36,7 +36,7 @@
                     "type": "string",
                     "description": "Corresponding Model Name. ",
                     "enum": [
-                      "Qwen2.5-7B-Instruct"
+                      "DeepSeek-R1-0528"
                     ]
                   },
                   "messages": {
@@ -140,7 +140,7 @@
                 ]
               },
               "example": {
-                "model": "Qwen2.5-7B-Instruct",
+                "model": "DeepSeek-R1-0528",
                 "messages": [
                   {
                     "role": "user",
@@ -229,7 +229,7 @@
                   "id": "<string>",
                   "object": "chat.completion",
                   "created": 1752470588,
-                  "model": "Qwen2.5-7B-Instruct",
+                  "model": "DeepSeek-R1-0528",
                   "choices": [
                     {
                       "index": 0,
@@ -406,102 +406,25 @@
                 },
                 "example": [
                   {
-                    "task_id": "9710c9f6-04b1-4d3a-8871-1f11f37afb09",
+                    "task_id": "155a9c76-e0de-4393-a1a8-976621bbee31",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
                     "task_result": {
                       "url": [
-                        "https://online.genbo.ai/genbo/6bb01109-be01-4e2e-a31f-a6dcfbb47612.png"
+                        "https://online.genbo.ai/genbo/5ee3894a-eb3e-42e4-8751-eee894c34093.png"
                       ]
                     },
-                    "created_at": 1754286885,
-                    "updated_at": 1754286905,
+                    "created_at": 1755582493,
+                    "updated_at": 1755582538,
                     "input": {
-                      "cfg": 1,
-                      "seed": 1,
-                      "model": "FLUX.1 [dev]",
-                      "ratio": "1024x1024",
+                      "cfg": 3,
+                      "seed": 32116006431307452,
+                      "model": "qwen-image",
                       "steps": 20,
-                      "prompt": "A hyperdetailed photograph of a Cat dressed as a mafia boss holding a fish walking down a Japanese fish market with an angry face, 8k resolution, best quality, beautiful photograph, dynamic lighting,",
-                      "denoise": 1,
-                      "scheduler": "normal",
-                      "batch_size": 1,
-                      "sampler_name": "euler",
-                      "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
-                    }
-                  },
-                  {
-                    "task_id": "4cc2aa27-40a0-4d2c-9c41-72f002a4cd64",
-                    "task_status": "SUCCESS",
-                    "fail_reason": "",
-                    "task_result": {
-                      "url": [
-                        "https://online.genbo.ai/genbo/4d0986dc-7ad8-41bc-ae49-dd8fc214c612.png"
-                      ]
-                    },
-                    "created_at": 1754119381,
-                    "updated_at": 1754119412,
-                    "input": {
-                      "cfg": 1,
-                      "seed": 1,
-                      "model": "FLUX.1-Lora",
-                      "ratio": "1024x1024",
-                      "steps": 20,
-                      "prompt": "sketch,white background,long hair,white hair,armor,upper body,sfw,simple background,final fantasy,white armor,solo,1boy,blue eyes,final fantasy xiv,male focus,looking at viewer,jewelry,male focus,parted lips,earrings,white_hairband,hairband,closed mouth,pauldrons,bangs,white shirt,long sleeves,shirt,pauldron,original,bust,parted bangs,collarbone,",
-                      "denoise": 1,
-                      "lora_name": "F.1手绘二次元_真的像是人工画的_v1.0.safetensors",
-                      "batch_size": 1,
-                      "strength_clip": 0.8,
-                      "strength_model": 0.8,
-                      "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
-                    }
-                  },
-                  {
-                    "task_id": "fa4f0f94-5936-4f87-942a-a0eb19ddfd20",
-                    "task_status": "SUCCESS",
-                    "fail_reason": "",
-                    "task_result": {
-                      "url": [
-                        "https://online.genbo.ai/genbo/89256261-29ef-4e27-8a08-9ff06b5251fd.png"
-                      ]
-                    },
-                    "created_at": 1754119379,
-                    "updated_at": 1754119428,
-                    "input": {
-                      "cfg": 1,
-                      "seed": 1,
-                      "model": "flux.1-kontext-dev",
-                      "ratio": "1024x1024",
-                      "steps": 6,
-                      "prompt": "Change the car color to red",
-                      "denoise": 1,
-                      "guidance": 2.5,
-                      "input_image": "https://online.genbo.ai/img2video/23a5e6ec-5963-4b0f-b1cd-ad0c96637753.jpg"
-                    }
-                  },
-                  {
-                    "task_id": "2b9be8ab-f0bb-4cf8-bce3-be5491dc59eb",
-                    "task_status": "SUCCESS",
-                    "fail_reason": "",
-                    "task_result": {
-                      "url": [
-                        "https://online.genbo.ai/genbo/a049041e-4dfe-4765-b9a4-40f5c7aadaab.png"
-                      ]
-                    },
-                    "created_at": 1754119373,
-                    "updated_at": 1754119397,
-                    "input": {
-                      "cfg": 1,
-                      "seed": 1,
-                      "model": "FLUX.1 [dev]",
-                      "ratio": "1024x1024",
-                      "steps": 20,
-                      "prompt": "A hyperdetailed photograph of a Cat dressed as a mafia boss holding a fish walking down a Japanese fish market with an angry face, 8k resolution, best quality, beautiful photograph, dynamic lighting,",
-                      "denoise": 1,
-                      "scheduler": "normal",
-                      "batch_size": 1,
-                      "sampler_name": "euler",
-                      "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                      "prompt": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
+                      "image_size": "576x1024",
+                      "num_images": 1,
+                      "negative_prompt": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),"
                     }
                   }
                 ]
@@ -531,7 +454,7 @@
             "in": "path",
             "description": "Task ID",
             "required": true,
-            "example": "fa4f0f94-5936-4f87-942a-a0eb19ddfd20",
+            "example": "dad377bc-2e5b-4804-8fe2-62467e798301",
             "schema": {
               "type": "string"
             }
@@ -614,26 +537,25 @@
                 },
                 "example": {
                   "data": {
-                    "task_id": "fa4f0f94-5936-4f87-942a-a0eb19ddfd20",
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
                     "task_result": {
                       "url": [
-                        "https://online.genbo.ai/genbo/89256261-29ef-4e27-8a08-9ff06b5251fd.png"
+                        "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
                       ]
                     },
-                    "created_at": 1754119379,
-                    "updated_at": 1754119428,
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
                     "input": {
                       "cfg": 1,
-                      "seed": 1,
-                      "model": "flux.1-kontext-dev",
-                      "ratio": "1024x1024",
-                      "steps": 6,
-                      "prompt": "Change the car color to red",
-                      "denoise": 1,
-                      "guidance": 2.5,
-                      "input_image": "https://online.genbo.ai/img2video/23a5e6ec-5963-4b0f-b1cd-ad0c96637753.jpg"
+                      "seed": 3486883881156089,
+                      "model": "FLUX.1 [dev]",
+                      "steps": 20,
+                      "prompt": "A rubber duck flows in the golden river",
+                      "image_size": "1024x576",
+                      "num_images": 1,
+                      "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
                     }
                   },
                   "message": "",
@@ -804,20 +726,13 @@
                     "created_at": 1754119392,
                     "updated_at": 1754119704,
                     "input": {
-                      "cfg": 1,
+                      "model": "Wan2_1-T2V-14B",
+                      "prompt": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
+                      "negative_prompt": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
                       "seed": 1,
-                      "model": "Wan2_2-I2V-14B-720P",
-                      "ratio": "1280x720",
-                      "shift": 8,
-                      "steps": 6,
-                      "prompt": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
-                      "steps1": 3,
-                      "batch_size": 1,
-                      "frame_rate": 16,
-                      "num_frames": 81,
-                      "input_image": "https://online.genbo.ai/img2video/d480bf71-4f2d-4841-bce3-8b1e1c0b81a8.jpg",
-                      "upscale_method": "lanczos",
-                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards"
+                      "aspect_ratio": "1280x720",
+                      "steps": 5,
+                      "cfg": 1
                     }
                   },
                   "message": "",
@@ -935,88 +850,13 @@
                     "created_at": 1754119419,
                     "updated_at": 1754119520,
                     "input": {
-                      "cfg": 1,
-                      "seed": 1,
-                      "model": "Wan2_1-I2V-14B-720P",
-                      "ratio": "1280x720",
-                      "shift": 2,
-                      "steps": 5,
-                      "prompt": "Bathed in the warm glow of a single, strategically placed lamp, the jeweler’s weathered hands delicately cradle a fiery opal, its iridescent depths shimmering like a captured sunset; each careful turn reveals new constellations of color, while the close-up shot emphasizes the stone’s alluring texture, a mesmerizing dance of light and shadow playing across its surface.",
-                      "frame_rate": 16,
-                      "num_frames": 81,
-                      "input_image": "https://online.genbo.ai/img2video/6bf72fa3-7c8a-4572-a612-48e4ba3b4dde.jpg",
-                      "upscale_method": "lanczos",
-                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, style, artwork, painting, still, gray overall, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still image, cluttered background, many people in background, walking backwards"
-                    }
-                  },
-                  {
-                    "task_id": "75a348bb-6459-4818-841d-d66d3c07b7cc",
-                    "task_status": "SUCCESS",
-                    "fail_reason": "",
-                    "task_result": {
-                      "url": "https://online.genbo.ai/genbo/d1cdd018-8eb7-46e7-854c-c2e3b8305389.mp4"
-                    },
-                    "created_at": 1754119412,
-                    "updated_at": 1754119627,
-                    "input": {
-                      "cfg": 1,
-                      "seed": 1,
                       "model": "Wan2_1-T2V-14B",
-                      "ratio": "1280x720",
+                      "prompt": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
+                      "negative_prompt": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
+                      "seed": 1,
+                      "aspect_ratio": "1280x720",
                       "steps": 5,
-                      "prompt": "A luxury yatch sets sail in the Bosphorus Strait. As it gracefully navigates through the current, the Maiden's Tower comes into view. While continuing its journey, seagulls greet it. The sounds of waves and seagulls can be heard.",
-                      "frame_rate": 16,
-                      "num_frames": 81,
-                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards"
-                    }
-                  },
-                  {
-                    "task_id": "85f4c75a-8254-4b34-8271-4d47f9beed6c",
-                    "task_status": "SUCCESS",
-                    "fail_reason": "",
-                    "task_result": {
-                      "url": "https://online.genbo.ai/genbo/461d1c83-9230-4790-a891-363a71617f92.mp4"
-                    },
-                    "created_at": 1754119394,
-                    "updated_at": 1754119688,
-                    "input": {
-                      "cfg": 1,
-                      "seed": 1,
-                      "model": "Wan2_2-T2V-14B",
-                      "ratio": "1280x720",
-                      "steps": 8,
-                      "prompt": "A medium shot establishes a modern, minimalist office setting: clean lines, muted grey walls, and polished wood surfaces. The focus shifts to a close-up on a woman in sharp, navy blue business attire. Her crisp white blouse contrasts with the deep blue of her tailored suit jacket. The subtle texture of the fabric is visible—a fine weave with a slight sheen. Her expression is serious, yet engaging, as she speaks to someone unseen just beyond the frame. Close-up on her eyes, showing the intensity of her gaze and the fine lines around them that hint at experience and focus. Her lips are slightly parted, as if mid-sentence. The light catches the subtle highlights in her auburn hair, meticulously styled. Note the slight catch of light on the silver band of her watch. High resolution 4k",
-                      "steps1": 4,
-                      "batch_size": 1,
-                      "frame_rate": 16,
-                      "num_frames": 81,
-                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards"
-                    }
-                  },
-                  {
-                    "task_id": "98b9e109-56d6-498c-8c98-a936f7c998c6",
-                    "task_status": "SUCCESS",
-                    "fail_reason": "",
-                    "task_result": {
-                      "url": "https://online.genbo.ai/genbo/c9937897-937d-43b8-862b-60fc6ea06c57.mp4"
-                    },
-                    "created_at": 1754119392,
-                    "updated_at": 1754119704,
-                    "input": {
-                      "cfg": 1,
-                      "seed": 1,
-                      "model": "Wan2_2-I2V-14B-720P",
-                      "ratio": "1280x720",
-                      "shift": 8,
-                      "steps": 6,
-                      "prompt": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
-                      "steps1": 3,
-                      "batch_size": 1,
-                      "frame_rate": 16,
-                      "num_frames": 81,
-                      "input_image": "https://online.genbo.ai/img2video/d480bf71-4f2d-4841-bce3-8b1e1c0b81a8.jpg",
-                      "upscale_method": "lanczos",
-                      "negative_prompt": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards"
+                      "cfg": 1
                     }
                   }
                 ]
@@ -1110,6 +950,56 @@
           }
         ]
       }
+    },
+    "/v1/audios/generations": {
+      "post": {
+        "summary": "Submit Audio Task",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Video Model"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/audio"
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "task_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "task_id"
+                  ]
+                },
+                "example": {
+                  "task_id": "<string>"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
     }
   },
   "webhooks": {},
@@ -1128,39 +1018,31 @@
               },
               "prompt": {
                 "type": "string",
-                "maxLength": 800,
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
                 "default": "A rubber duck flows in the golden river",
-                "description": "The prompt to generate the image with"
+                "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
-                "maxLength": 800,
+                "title": "Negative Prompt",
+                "description": "The negative prompt to use. Use it to address details that you don't want in the image.",
                 "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
-                "description": "The negative prompt to use. Use it to address details that you don't want in the image. This could be colors, objects, scenery and even the small details (e.g. moustache, blurry, low resolution)."
+                "maxLength": 800
               },
               "seed": {
                 "type": "integer",
-                "minimum": 0,
-                "maximum": 100000000000000000,
+                "title": "Seed",
+                "description": "The same seed and the same prompt given to the same version of Stable Diffusion will output the same image every time.",
                 "default": 1,
-                "description": "The same seed and the same prompt given to the same version of Stable Diffusion will output the same image every time."
-              },
-              "steps": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 50,
-                "default": 20,
-                "description": "The number of inference steps to perform. Default value: 20"
-              },
-              "cfg": {
-                "type": "number",
                 "minimum": 0,
-                "maximum": 20,
-                "default": 1,
-                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 1"
+                "maximum": 100000000000000000
               },
-              "ratio": {
+              "image_size": {
                 "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "default": "576x1024",
                 "enum": [
                   "512x512",
                   "1024x1024",
@@ -1168,16 +1050,32 @@
                   "576x1024",
                   "1024x768",
                   "1024x576"
-                ],
-                "default": "576x1024",
-                "description": "The size of the generated image."
+                ]
               },
-              "batch_size": {
+              "num_images": {
                 "type": "integer",
-                "minimum": 1,
-                "maximum": 4,
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
                 "default": 1,
-                "description": "The number of images to generate. Default value: 1"
+                "minimum": 1,
+                "maximum": 4
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "default": 20,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale (CFG)",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
               }
             },
             "required": [
@@ -1198,53 +1096,64 @@
               },
               "prompt": {
                 "type": "string",
-                "description": "A positive description for image generation. The more specific, the better.",
-                "maxLength": 800,
-                "default": "Extreme close-up of a single tiger eye, direct frontal view. Detailed iris and pupil. Sharp focus on eye texture and color. Natural lighting to capture authentic eye shine and depth. The word \\\"FLUX\\\" is painted over it in big, white brush strokes with visible texture."
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "default": "Extreme close-up of a single tiger eye, direct frontal view. Detailed iris and pupil. Sharp focus on eye texture and color. Natural lighting to capture authentic eye shine and depth. The word \"FLUX\" is painted over it in big, white brush strokes with visible texture.",
+                "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
-                "maxLength": 800,
+                "title": "Negative Prompt",
+                "description": "The negative prompt to use. Use it to address details that you don't want in the image.",
                 "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
-                "description": "Exclude content you don’t want (e.g., blur, noise, deformities, low quality)."
-              },
-              "steps": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 50,
-                "default": 20,
-                "description": "More steps produce finer detail but take longer (recommended 10–50)."
-              },
-              "cfg": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 20,
-                "default": 4.5,
-                "description": "Higher values adhere more to the prompt; too high may affect quality (recommended 1–12)."
+                "maxLength": 800
               },
               "seed": {
                 "type": "integer",
+                "title": "Seed",
+                "description": "The same seed and the same prompt given to the same version of Stable Diffusion will output the same image every time.",
+                "default": 1,
                 "minimum": 0,
-                "maximum": 10000000000000000,
-                "default": 1,
-                "description": "Same prompt + same seed reproduces the result; leave empty for random."
+                "maximum": 10000000000000000
               },
-              "ratio": {
+              "image_size": {
                 "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "default": "576x1024",
                 "enum": [
+                  "512x512",
                   "1024x1024",
-                  "1024x576",
-                  "576x1024"
-                ],
-                "default": "1024x576",
-                "description": "Select the width × height ratio."
+                  "768x1024",
+                  "576x1024",
+                  "1024x768",
+                  "1024x576"
+                ]
               },
-              "batch_size": {
+              "num_images": {
                 "type": "integer",
-                "minimum": 1,
-                "maximum": 16,
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
                 "default": 1,
-                "description": "The batch size of the image. Default value: 1"
+                "minimum": 1,
+                "maximum": 4
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "default": 20,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale (CFG)",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
+                "default": 4.5,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
               }
             },
             "required": [
@@ -1260,267 +1169,77 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "FLUX.1-Lora"
-                ]
-              },
-              "prompt": {
-                "type": "string",
-                "maxLength": 800,
-                "default": "A chubby bird perches on a snow-covered branch, with an old red wall in the background.",
-                "description": "A positive description for image generation. The more specific it is, the better the result."
-              },
-              "negative_prompt": {
-                "type": "string",
-                "maxLength": 800,
-                "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
-                "description": "Exclude content you don’t want (e.g., blur, noise, distortion, low quality)."
-              },
-              "steps": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 50,
-                "default": 20,
-                "description": "More steps produce finer details but take longer (recommended 6–50)."
-              },
-              "cfg": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 30,
-                "default": 1,
-                "description": "Higher values adhere more to the prompt; too high may reduce quality (recommended 1–10)."
-              },
-              "seed": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "default": 1,
-                "description": "Same prompt + same seed reproduces the result. Leave empty for random."
-              },
-              "denoise": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1,
-                "default": 1,
-                "description": "Range 0–1. Lower values keep more details of the source (commonly used for image-to-image)."
-              },
-              "ratio": {
-                "type": "string",
-                "enum": [
-                  "1024x1024",
-                  "1024x576",
-                  "576x1024"
-                ],
-                "default": "576x1024",
-                "description": "Select the width × height ratio."
-              },
-              "batch_size": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 16,
-                "default": 1,
-                "description": "Number of images generated per run (watch GPU memory usage)."
-              },
-              "lora_name": {
-                "type": "string",
-                "enum": [
-                  "F.1手绘二次元_真的像是人工画的_v1.0.safetensors",
-                  "MAJICFLUS_麦橘超飒 YUAN_saman.safetensors",
-                  "超现实主义插画   造梦大师_Pop扁平插画_V.1.safetensors",
-                  "室内设计 装修风格 东南亚复古风 客厅_极致的软装风格_v1.0.safetensors"
-                ],
-                "default": "F.1手绘二次元_真的像是人工画的_v1.0.safetensors",
-                "description": "The LoRA model to use for generation. Default: Authentic Sketch."
-              },
-              "strength_model": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1.5,
-                "default": 0.8,
-                "description": "Blend strength of the LoRA into the U-Net (0–1.5)."
-              },
-              "strength_clip": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1.5,
-                "default": 0.8,
-                "description": "Blend strength of the LoRA into the text encoder (0–1.5)."
-              }
-            },
-            "title": "FLUX.1-Lora",
-            "required": [
-              "model",
-              "prompt"
-            ],
-            "description": ""
-          },
-          {
-            "type": "object",
-            "properties": {
-              "model": {
-                "type": "string",
-                "enum": [
-                  "SD3"
-                ]
-              },
-              "prompt": {
-                "type": "string",
-                "maxLength": 800,
-                "default": "A cartoon of a family of three camping in the wild",
-                "description": "A positive description for image generation. The more specific, the better."
-              },
-              "negative_prompt": {
-                "type": "string",
-                "maxLength": 800,
-                "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
-                "description": "Exclude content you don’t want (e.g., blur, noise, deformities, low quality)."
-              },
-              "steps": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 50,
-                "default": 20,
-                "description": "More steps produce finer detail but take longer (recommended 6–50)."
-              },
-              "cfg": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 30,
-                "default": 1,
-                "description": "Higher values adhere more to the prompt; too high may reduce quality (recommended 1–10)."
-              },
-              "seed": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "default": 1,
-                "description": "Same prompt + same seed reproduces the result; leave empty for random."
-              },
-              "denoise": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1,
-                "default": 1,
-                "description": "Range 0–1. Lower values keep more of the original details (useful for img2img)."
-              },
-              "ratio": {
-                "type": "string",
-                "enum": [
-                  "1024x1024",
-                  "1024x576",
-                  "576x1024"
-                ],
-                "default": "1024x1024",
-                "description": "Select the width × height ratio."
-              },
-              "batch_size": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 16,
-                "default": 1,
-                "description": "Number of images generated per run (watch GPU memory usage)."
-              },
-              "sampler_name": {
-                "type": "string",
-                "enum": [
-                  "euler",
-                  "ddpm",
-                  "ddim",
-                  "dpmpp_2m"
-                ],
-                "default": "euler",
-                "description": "Choose the sampling algorithm for generation."
-              },
-              "scheduler": {
-                "type": "string",
-                "enum": [
-                  "normal",
-                  "karras",
-                  "exponential",
-                  "beta"
-                ],
-                "default": "normal",
-                "description": "Step schedule strategy affecting detail and convergence speed."
-              }
-            },
-            "title": "SD3",
-            "required": [
-              "model",
-              "prompt"
-            ],
-            "description": ""
-          },
-          {
-            "type": "object",
-            "properties": {
-              "model": {
-                "type": "string",
-                "enum": [
                   "flux.1-kontext-dev"
                 ]
               },
-              "input_image": {
+              "image_url": {
                 "type": "string",
                 "format": "uri",
+                "title": "Image Url",
+                "description": "URL of image to use for img2img",
                 "default": "https://online.genbo.ai/img2video/412e68c5-1cad-4c0c-8a97-f14c40c412f2.jpg",
-                "description": "Upload the reference image to edit."
+                "pattern": "https?://.*\\.(jpeg|png|jpg)"
               },
               "prompt": {
                 "type": "string",
-                "maxLength": 800,
-                "default": "Add a twig to the bird's beak",
-                "description": "A positive description used to generate the image. The more specific, the better the result."
-              },
-              "steps": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 50,
-                "default": 6,
-                "description": "More steps give finer details but slower generation (recommended 6–50)."
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "default": "小鸟的嘴上加一个树枝",
+                "maxLength": 800
               },
               "seed": {
                 "type": "integer",
-                "minimum": 0,
-                "maximum": 100000000000000000,
+                "title": "Seed",
+                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
                 "default": 1,
-                "description": "Same prompt + same seed reproduces the result; leave empty for random."
+                "minimum": 0,
+                "maximum": 100000000000000000
               },
-              "cfg": {
+              "resolution_mode": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "default": "custom",
+                "enum": [
+                  "custom",
+                  "1:1 square 1024x1024",
+                  "3:4 portrait 896x1152",
+                  "9:16 portrait 768x1344",
+                  "1024x768",
+                  "16:9 landscape 1344x768"
+                ]
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "default": 1,
+                "minimum": 1,
+                "maximum": 4
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "default": 6,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "guidance_scale": {
                 "type": "number",
+                "title": "Guidance scale (CFG)",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
+                "default": 1,
                 "minimum": 0,
                 "maximum": 30,
-                "default": 1,
-                "description": "Higher values adhere more to the prompt, but too high may hurt quality (recommended 1–10)."
-              },
-              "denoise": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1,
-                "default": 1,
-                "description": "0–1. Lower keeps more details of the source (commonly used for image-to-image)."
-              },
-              "ratio": {
-                "type": "string",
-                "enum": [
-                  "1024x1024",
-                  "1024x576",
-                  "576x1024"
-                ],
-                "default": "1024x1024",
-                "description": "Select the width × height ratio."
-              },
-              "guidance": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 20,
-                "default": 2.5,
-                "description": "Control the strength of FluxGuidance (0–20)."
+                "multipleOf": 0.1
               }
             },
             "title": "flux.1-kontext-dev",
             "required": [
               "model",
               "prompt",
-              "input_image"
+              "image_url"
             ],
             "description": ""
           },
@@ -1536,18 +1255,30 @@
               },
               "prompt": {
                 "type": "string",
-                "maxLength": 800,
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
                 "default": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
-                "description": "The prompt to generate the image with"
+                "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
-                "maxLength": 800,
-                "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
-                "description": "The negative prompt for the generation"
+                "title": "Negative Prompt",
+                "description": "The negative prompt for the generation",
+                "default": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),",
+                "maxLength": 800
               },
-              "ratio": {
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
+                "default": 32116006431307452,
+                "minimum": 0,
+                "maximum": 100000000000000000
+              },
+              "image_size": {
                 "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
                 "default": "576x1024",
                 "enum": [
                   "512x512",
@@ -1556,36 +1287,32 @@
                   "576x1024",
                   "1024x768",
                   "1024x576"
-                ],
-                "description": "The size of the generated image."
+                ]
               },
-              "steps": {
+              "num_images": {
                 "type": "integer",
-                "minimum": 2,
-                "maximum": 50,
-                "default": 20,
-                "description": "The number of inference steps to perform. Default value: 20"
-              },
-              "seed": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 100000000000000000,
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
                 "default": 1,
-                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time."
+                "minimum": 1,
+                "maximum": 4
               },
-              "cfg": {
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "default": 20,
+                "minimum": 2,
+                "maximum": 50
+              },
+              "guidance_scale": {
                 "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
+                "default": 3,
                 "minimum": 0,
                 "maximum": 20,
-                "default": 2.5,
-                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 2.5"
-              },
-              "batch_size": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 4,
-                "default": 1,
-                "description": "The number of images to generate. Default value: 1"
+                "multipleOf": 0.1
               }
             },
             "required": [
@@ -1594,6 +1321,157 @@
             ],
             "title": "qwen-image",
             "description": ""
+          },
+          {
+            "type": "object",
+            "title": "flux.1-krea-dev-I2I",
+            "properties": {
+              "model": {
+                "type": "string",
+                "default": "flux.1-krea-dev-I2I",
+                "enum": [
+                  "flux.1-krea-dev-I2I"
+                ]
+              },
+              "image_url": {
+                "type": "string",
+                "format": "uri",
+                "title": "Image Url",
+                "description": "URL of image to use for img2img",
+                "default": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+                "pattern": "https?://.*\\.(jpeg|png|jpg)"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "default": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
+                "maxLength": 800
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "default": "custom",
+                "enum": [
+                  "custom",
+                  "1:1 square 1024x1024",
+                  "3:4 portrait 896x1152",
+                  "9:16 portrait 768x1344",
+                  "4:3 portrait 1152x896",
+                  "16:9 landscape 1344x768"
+                ]
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 100000000000000000
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "default": 1,
+                "minimum": 1,
+                "maximum": 4
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "default": 8,
+                "minimum": 2,
+                "maximum": 50
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "prompt"
+            ]
+          },
+          {
+            "type": "object",
+            "title": "flux.1-krea-dev-T2I",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "flux.1-krea-dev-T2I"
+                ],
+                "default": "flux.1-krea-dev-T2I"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "default": "GHIBSKY style, a cyberpunk cat holding a neon sign that says \"SVDQuant is lite and fast!\"",
+                "maxLength": 800
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "default": "576x1024",
+                "enum": [
+                  "512x512",
+                  "1024x1024",
+                  "768x1024",
+                  "576x1024",
+                  "1024x768",
+                  "1024x576"
+                ]
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 100000000000000000
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "default": 1,
+                "minimum": 1,
+                "maximum": 4
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "default": 20,
+                "minimum": 2,
+                "maximum": 50
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "prompt"
+            ]
           }
         ]
       },
@@ -1610,65 +1488,76 @@
               },
               "prompt": {
                 "type": "string",
-                "maxLength": 800,
-                "default": "A little girl leans on the window, watching snowflakes slowly fall outside.",
-                "description": "Guides the video content and style. The more specific, the more stable the result."
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "default": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
+                "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
-                "maxLength": 800,
-                "default": "gaudy, overexposed, static, blurred details, subtitles, stylized, artwork, painting, still, overall gray, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, many people in background, walking backwards",
-                "description": "Exclude undesired results (e.g., blur, noise, deformities, low quality)."
-              },
-              "steps": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 40,
-                "default": 5,
-                "description": "More steps yield finer details but take longer (recommended 2–40)."
-              },
-              "cfg": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 30,
-                "default": 1,
-                "description": "Higher values adhere more to the prompt; too high may reduce quality (recommended 1–10)."
+                "title": "Negative Prompt",
+                "description": "Negative prompt for video generation.",
+                "default": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
+                "maxLength": 800
               },
               "seed": {
                 "type": "integer",
-                "minimum": 0,
-                "maximum": 100000000000000000,
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
                 "default": 1,
-                "description": "Same prompt + same seed reproduces the result; empty = random."
-              },
-              "ratio": {
-                "type": "string",
-                "enum": [
-                  "1280x720",
-                  "720x480",
-                  "320x240"
-                ],
-                "default": "1280x720",
-                "description": "Select output width × height."
+                "minimum": 0,
+                "maximum": 100000000000000000
               },
               "num_frames": {
                 "type": "integer",
-                "minimum": 81,
-                "maximum": 160,
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
                 "default": 81,
-                "description": "Total number of frames; affects duration & cost (recommended 81–100)."
+                "minimum": 81,
+                "maximum": 160
               },
-              "frame_rate": {
+              "frames_per_second": {
                 "type": "integer",
-                "minimum": 1,
-                "maximum": 25,
+                "title": "Frames per Second",
+                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
                 "default": 16,
-                "description": "Playback speed (5–24 recommended). Default 16."
+                "minimum": 1,
+                "maximum": 25
+              },
+              "aspect_ratio": {
+                "type": "string",
+                "title": "Aspect Ratio",
+                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: 'auto'",
+                "default": "1280x720",
+                "enum": [
+                  "1280x720",
+                  "720x1280",
+                  "720x720"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Number of Inference Steps",
+                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 5",
+                "default": 5,
+                "minimum": 1,
+                "maximum": 40
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance Scale",
+                "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 30,
+                "multipleOf": 0.1
               }
             },
             "required": [
               "model",
-              "prompt"
+              "prompt",
+              "num_frames",
+              "frames_per_second"
             ],
             "title": "Wan2_1-T2V-14B",
             "description": ""
@@ -1682,91 +1571,97 @@
                   "Wan2_1-I2V-14B-720P"
                 ]
               },
-              "input_image": {
-                "type": "string",
-                "format": "uri",
-                "default": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
-                "description": "Upload one reference image to improve detail/structure consistency."
-              },
               "prompt": {
                 "type": "string",
-                "maxLength": 800,
-                "default": "Make the scene move; snowflakes are falling.",
-                "description": "Guides the content and style of the video. More specific prompts are more stable."
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "default": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
+                "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
-                "maxLength": 800,
-                "default": "gaudy, overexposed, static, blurred details, subtitles, style, artwork, painting, still, gray overall, worst quality, low quality, JPEG artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, malformed limbs, fused fingers, still image, cluttered background, many people in background, walking backwards",
-                "description": "Exclude unwanted results (e.g., blur, noise, deformities, low quality)."
-              },
-              "steps": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 40,
-                "default": 5,
-                "description": "More steps yield finer results but take longer (recommended 2–40)."
-              },
-              "cfg": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 30,
-                "default": 1,
-                "description": "Higher values adhere more to the prompt; too high may hurt quality (recommended 1–10)."
+                "title": "Negative Prompt",
+                "description": "Negative prompt for video generation.",
+                "default": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
+                "maxLength": 800
               },
               "seed": {
                 "type": "integer",
-                "minimum": 0,
-                "maximum": 100000000000000000,
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
                 "default": 1,
-                "description": "Same prompt + same seed reproduces the result; empty = random."
+                "minimum": 0,
+                "maximum": 100000000000000000
               },
               "shift": {
-                "type": "integer",
+                "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 2",
+                "default": 2,
                 "minimum": 1,
                 "maximum": 10,
-                "default": 2,
-                "description": "Controls how much the scene changes; larger values = stronger motion."
-              },
-              "ratio": {
-                "type": "string",
-                "description": "Select output width × height.",
-                "enum": [
-                  "1280x720",
-                  "720x1280",
-                  "720x720"
-                ],
-                "default": "720x720"
-              },
-              "upscale_method": {
-                "type": "string",
-                "description": "Do the generated videos need to maintain their original proportions",
-                "enum": [
-                  "crop_to_new",
-                  "keep_input",
-                  "stretch_to_new"
-                ],
-                "default": "keep_input"
+                "multipleOf": 1
               },
               "num_frames": {
                 "type": "integer",
-                "minimum": 16,
-                "maximum": 161,
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
                 "default": 81,
-                "description": "Total number of frames (affects duration & cost; recommended 81–100)."
+                "minimum": 16,
+                "maximum": 161
               },
-              "frame_rate": {
+              "image_url": {
+                "type": "string",
+                "format": "uri",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "default": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+                "pattern": "https?://.*\\.(jpeg|png|jpg)"
+              },
+              "frames_per_second": {
                 "type": "integer",
-                "minimum": 5,
-                "maximum": 24,
+                "title": "Frames per Second",
+                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
                 "default": 16,
-                "description": "Playback speed, 5–24 FPS; default 16."
+                "minimum": 5,
+                "maximum": 24
+              },
+              "aspect_ratio": {
+                "type": "string",
+                "title": "Aspect Ratio",
+                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
+                "default": "custom",
+                "enum": [
+                  "custom",
+                  "16:9 landscape 1344x768",
+                  "9:16 portrait 768x1344",
+                  "1:1 square 1024x1024"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Number of Inference Steps",
+                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 5",
+                "default": 5,
+                "minimum": 1,
+                "maximum": 40
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance Scale",
+                "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 30,
+                "multipleOf": 0.1
               }
             },
             "required": [
               "model",
+              "image_url",
               "prompt",
-              "input_image"
+              "num_frames",
+              "frames_per_second"
             ],
             "title": "Wan2_1-I2V-14B-720P",
             "description": ""
@@ -1780,43 +1675,50 @@
                   "thinksound"
                 ]
               },
-              "input_video": {
-                "type": "string",
-                "format": "uri",
-                "default": "https://online.genbo.ai/img2video/f2ba8d17-fb12-48d7-86d1-422cc88ad457.mp4",
-                "description": "Upload the video that needs background music generation/addition."
-              },
               "prompt": {
                 "type": "string",
-                "maxLength": 800,
-                "default": "Loud baby crying, with gentle adult laughter in the background.",
-                "description": "Describe the desired music style/mood/tempo; leave empty to auto-generate from the video."
-              },
-              "steps": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 100,
-                "default": 35,
-                "description": "More steps yield finer results but take longer (recommended 10–60)."
+                "title": "Prompt",
+                "description": "A prompt to guide the audio generation. If not provided, it will be extracted from the video.",
+                "default": "",
+                "maxLength": 800
               },
               "cfg_scale": {
                 "type": "number",
+                "title": "CFG Scale",
+                "description": "The classifier-free guidance scale for audio generation. Default value: 6",
+                "default": 6,
                 "minimum": 1,
                 "maximum": 20,
-                "default": 6,
-                "description": "Higher values adhere more to the text description; too high may reduce naturalness (recommended 1–10)."
+                "multipleOf": 0.1
               },
               "seed": {
                 "type": "integer",
-                "minimum": 0,
-                "maximum": 1000000000000000000,
+                "title": "Seed",
+                "description": "The seed for the random number generator",
                 "default": 1,
-                "description": "Same video & prompt + same seed reproduces the same music; leave empty for random."
+                "minimum": 0,
+                "maximum": 1000000000000000000
+              },
+              "video_url": {
+                "type": "string",
+                "format": "uri",
+                "title": "Video Url",
+                "description": "The URL of the video to generate the audio for.",
+                "default": "https://online.genbo.ai/img2video/f2ba8d17-fb12-48d7-86d1-422cc88ad457.mp4",
+                "pattern": "^(https?://).+\\.(mp4|quicktime|webm|x-m4v|gif)$"
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Number of Inference Steps",
+                "description": "The number of inference steps for audio generation. Default value: 35",
+                "default": 35,
+                "minimum": 2,
+                "maximum": 100
               }
             },
             "required": [
               "model",
-              "input_video"
+              "video_url"
             ],
             "title": "thinksound",
             "description": ""
@@ -1832,84 +1734,94 @@
               },
               "prompt": {
                 "type": "string",
-                "maxLength": 800,
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
                 "default": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
-                "description": "The text prompt to guide video generation."
+                "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
-                "maxLength": 800,
+                "title": "Negative Prompt",
+                "description": "Negative prompt for video generation.",
                 "default": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
-                "description": "Negative prompt for video generation."
+                "maxLength": 800
               },
-              "steps": {
+              "num_frames": {
                 "type": "integer",
-                "minimum": 2,
-                "maximum": 40,
-                "default": 8,
-                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 8"
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
+                "default": 81,
+                "minimum": 81,
+                "maximum": 121
               },
-              "cfg": {
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 100000000000000000
+              },
+              "shift": {
                 "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 8",
+                "default": 8,
                 "minimum": 1,
                 "maximum": 10,
-                "multipleOf": 0.1,
-                "default": 1,
-                "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1"
+                "multipleOf": 0.1
               },
-              "ratio": {
+              "frames_per_second": {
+                "type": "integer",
+                "title": "Frames per Second",
+                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
+                "default": 16,
+                "minimum": 4,
+                "maximum": 60
+              },
+              "aspect_ratio": {
                 "type": "string",
+                "title": "Aspect Ratio",
+                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: 'auto'",
+                "default": "1280x720",
                 "enum": [
                   "1280x720",
                   "720x1280",
                   "720x720"
-                ],
-                "default": "1280x720",
-                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: 'auto'"
+                ]
               },
-              "num_frames": {
+              "num_inference_steps": {
                 "type": "integer",
-                "minimum": 81,
-                "maximum": 121,
-                "default": 81,
-                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81"
-              },
-              "frame_rate": {
-                "type": "integer",
-                "minimum": 4,
-                "maximum": 60,
-                "default": 16,
-                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16"
-              },
-              "Seed": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "default": 1,
-                "description": "Random seed for reproducibility. If None, a random seed is chosen."
-              },
-              "cfg1": {
-                "type": "number",
-                "minimum": 1,
-                "maximum": 10,
-                "multipleOf": 0.1,
-                "default": 1,
-                "description": "Guidance scale for the second stage of the model. This is used to control the adherence to the prompt in the second stage of the model. Default value: 1"
-              },
-              "shift": {
-                "type": "number",
-                "minimum": 1,
-                "maximum": 10,
-                "multipleOf": 0.1,
+                "title": "Number of Inference Steps",
+                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 8",
                 "default": 8,
-                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 8"
+                "minimum": 2,
+                "maximum": 40
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance Scale (1st Stage)",
+                "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
+                "default": 1,
+                "minimum": 1,
+                "maximum": 10,
+                "multipleOf": 0.1
+              },
+              "guidance_scale_2": {
+                "type": "number",
+                "title": "Guidance Scale (2nd Stage)",
+                "description": "Guidance scale for the second stage of the model. This is used to control the adherence to the prompt in the second stage of the model. Default value: 1",
+                "default": 1,
+                "minimum": 1,
+                "maximum": 10,
+                "multipleOf": 0.1
               }
             },
             "required": [
-              "prompt",
               "model",
+              "prompt",
               "num_frames",
-              "frame_rate"
+              "frames_per_second"
             ],
             "title": "Wan2_2-T2V-14B"
           },
@@ -1922,86 +1834,205 @@
                   "Wan2_2-I2V-14B-720P"
                 ]
               },
-              "input_image": {
-                "type": "string",
-                "format": "uri",
-                "default": "https://online.genbo.ai/img2video/79592042-97b8-44d3-9ce3-72120f3df192.png",
-                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped."
-              },
               "prompt": {
                 "type": "string",
-                "maxLength": 800,
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
                 "default": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
-                "description": "The text prompt to guide video generation."
+                "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
-                "maxLength": 800,
+                "title": "Negative Prompt",
+                "description": "Negative prompt for video generation.",
                 "default": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
-                "description": "Negative prompt for video generation."
-              },
-              "steps": {
-                "type": "integer",
-                "minimum": 2,
-                "maximum": 50,
-                "default": 6,
-                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 6"
-              },
-              "cfg": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 30,
-                "multipleOf": 0.1,
-                "default": 1,
-                "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1"
+                "maxLength": 800
               },
               "seed": {
                 "type": "integer",
-                "minimum": 0,
-                "maximum": 100000000000000000,
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
                 "default": 1,
-                "description": "Random seed for reproducibility. If None, a random seed is chosen."
+                "minimum": 0,
+                "maximum": 100000000000000000
               },
               "shift": {
                 "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 8",
+                "default": 8,
                 "minimum": 1,
                 "maximum": 100,
-                "multipleOf": 1,
-                "default": 8,
-                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 8"
+                "multipleOf": 1
               },
-              "ratio": {
+              "num_frames": {
+                "type": "integer",
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
+                "default": 81,
+                "minimum": 81,
+                "maximum": 121
+              },
+              "image_url": {
                 "type": "string",
+                "format": "uri",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "default": "https://online.genbo.ai/img2video/79592042-97b8-44d3-9ce3-72120f3df192.png",
+                "pattern": "https?://.*\\.(jpeg|png|jpg)"
+              },
+              "frames_per_second": {
+                "type": "integer",
+                "title": "Frames per Second",
+                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
+                "default": 16,
+                "minimum": 4,
+                "maximum": 60
+              },
+              "aspect_ratio": {
+                "type": "string",
+                "title": "Aspect Ratio",
+                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
+                "default": "custom",
                 "enum": [
                   "custom",
                   "16:9 landscape 1344x768",
                   "9:16 portrait 768x1344",
                   "1:1 square 1024x1024"
-                ],
-                "default": "custom",
-                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto"
+                ]
               },
-              "num_frames": {
+              "num_inference_steps": {
                 "type": "integer",
-                "minimum": 81,
-                "maximum": 121,
-                "default": 81,
-                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81"
+                "title": "Number of Inference Steps",
+                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 6",
+                "default": 6,
+                "minimum": 2,
+                "maximum": 50
               },
-              "frame_rate": {
-                "type": "integer",
-                "minimum": 4,
-                "maximum": 60,
-                "default": 16,
-                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16"
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance Scale (1st Stage)",
+                "description": "Classifier-free Guidance Scale (1st Stage). Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 30,
+                "multipleOf": 0.1
+              },
+              "guidance_scale_2": {
+                "type": "number",
+                "title": "Guidance Scale (2nd Stage)",
+                "description": "Classifier-free Guidance Scale (2nd Stage). Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 30,
+                "multipleOf": 0.1
               }
             },
             "required": [
-              "input_image",
+              "image_url",
               "prompt",
+              "num_frames",
+              "frames_per_second",
               "model"
             ],
             "title": "Wan2_2-I2V-14B-720P"
+          }
+        ]
+      },
+      "audio": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Step Audio"
+                ],
+                "default": "Step Audio"
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 800,
+                "default": "对这个世界如果你有太多的抱怨,跌倒了就不敢继续往前走",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with"
+              },
+              "audio_url": {
+                "type": "string",
+                "format": "uri",
+                "default": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+                "title": "Audio Url",
+                "description": "URL of audio to use for audio2audio"
+              },
+              "emotion": {
+                "type": "string",
+                "enum": [
+                  "None",
+                  "高兴1",
+                  "生气1",
+                  "撒娇1",
+                  "悲伤1"
+                ],
+                "default": "None",
+                "title": "emotion",
+                "description": "The emotion to use for generating the audio. Default value: None"
+              },
+              "language": {
+                "type": "string",
+                "enum": [
+                  "None",
+                  "中文",
+                  "英文",
+                  "日语",
+                  "韩语",
+                  "四川话",
+                  "粤语"
+                ],
+                "default": "None",
+                "title": "language",
+                "description": "The language to use for generating the audio. Default value: None"
+              },
+              "express": {
+                "type": "string",
+                "enum": [
+                  "None",
+                  "RAP",
+                  "哼唱"
+                ],
+                "default": "None",
+                "title": "express",
+                "description": "The express to use for generating the audio. Default value: None"
+              },
+              "temperature": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "default": 0.5,
+                "title": "temperature",
+                "description": ""
+              },
+              "max_length": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2048,
+                "default": 2048,
+                "title": "max length",
+                "description": "max_length can be adjusted according to the text length."
+              },
+              "tags": {
+                "type": "string",
+                "maxLength": 20,
+                "default": "",
+                "title": "Prompt",
+                "description": "Add experimental custom_mark, surrounding with '()', for example (温柔)(东北话), it may have an effect."
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "audio_url"
+            ]
           }
         ]
       }
