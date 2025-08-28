@@ -49,6 +49,14 @@
             ]
           },
           {
+            "group": "Audio",
+            "pages": [
+              "api-reference/audio/audio-generations",
+              "api-reference/audio/get-result-single",
+              "api-reference/audio/get-result-list"
+            ]
+          },
+          {
             "group": "Upload",
             "pages": [
               "api-reference/upload/upload-files"

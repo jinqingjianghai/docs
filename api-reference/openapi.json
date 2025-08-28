@@ -623,133 +623,6 @@
         ]
       }
     },
-    "/v1/videos/generations/{id}": {
-      "get": {
-        "summary": "Get Video Generation Result (Single)",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "Video Model"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Task ID",
-            "required": true,
-            "example": "2189c7a5-18f2-443c-a6eb-5c8be012e15b",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "task_id": {
-                          "type": "string"
-                        },
-                        "task_status": {
-                          "type": "string",
-                          "title": "Task Status"
-                        },
-                        "fail_reason": {
-                          "type": "string",
-                          "title": "Failure Reason"
-                        },
-                        "task_result": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "url": {
-                              "type": "string",
-                              "title": "Generated Image URL"
-                            }
-                          },
-                          "required": [
-                            "url"
-                          ]
-                        },
-                        "created_at": {
-                          "type": "integer",
-                          "title": "Task Creation Time (s)"
-                        },
-                        "updated_at": {
-                          "type": "integer",
-                          "title": "Task Update Time (s)"
-                        },
-                        "input": {
-                          "$ref": "#/components/schemas/video"
-                        }
-                      },
-                      "required": [
-                        "task_id",
-                        "task_status",
-                        "fail_reason",
-                        "task_result",
-                        "created_at",
-                        "updated_at",
-                        "input"
-                      ]
-                    },
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "data",
-                    "success",
-                    "message"
-                  ]
-                },
-                "example": {
-                  "data": {
-                    "task_id": "98b9e109-56d6-498c-8c98-a936f7c998c6",
-                    "task_status": "SUCCESS",
-                    "fail_reason": "",
-                    "task_result": {
-                      "url": "https://online.genbo.ai/genbo/c9937897-937d-43b8-862b-60fc6ea06c57.mp4"
-                    },
-                    "created_at": 1754119392,
-                    "updated_at": 1754119704,
-                    "input": {
-                      "model": "Wan2_1-T2V-14B",
-                      "prompt": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
-                      "negative_prompt": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
-                      "seed": 1,
-                      "aspect_ratio": "1280x720",
-                      "steps": 5,
-                      "cfg": 1
-                    }
-                  },
-                  "message": "",
-                  "success": true
-                }
-              }
-            },
-            "headers": {}
-          }
-        },
-        "security": [
-          {
-            "Authorization": []
-          }
-        ]
-      }
-    },
     "/v1/videos/generations": {
       "get": {
         "summary": "Get Video Generation Result (List)",
@@ -872,6 +745,133 @@
         ]
       }
     },
+    "/v1/videos/generations/{id}": {
+      "get": {
+        "summary": "Get Video Generation Result (Single)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Video Model"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Task ID",
+            "required": true,
+            "example": "2189c7a5-18f2-443c-a6eb-5c8be012e15b",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "task_id": {
+                          "type": "string"
+                        },
+                        "task_status": {
+                          "type": "string",
+                          "title": "Task Status"
+                        },
+                        "fail_reason": {
+                          "type": "string",
+                          "title": "Failure Reason"
+                        },
+                        "task_result": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "title": ""
+                            }
+                          },
+                          "required": [
+                            "url"
+                          ]
+                        },
+                        "created_at": {
+                          "type": "integer",
+                          "title": "Task Creation Time (s)"
+                        },
+                        "updated_at": {
+                          "type": "integer",
+                          "title": "Task Update Time (s)"
+                        },
+                        "input": {
+                          "$ref": "#/components/schemas/video"
+                        }
+                      },
+                      "required": [
+                        "task_id",
+                        "task_status",
+                        "fail_reason",
+                        "task_result",
+                        "created_at",
+                        "updated_at",
+                        "input"
+                      ]
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "success",
+                    "message"
+                  ]
+                },
+                "example": {
+                  "data": {
+                    "task_id": "98b9e109-56d6-498c-8c98-a936f7c998c6",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                      "url": "https://online.genbo.ai/genbo/c9937897-937d-43b8-862b-60fc6ea06c57.mp4"
+                    },
+                    "created_at": 1754119392,
+                    "updated_at": 1754119704,
+                    "input": {
+                      "model": "Wan2_1-T2V-14B",
+                      "prompt": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
+                      "negative_prompt": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
+                      "seed": 1,
+                      "aspect_ratio": "1280x720",
+                      "steps": 5,
+                      "cfg": 1
+                    }
+                  },
+                  "message": "",
+                  "success": true
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
     "/v1/upload/files": {
       "post": {
         "summary": "Upload Files",
@@ -888,7 +888,7 @@
                   "file": {
                     "format": "binary",
                     "type": "string",
-                    "description": "support JPG, PNG, MP4, MOV, WEBM, M4V and GIF",
+                    "description": "support JPG, PNG, MP4, AVI, MOV, MKV, GIF, MP3, WAV, OGG and AAC",
                     "example": ""
                   }
                 },
@@ -951,7 +951,7 @@
         ]
       }
     },
-    "/v1/audios/generations": {
+    "/v1/audio/generations": {
       "post": {
         "summary": "Submit Audio Task",
         "deprecated": false,
@@ -988,6 +988,207 @@
                 },
                 "example": {
                   "task_id": "<string>"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "Get Audio Generation Result (List)",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": 10,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "Page Number",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "task_id": {
+                        "type": "string"
+                      },
+                      "task_status": {
+                        "type": "string",
+                        "title": "Task Status"
+                      },
+                      "fail_reason": {
+                        "type": "string",
+                        "title": "Failure Reason"
+                      },
+                      "task_result": {
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "title": ""
+                          }
+                        },
+                        "required": [
+                          "url"
+                        ]
+                      },
+                      "created_at": {
+                        "type": "integer",
+                        "title": "Task Creation Time (s)"
+                      },
+                      "updated_at": {
+                        "type": "integer",
+                        "title": "Task Update Time (s)"
+                      },
+                      "input": {
+                        "$ref": "#/components/schemas/audio"
+                      }
+                    },
+                    "required": [
+                      "task_id",
+                      "task_status",
+                      "fail_reason",
+                      "task_result",
+                      "created_at",
+                      "updated_at",
+                      "input"
+                    ]
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/v1/audio/generations/{id}": {
+      "get": {
+        "summary": "Get Audio Generation Result (Single)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Video Model"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Task ID",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "task_id": {
+                          "type": "string"
+                        },
+                        "task_status": {
+                          "type": "string",
+                          "title": "Task Status"
+                        },
+                        "fail_reason": {
+                          "type": "string",
+                          "title": "Failure Reason"
+                        },
+                        "task_result": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "title": ""
+                            }
+                          },
+                          "required": [
+                            "url"
+                          ]
+                        },
+                        "created_at": {
+                          "type": "integer",
+                          "title": "Task Creation Time (s)"
+                        },
+                        "updated_at": {
+                          "type": "integer",
+                          "title": "Task Update Time (s)"
+                        },
+                        "input": {
+                          "$ref": "#/components/schemas/audio"
+                        }
+                      },
+                      "required": [
+                        "task_id",
+                        "task_status",
+                        "fail_reason",
+                        "task_result",
+                        "created_at",
+                        "updated_at",
+                        "input"
+                      ]
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "success",
+                    "message"
+                  ]
                 }
               }
             },
@@ -1400,7 +1601,8 @@
               "model",
               "image_url",
               "prompt"
-            ]
+            ],
+            "description": ""
           },
           {
             "type": "object",
@@ -1466,6 +1668,171 @@
                 "minimum": 0,
                 "maximum": 20,
                 "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "prompt"
+            ],
+            "description": ""
+          },
+          {
+            "type": "object",
+            "title": "qwen-image-edit",
+            "properties": {
+              "model": {
+                "type": "string",
+                "default": "qwen-image-edit",
+                "enum": [
+                  "qwen-image-edit"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "default": "Remove all UI text elements from the image. Keep the feeling that the characters and scene are in water. Also, remove the green UI elements at the bottom",
+                "maxLength": 800
+              },
+              "negative_prompt": {
+                "type": "string",
+                "title": "Negative Prompt",
+                "description": "The negative prompt for the generation",
+                "default": "blurry, ugly",
+                "maxLength": 800
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image Url",
+                "description": "URL of image to use for img2img",
+                "default": "https://online.genbo.ai/img2video/412e68c5-1cad-4c0c-8a97-f14c40c412f2.jpg",
+                "format": "uri"
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "default": 20,
+                "minimum": 2,
+                "maximum": 50,
+                "multipleOf": 1
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
+                "default": 32116006431307452,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "default": 1,
+                "minimum": 1,
+                "maximum": 4,
+                "multipleOf": 1
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "default": "custom",
+                "enum": [
+                  "custom",
+                  "1:1 square 1024x1024",
+                  "3:4 portrait 896x1152",
+                  "9:16 portrait 768x1344",
+                  "4:3 portrait 1152x896",
+                  "16:9 landscape 1344x768"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "image_url"
+            ]
+          },
+          {
+            "type": "object",
+            "title": "qwen-image",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "qwen-image"
+                ],
+                "default": "qwen-image"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "default": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive"
+              },
+              "negative_prompt": {
+                "type": "string",
+                "title": "Negative Prompt",
+                "description": "The negative prompt for the generation",
+                "default": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),"
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "default": "576x1024",
+                "enum": [
+                  "512x512",
+                  "1024x1024",
+                  "768x1024",
+                  "576x1024",
+                  "1024x768",
+                  "1024x576"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "default": 20,
+                "minimum": 2,
+                "maximum": 50
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
+                "default": 32116006431307452,
+                "minimum": 0,
+                "maximum": 100000000000000000
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
+                "default": 3,
+                "minimum": 0,
+                "maximum": 20
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "default": 1,
+                "minimum": 1,
+                "maximum": 4
               }
             },
             "required": [
@@ -1701,11 +2068,11 @@
               },
               "video_url": {
                 "type": "string",
-                "format": "uri",
                 "title": "Video Url",
                 "description": "The URL of the video to generate the audio for.",
+                "format": "uri",
                 "default": "https://online.genbo.ai/img2video/f2ba8d17-fb12-48d7-86d1-422cc88ad457.mp4",
-                "pattern": "^(https?://).+\\.(mp4|quicktime|webm|x-m4v|gif)$"
+                "pattern": "^(https?://).+\\.(mp4|avi|mov|mkv|gif)$"
               },
               "num_inference_steps": {
                 "type": "integer",
@@ -1752,7 +2119,8 @@
                 "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
                 "default": 81,
                 "minimum": 81,
-                "maximum": 121
+                "maximum": 121,
+                "multipleOf": 1
               },
               "seed": {
                 "type": "integer",
@@ -1760,7 +2128,8 @@
                 "description": "Random seed for reproducibility. If None, a random seed is chosen.",
                 "default": 1,
                 "minimum": 0,
-                "maximum": 100000000000000000
+                "maximum": 100000000000000000,
+                "multipleOf": 1
               },
               "shift": {
                 "type": "number",
@@ -1777,7 +2146,8 @@
                 "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
                 "default": 16,
                 "minimum": 4,
-                "maximum": 60
+                "maximum": 60,
+                "multipleOf": 1
               },
               "aspect_ratio": {
                 "type": "string",
@@ -1796,7 +2166,8 @@
                 "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 8",
                 "default": 8,
                 "minimum": 2,
-                "maximum": 40
+                "maximum": 40,
+                "multipleOf": 1
               },
               "guidance_scale": {
                 "type": "number",
@@ -1823,7 +2194,8 @@
               "num_frames",
               "frames_per_second"
             ],
-            "title": "Wan2_2-T2V-14B"
+            "title": "Wan2_2-T2V-14B",
+            "description": ""
           },
           {
             "type": "object",
@@ -1935,7 +2307,78 @@
               "frames_per_second",
               "model"
             ],
-            "title": "Wan2_2-I2V-14B-720P"
+            "title": "Wan2_2-I2V-14B-720P",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "infiniteTalk"
+                ],
+                "default": "infiniteTalk"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "default": "https://online.genbo.ai/img2video/d0503df2-abf3-424a-b5b1-bbf322cb98bb.png",
+                "format": "uri"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "default": "A female poet is reciting",
+                "maxLength": 800
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "The URL of the audio file",
+                "default": "https://online.genbo.ai/genbo-test/96131313-3214-4355-9bdb-a22cfbe208f6.mp3",
+                "format": "uri"
+              },
+              "num_frames": {
+                "type": "integer",
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 41 to 721. Default value: 145",
+                "default": 275,
+                "minimum": 41,
+                "maximum": 721,
+                "multipleOf": 1
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "ratio": {
+                "type": "string",
+                "title": "Aspect ratio/resolution",
+                "description": "Resolution of the video to generate. Must be either 480p or 720p. Default value: 480p",
+                "default": "720x1280",
+                "enum": [
+                  "848x480",
+                  "720x1280"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "prompt",
+              "audio_url",
+              "num_frames"
+            ],
+            "title": "infiniteTalk",
+            "description": ""
           }
         ]
       },
@@ -1953,33 +2396,36 @@
               },
               "prompt": {
                 "type": "string",
-                "maxLength": 800,
-                "default": "对这个世界如果你有太多的抱怨,跌倒了就不敢继续往前走",
                 "title": "Prompt",
-                "description": "The prompt to generate the image with"
+                "description": "The prompt to generate the image with",
+                "default": "对这个世界如果你有太多的抱怨,跌倒了就不敢继续往前走",
+                "maxLength": 800
               },
               "audio_url": {
                 "type": "string",
-                "format": "uri",
-                "default": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
                 "title": "Audio Url",
-                "description": "URL of audio to use for audio2audio"
+                "description": "URL of audio to use for audio2audio",
+                "default": "https://online.genbo.ai/genbo-test/5ada6cf3-9cd6-40bc-ac62-d5ec45dae2ce.mp3",
+                "format": "uri"
               },
               "emotion": {
                 "type": "string",
+                "title": "emotion",
+                "description": "The emotion to use for generating the audio. Default value: None",
+                "default": "None",
                 "enum": [
                   "None",
                   "高兴1",
                   "生气1",
                   "撒娇1",
                   "悲伤1"
-                ],
-                "default": "None",
-                "title": "emotion",
-                "description": "The emotion to use for generating the audio. Default value: None"
+                ]
               },
               "language": {
                 "type": "string",
+                "title": "language",
+                "description": "The language to use for generating the audio. Default value: None",
+                "default": "None",
                 "enum": [
                   "None",
                   "中文",
@@ -1988,51 +2434,57 @@
                   "韩语",
                   "四川话",
                   "粤语"
-                ],
-                "default": "None",
-                "title": "language",
-                "description": "The language to use for generating the audio. Default value: None"
+                ]
               },
               "express": {
                 "type": "string",
+                "title": "express",
+                "description": "The express to use for generating the audio. Default value: None",
+                "default": "None",
                 "enum": [
                   "None",
                   "RAP",
                   "哼唱"
-                ],
-                "default": "None",
-                "title": "express",
-                "description": "The express to use for generating the audio. Default value: None"
+                ]
               },
               "temperature": {
                 "type": "number",
+                "title": "temperature",
+                "description": "The randomness and creativity in generating speech within the control model",
+                "default": 0.5,
                 "minimum": 0,
                 "maximum": 1,
-                "default": 0.5,
-                "title": "temperature",
-                "description": ""
+                "multipleOf": 0.1
               },
               "max_length": {
                 "type": "integer",
-                "minimum": 0,
-                "maximum": 2048,
-                "default": 2048,
                 "title": "max length",
-                "description": "max_length can be adjusted according to the text length."
+                "description": "max_length can be adjusted according to the text length.",
+                "default": 2048,
+                "minimum": 0,
+                "maximum": 2048
               },
               "tags": {
                 "type": "string",
-                "maxLength": 20,
+                "title": "custom mark",
+                "description": "Add experimental custom_mark, surrounding with '()', for example (温柔)(东北话), it may have an effect.",
                 "default": "",
-                "title": "Prompt",
-                "description": "Add experimental custom_mark, surrounding with '()', for example (温柔)(东北话), it may have an effect."
+                "maxLength": 100
+              },
+              "unload_model": {
+                "type": "boolean",
+                "title": "Unload model",
+                "description": "Optional unload_model to choose whether to unload the model to accelerate inference speed.",
+                "default": false
               }
             },
             "required": [
               "model",
               "prompt",
               "audio_url"
-            ]
+            ],
+            "title": "Step Audio",
+            "description": ""
           }
         ]
       }
