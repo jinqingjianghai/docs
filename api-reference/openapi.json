@@ -16,6 +16,9 @@
       "name": "Video"
     },
     {
+      "name": "Upload"
+    },
+    {
       "name": "Audio"
     }
   ],
@@ -103,7 +106,7 @@
                   "frequency_penalty": {
                     "type": "number",
                     "description": "Defaults to 0. Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
-                    "example": 0,
+                    "default": 0,
                     "minimum": -2,
                     "maximum": 2
                   },
@@ -880,7 +883,9 @@
         "summary": "Upload Files",
         "deprecated": false,
         "description": "",
-        "tags": [],
+        "tags": [
+          "Upload"
+        ],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -1298,7 +1303,8 @@
                 "type": "string",
                 "enum": [
                   "Hunyuan-DiT v1.2"
-                ]
+                ],
+                "example": "Hunyuan-DiT v1.2"
               },
               "prompt": {
                 "type": "string",
@@ -1317,7 +1323,7 @@
               "seed": {
                 "type": "integer",
                 "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of Stable Diffusion will output the same image every time.",
+                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
                 "example": 1,
                 "minimum": 0,
                 "maximum": 10000000000000000
@@ -1457,7 +1463,7 @@
                 "enum": [
                   "qwen-image"
                 ],
-                "default": "qwen-image"
+                "example": "qwen-image"
               },
               "prompt": {
                 "type": "string",
@@ -1618,7 +1624,7 @@
                 "enum": [
                   "flux.1-krea-dev-T2I"
                 ],
-                "default": "flux.1-krea-dev-T2I"
+                "example": "flux.1-krea-dev-T2I"
               },
               "prompt": {
                 "type": "string",
@@ -1768,82 +1774,8 @@
               "model",
               "prompt",
               "image_url"
-            ]
-          },
-          {
-            "type": "object",
-            "title": "qwen-image",
-            "properties": {
-              "model": {
-                "type": "string",
-                "enum": [
-                  "qwen-image"
-                ],
-                "default": "qwen-image"
-              },
-              "prompt": {
-                "type": "string",
-                "title": "Prompt",
-                "description": "The prompt to generate the image with",
-                "default": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive"
-              },
-              "negative_prompt": {
-                "type": "string",
-                "title": "Negative Prompt",
-                "description": "The negative prompt for the generation",
-                "default": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),"
-              },
-              "image_size": {
-                "type": "string",
-                "title": "Image Size",
-                "description": "The size of the generated image.",
-                "example": "576x1024",
-                "enum": [
-                  "512x512",
-                  "1024x1024",
-                  "768x1024",
-                  "576x1024",
-                  "1024x768",
-                  "1024x576"
-                ]
-              },
-              "num_inference_steps": {
-                "type": "integer",
-                "title": "Num Inference Steps",
-                "description": "The number of inference steps to perform. Default value: 20",
-                "example": 20,
-                "minimum": 2,
-                "maximum": 50
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "example": 32116006431307452,
-                "minimum": 0,
-                "maximum": 100000000000000000
-              },
-              "guidance_scale": {
-                "type": "number",
-                "title": "Guidance scale",
-                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
-                "example": 3,
-                "minimum": 0,
-                "maximum": 20
-              },
-              "num_images": {
-                "type": "integer",
-                "title": "Num Images",
-                "description": "The number of images to generate. Default value: 1",
-                "example": 1,
-                "minimum": 1,
-                "maximum": 4
-              }
-            },
-            "required": [
-              "model",
-              "prompt"
-            ]
+            ],
+            "description": ""
           }
         ]
       },
@@ -2323,7 +2255,7 @@
                 "enum": [
                   "infiniteTalk"
                 ],
-                "default": "infiniteTalk"
+                "example": "infiniteTalk"
               },
               "image_url": {
                 "type": "string",
@@ -2397,7 +2329,7 @@
                 "enum": [
                   "Step Audio"
                 ],
-                "default": "Step Audio"
+                "example": "Step Audio"
               },
               "prompt": {
                 "type": "string",
@@ -2480,7 +2412,7 @@
                 "type": "boolean",
                 "title": "Unload model",
                 "description": "Optional unload_model to choose whether to unload the model to accelerate inference speed.",
-                "default": false
+                "example": false
               }
             },
             "required": [
