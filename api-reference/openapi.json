@@ -103,7 +103,7 @@
                   "frequency_penalty": {
                     "type": "number",
                     "description": "Defaults to 0. Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
-                    "default": 0,
+                    "example": 0,
                     "minimum": -2,
                     "maximum": 2
                   },
@@ -1226,21 +1226,21 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "default": "A rubber duck flows in the golden river",
+                "example": "A rubber duck flows in the golden river",
                 "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
                 "title": "Negative Prompt",
                 "description": "The negative prompt to use. Use it to address details that you don't want in the image.",
-                "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
+                "example": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
                 "maxLength": 800
               },
               "seed": {
                 "type": "integer",
                 "title": "Seed",
                 "description": "The same seed and the same prompt given to the same version of Stable Diffusion will output the same image every time.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -1248,7 +1248,7 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "default": "576x1024",
+                "example": "576x1024",
                 "enum": [
                   "512x512",
                   "1024x1024",
@@ -1262,7 +1262,7 @@
                 "type": "integer",
                 "title": "Num Images",
                 "description": "The number of images to generate. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 4
               },
@@ -1270,7 +1270,7 @@
                 "type": "integer",
                 "title": "Num Inference Steps",
                 "description": "The number of inference steps to perform. Default value: 20",
-                "default": 20,
+                "example": 20,
                 "minimum": 1,
                 "maximum": 50
               },
@@ -1278,7 +1278,7 @@
                 "type": "number",
                 "title": "Guidance scale (CFG)",
                 "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 20,
                 "multipleOf": 0.1
@@ -1304,21 +1304,21 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "default": "Extreme close-up of a single tiger eye, direct frontal view. Detailed iris and pupil. Sharp focus on eye texture and color. Natural lighting to capture authentic eye shine and depth. The word \"FLUX\" is painted over it in big, white brush strokes with visible texture.",
+                "example": "Extreme close-up of a single tiger eye, direct frontal view. Detailed iris and pupil. Sharp focus on eye texture and color. Natural lighting to capture authentic eye shine and depth. The word \"FLUX\" is painted over it in big, white brush strokes with visible texture.",
                 "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
                 "title": "Negative Prompt",
                 "description": "The negative prompt to use. Use it to address details that you don't want in the image.",
-                "default": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
+                "example": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
                 "maxLength": 800
               },
               "seed": {
                 "type": "integer",
                 "title": "Seed",
                 "description": "The same seed and the same prompt given to the same version of Stable Diffusion will output the same image every time.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 10000000000000000
               },
@@ -1326,7 +1326,7 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "default": "576x1024",
+                "example": "576x1024",
                 "enum": [
                   "512x512",
                   "1024x1024",
@@ -1340,7 +1340,7 @@
                 "type": "integer",
                 "title": "Num Images",
                 "description": "The number of images to generate. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 4
               },
@@ -1348,7 +1348,7 @@
                 "type": "integer",
                 "title": "Num Inference Steps",
                 "description": "The number of inference steps to perform. Default value: 20",
-                "default": 20,
+                "example": 20,
                 "minimum": 1,
                 "maximum": 50
               },
@@ -1356,7 +1356,7 @@
                 "type": "number",
                 "title": "Guidance scale (CFG)",
                 "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
-                "default": 4.5,
+                "example": 4.5,
                 "minimum": 0,
                 "maximum": 20,
                 "multipleOf": 0.1
@@ -1383,21 +1383,21 @@
                 "format": "uri",
                 "title": "Image Url",
                 "description": "URL of image to use for img2img",
-                "default": "https://online.genbo.ai/img2video/412e68c5-1cad-4c0c-8a97-f14c40c412f2.jpg",
+                "example": "https://online.genbo.ai/img2video/412e68c5-1cad-4c0c-8a97-f14c40c412f2.jpg",
                 "pattern": "https?://.*\\.(jpeg|png|jpg)"
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "default": "小鸟的嘴上加一个树枝",
+                "example": "小鸟的嘴上加一个树枝",
                 "maxLength": 800
               },
               "seed": {
                 "type": "integer",
                 "title": "Seed",
                 "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -1405,7 +1405,7 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "default": "custom",
+                "example": "custom",
                 "enum": [
                   "custom",
                   "1:1 square 1024x1024",
@@ -1419,7 +1419,7 @@
                 "type": "integer",
                 "title": "Num Images",
                 "description": "The number of images to generate. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 4
               },
@@ -1427,7 +1427,7 @@
                 "type": "integer",
                 "title": "Num Inference Steps",
                 "description": "The number of inference steps to perform. Default value: 20",
-                "default": 6,
+                "example": 6,
                 "minimum": 1,
                 "maximum": 50
               },
@@ -1435,7 +1435,7 @@
                 "type": "number",
                 "title": "Guidance scale (CFG)",
                 "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 30,
                 "multipleOf": 0.1
@@ -1463,21 +1463,21 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "default": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
+                "example": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
                 "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
                 "title": "Negative Prompt",
                 "description": "The negative prompt for the generation",
-                "default": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),",
+                "example": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),",
                 "maxLength": 800
               },
               "seed": {
                 "type": "integer",
                 "title": "Seed",
                 "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "default": 32116006431307452,
+                "example": 32116006431307452,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -1485,7 +1485,7 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "default": "576x1024",
+                "example": "576x1024",
                 "enum": [
                   "512x512",
                   "1024x1024",
@@ -1499,7 +1499,7 @@
                 "type": "integer",
                 "title": "Num Images",
                 "description": "The number of images to generate. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 4
               },
@@ -1507,7 +1507,7 @@
                 "type": "integer",
                 "title": "Num Inference Steps",
                 "description": "The number of inference steps to perform. Default value: 20",
-                "default": 20,
+                "example": 20,
                 "minimum": 2,
                 "maximum": 50
               },
@@ -1515,7 +1515,7 @@
                 "type": "number",
                 "title": "Guidance scale",
                 "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
-                "default": 3,
+                "example": 3,
                 "minimum": 0,
                 "maximum": 20,
                 "multipleOf": 0.1
@@ -1534,7 +1534,7 @@
             "properties": {
               "model": {
                 "type": "string",
-                "default": "flux.1-krea-dev-I2I",
+                "example": "flux.1-krea-dev-I2I",
                 "enum": [
                   "flux.1-krea-dev-I2I"
                 ]
@@ -1544,21 +1544,21 @@
                 "format": "uri",
                 "title": "Image Url",
                 "description": "URL of image to use for img2img",
-                "default": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+                "example": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
                 "pattern": "https?://.*\\.(jpeg|png|jpg)"
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "default": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
+                "example": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
                 "maxLength": 800
               },
               "image_size": {
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "default": "custom",
+                "example": "custom",
                 "enum": [
                   "custom",
                   "1:1 square 1024x1024",
@@ -1572,7 +1572,7 @@
                 "type": "integer",
                 "title": "Seed",
                 "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -1580,7 +1580,7 @@
                 "type": "integer",
                 "title": "Num Images",
                 "description": "The number of images to generate. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 4
               },
@@ -1588,7 +1588,7 @@
                 "type": "integer",
                 "title": "Num Inference Steps",
                 "description": "The number of inference steps to perform. Default value: 20",
-                "default": 8,
+                "example": 8,
                 "minimum": 2,
                 "maximum": 50
               },
@@ -1596,7 +1596,7 @@
                 "type": "number",
                 "title": "Guidance scale",
                 "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 20,
                 "multipleOf": 0.1
@@ -1624,14 +1624,14 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "default": "GHIBSKY style, a cyberpunk cat holding a neon sign that says \"SVDQuant is lite and fast!\"",
+                "example": "GHIBSKY style, a cyberpunk cat holding a neon sign that says \"SVDQuant is lite and fast!\"",
                 "maxLength": 800
               },
               "image_size": {
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "default": "576x1024",
+                "example": "576x1024",
                 "enum": [
                   "512x512",
                   "1024x1024",
@@ -1645,7 +1645,7 @@
                 "type": "integer",
                 "title": "Seed",
                 "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -1653,7 +1653,7 @@
                 "type": "integer",
                 "title": "Num Images",
                 "description": "The number of images to generate. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 4
               },
@@ -1661,7 +1661,7 @@
                 "type": "integer",
                 "title": "Num Inference Steps",
                 "description": "The number of inference steps to perform. Default value: 20",
-                "default": 20,
+                "example": 20,
                 "minimum": 2,
                 "maximum": 50
               },
@@ -1669,7 +1669,7 @@
                 "type": "number",
                 "title": "Guidance scale",
                 "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 20,
                 "multipleOf": 0.1
@@ -1687,7 +1687,7 @@
             "properties": {
               "model": {
                 "type": "string",
-                "default": "qwen-image-edit",
+                "example": "qwen-image-edit",
                 "enum": [
                   "qwen-image-edit"
                 ]
@@ -1696,28 +1696,28 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "default": "Remove all UI text elements from the image. Keep the feeling that the characters and scene are in water. Also, remove the green UI elements at the bottom",
+                "example": "Remove all UI text elements from the image. Keep the feeling that the characters and scene are in water. Also, remove the green UI elements at the bottom",
                 "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
                 "title": "Negative Prompt",
                 "description": "The negative prompt for the generation",
-                "default": "blurry, ugly",
+                "example": "blurry, ugly",
                 "maxLength": 800
               },
               "image_url": {
                 "type": "string",
                 "title": "Image Url",
                 "description": "URL of image to use for img2img",
-                "default": "https://online.genbo.ai/img2video/412e68c5-1cad-4c0c-8a97-f14c40c412f2.jpg",
+                "example": "https://online.genbo.ai/img2video/412e68c5-1cad-4c0c-8a97-f14c40c412f2.jpg",
                 "format": "uri"
               },
               "num_inference_steps": {
                 "type": "integer",
                 "title": "Num Inference Steps",
                 "description": "The number of inference steps to perform. Default value: 20",
-                "default": 20,
+                "example": 20,
                 "minimum": 2,
                 "maximum": 50,
                 "multipleOf": 1
@@ -1726,7 +1726,7 @@
                 "type": "integer",
                 "title": "Seed",
                 "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "default": 32116006431307452,
+                "example": 32116006431307452,
                 "minimum": 0,
                 "maximum": 100000000000000000,
                 "multipleOf": 1
@@ -1735,7 +1735,7 @@
                 "type": "number",
                 "title": "Guidance scale",
                 "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 20,
                 "multipleOf": 0.1
@@ -1744,7 +1744,7 @@
                 "type": "integer",
                 "title": "Num Images",
                 "description": "The number of images to generate. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 4,
                 "multipleOf": 1
@@ -1753,7 +1753,7 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "default": "custom",
+                "example": "custom",
                 "enum": [
                   "custom",
                   "1:1 square 1024x1024",
@@ -1797,7 +1797,7 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "default": "576x1024",
+                "example": "576x1024",
                 "enum": [
                   "512x512",
                   "1024x1024",
@@ -1811,7 +1811,7 @@
                 "type": "integer",
                 "title": "Num Inference Steps",
                 "description": "The number of inference steps to perform. Default value: 20",
-                "default": 20,
+                "example": 20,
                 "minimum": 2,
                 "maximum": 50
               },
@@ -1819,7 +1819,7 @@
                 "type": "integer",
                 "title": "Seed",
                 "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "default": 32116006431307452,
+                "example": 32116006431307452,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -1827,7 +1827,7 @@
                 "type": "number",
                 "title": "Guidance scale",
                 "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
-                "default": 3,
+                "example": 3,
                 "minimum": 0,
                 "maximum": 20
               },
@@ -1835,7 +1835,7 @@
                 "type": "integer",
                 "title": "Num Images",
                 "description": "The number of images to generate. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 4
               }
@@ -1862,21 +1862,21 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The text prompt to guide video generation.",
-                "default": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
+                "example": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
                 "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
                 "title": "Negative Prompt",
                 "description": "Negative prompt for video generation.",
-                "default": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
+                "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
                 "maxLength": 800
               },
               "seed": {
                 "type": "integer",
                 "title": "Seed",
                 "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -1884,7 +1884,7 @@
                 "type": "integer",
                 "title": "Number of Frames",
                 "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
-                "default": 81,
+                "example": 81,
                 "minimum": 81,
                 "maximum": 160
               },
@@ -1892,7 +1892,7 @@
                 "type": "integer",
                 "title": "Frames per Second",
                 "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
-                "default": 16,
+                "example": 16,
                 "minimum": 1,
                 "maximum": 25
               },
@@ -1900,7 +1900,7 @@
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: 'auto'",
-                "default": "1280x720",
+                "example": "1280x720",
                 "enum": [
                   "1280x720",
                   "720x1280",
@@ -1911,7 +1911,7 @@
                 "type": "integer",
                 "title": "Number of Inference Steps",
                 "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 5",
-                "default": 5,
+                "example": 5,
                 "minimum": 1,
                 "maximum": 40
               },
@@ -1919,7 +1919,7 @@
                 "type": "number",
                 "title": "Guidance Scale",
                 "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 30,
                 "multipleOf": 0.1
@@ -1947,21 +1947,21 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The text prompt to guide video generation.",
-                "default": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
+                "example": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
                 "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
                 "title": "Negative Prompt",
                 "description": "Negative prompt for video generation.",
-                "default": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
+                "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
                 "maxLength": 800
               },
               "seed": {
                 "type": "integer",
                 "title": "Seed",
                 "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -1969,7 +1969,7 @@
                 "type": "number",
                 "title": "Shift",
                 "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 2",
-                "default": 2,
+                "example": 2,
                 "minimum": 1,
                 "maximum": 10,
                 "multipleOf": 1
@@ -1978,7 +1978,7 @@
                 "type": "integer",
                 "title": "Number of Frames",
                 "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
-                "default": 81,
+                "example": 81,
                 "minimum": 16,
                 "maximum": 161
               },
@@ -1987,14 +1987,14 @@
                 "format": "uri",
                 "title": "Image URL",
                 "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "default": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+                "example": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
                 "pattern": "https?://.*\\.(jpeg|png|jpg)"
               },
               "frames_per_second": {
                 "type": "integer",
                 "title": "Frames per Second",
                 "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
-                "default": 16,
+                "example": 16,
                 "minimum": 5,
                 "maximum": 24
               },
@@ -2002,7 +2002,7 @@
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
-                "default": "custom",
+                "example": "custom",
                 "enum": [
                   "custom",
                   "16:9 landscape 1344x768",
@@ -2014,7 +2014,7 @@
                 "type": "integer",
                 "title": "Number of Inference Steps",
                 "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 5",
-                "default": 5,
+                "example": 5,
                 "minimum": 1,
                 "maximum": 40
               },
@@ -2022,7 +2022,7 @@
                 "type": "number",
                 "title": "Guidance Scale",
                 "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 30,
                 "multipleOf": 0.1
@@ -2051,14 +2051,14 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "A prompt to guide the audio generation. If not provided, it will be extracted from the video.",
-                "default": "",
+                "example": "",
                 "maxLength": 800
               },
               "cfg_scale": {
                 "type": "number",
                 "title": "CFG Scale",
                 "description": "The classifier-free guidance scale for audio generation. Default value: 6",
-                "default": 6,
+                "example": 6,
                 "minimum": 1,
                 "maximum": 20,
                 "multipleOf": 0.1
@@ -2067,7 +2067,7 @@
                 "type": "integer",
                 "title": "Seed",
                 "description": "The seed for the random number generator",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 1000000000000000000
               },
@@ -2076,14 +2076,14 @@
                 "title": "Video Url",
                 "description": "The URL of the video to generate the audio for.",
                 "format": "uri",
-                "default": "https://online.genbo.ai/img2video/f2ba8d17-fb12-48d7-86d1-422cc88ad457.mp4",
+                "example": "https://online.genbo.ai/img2video/f2ba8d17-fb12-48d7-86d1-422cc88ad457.mp4",
                 "pattern": "^(https?://).+\\.(mp4|avi|mov|mkv|gif)$"
               },
               "num_inference_steps": {
                 "type": "integer",
                 "title": "Number of Inference Steps",
                 "description": "The number of inference steps for audio generation. Default value: 35",
-                "default": 35,
+                "example": 35,
                 "minimum": 2,
                 "maximum": 100
               }
@@ -2108,21 +2108,21 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The text prompt to guide video generation.",
-                "default": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
+                "example": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
                 "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
                 "title": "Negative Prompt",
                 "description": "Negative prompt for video generation.",
-                "default": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
+                "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
                 "maxLength": 800
               },
               "num_frames": {
                 "type": "integer",
                 "title": "Number of Frames",
                 "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
-                "default": 81,
+                "example": 81,
                 "minimum": 81,
                 "maximum": 121,
                 "multipleOf": 1
@@ -2131,7 +2131,7 @@
                 "type": "integer",
                 "title": "Seed",
                 "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 100000000000000000,
                 "multipleOf": 1
@@ -2140,7 +2140,7 @@
                 "type": "number",
                 "title": "Shift",
                 "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 8",
-                "default": 8,
+                "example": 8,
                 "minimum": 1,
                 "maximum": 10,
                 "multipleOf": 0.1
@@ -2149,7 +2149,7 @@
                 "type": "integer",
                 "title": "Frames per Second",
                 "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
-                "default": 16,
+                "example": 16,
                 "minimum": 4,
                 "maximum": 60,
                 "multipleOf": 1
@@ -2158,7 +2158,7 @@
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: 'auto'",
-                "default": "1280x720",
+                "example": "1280x720",
                 "enum": [
                   "1280x720",
                   "720x1280",
@@ -2169,7 +2169,7 @@
                 "type": "integer",
                 "title": "Number of Inference Steps",
                 "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 8",
-                "default": 8,
+                "example": 8,
                 "minimum": 2,
                 "maximum": 40,
                 "multipleOf": 1
@@ -2178,7 +2178,7 @@
                 "type": "number",
                 "title": "Guidance Scale (1st Stage)",
                 "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 10,
                 "multipleOf": 0.1
@@ -2187,7 +2187,7 @@
                 "type": "number",
                 "title": "Guidance Scale (2nd Stage)",
                 "description": "Guidance scale for the second stage of the model. This is used to control the adherence to the prompt in the second stage of the model. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 1,
                 "maximum": 10,
                 "multipleOf": 0.1
@@ -2215,21 +2215,21 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The text prompt to guide video generation.",
-                "default": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
+                "example": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
                 "maxLength": 800
               },
               "negative_prompt": {
                 "type": "string",
                 "title": "Negative Prompt",
                 "description": "Negative prompt for video generation.",
-                "default": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
+                "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
                 "maxLength": 800
               },
               "seed": {
                 "type": "integer",
                 "title": "Seed",
                 "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -2237,7 +2237,7 @@
                 "type": "number",
                 "title": "Shift",
                 "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 8",
-                "default": 8,
+                "example": 8,
                 "minimum": 1,
                 "maximum": 100,
                 "multipleOf": 1
@@ -2246,7 +2246,7 @@
                 "type": "integer",
                 "title": "Number of Frames",
                 "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
-                "default": 81,
+                "example": 81,
                 "minimum": 81,
                 "maximum": 121
               },
@@ -2255,14 +2255,14 @@
                 "format": "uri",
                 "title": "Image URL",
                 "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "default": "https://online.genbo.ai/img2video/79592042-97b8-44d3-9ce3-72120f3df192.png",
+                "example": "https://online.genbo.ai/img2video/79592042-97b8-44d3-9ce3-72120f3df192.png",
                 "pattern": "https?://.*\\.(jpeg|png|jpg)"
               },
               "frames_per_second": {
                 "type": "integer",
                 "title": "Frames per Second",
                 "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
-                "default": 16,
+                "example": 16,
                 "minimum": 4,
                 "maximum": 60
               },
@@ -2270,7 +2270,7 @@
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
-                "default": "custom",
+                "example": "custom",
                 "enum": [
                   "custom",
                   "16:9 landscape 1344x768",
@@ -2282,7 +2282,7 @@
                 "type": "integer",
                 "title": "Number of Inference Steps",
                 "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 6",
-                "default": 6,
+                "example": 6,
                 "minimum": 2,
                 "maximum": 50
               },
@@ -2290,7 +2290,7 @@
                 "type": "number",
                 "title": "Guidance Scale (1st Stage)",
                 "description": "Classifier-free Guidance Scale (1st Stage). Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 30,
                 "multipleOf": 0.1
@@ -2299,7 +2299,7 @@
                 "type": "number",
                 "title": "Guidance Scale (2nd Stage)",
                 "description": "Classifier-free Guidance Scale (2nd Stage). Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 30,
                 "multipleOf": 0.1
@@ -2329,28 +2329,28 @@
                 "type": "string",
                 "title": "Image URL",
                 "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "default": "https://online.genbo.ai/img2video/d0503df2-abf3-424a-b5b1-bbf322cb98bb.png",
+                "example": "https://online.genbo.ai/img2video/d0503df2-abf3-424a-b5b1-bbf322cb98bb.png",
                 "format": "uri"
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The text prompt to guide video generation.",
-                "default": "A female poet is reciting",
+                "example": "A female poet is reciting",
                 "maxLength": 800
               },
               "audio_url": {
                 "type": "string",
                 "title": "Audio Url",
                 "description": "The URL of the audio file",
-                "default": "https://online.genbo.ai/genbo-test/96131313-3214-4355-9bdb-a22cfbe208f6.mp3",
+                "example": "https://online.genbo.ai/genbo-test/96131313-3214-4355-9bdb-a22cfbe208f6.mp3",
                 "format": "uri"
               },
               "num_frames": {
                 "type": "integer",
                 "title": "Number of Frames",
                 "description": "Number of frames to generate. Must be between 41 to 721. Default value: 145",
-                "default": 275,
+                "example": 275,
                 "minimum": 41,
                 "maximum": 721,
                 "multipleOf": 1
@@ -2359,7 +2359,7 @@
                 "type": "integer",
                 "title": "Seed",
                 "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "default": 1,
+                "example": 1,
                 "minimum": 0,
                 "maximum": 100000000000000000,
                 "multipleOf": 1
@@ -2368,7 +2368,7 @@
                 "type": "string",
                 "title": "Aspect ratio/resolution",
                 "description": "Resolution of the video to generate. Must be either 480p or 720p. Default value: 480p",
-                "default": "720x1280",
+                "example": "720x1280",
                 "enum": [
                   "848x480",
                   "720x1280"
@@ -2403,21 +2403,21 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "default": "对这个世界如果你有太多的抱怨,跌倒了就不敢继续往前走",
+                "example": "对这个世界如果你有太多的抱怨,跌倒了就不敢继续往前走",
                 "maxLength": 800
               },
               "audio_url": {
                 "type": "string",
                 "title": "Audio Url",
                 "description": "URL of audio to use for audio2audio",
-                "default": "https://online.genbo.ai/genbo-test/5ada6cf3-9cd6-40bc-ac62-d5ec45dae2ce.mp3",
+                "example": "https://online.genbo.ai/genbo-test/5ada6cf3-9cd6-40bc-ac62-d5ec45dae2ce.mp3",
                 "format": "uri"
               },
               "emotion": {
                 "type": "string",
                 "title": "emotion",
                 "description": "The emotion to use for generating the audio. Default value: None",
-                "default": "None",
+                "example": "None",
                 "enum": [
                   "None",
                   "高兴1",
@@ -2430,7 +2430,7 @@
                 "type": "string",
                 "title": "language",
                 "description": "The language to use for generating the audio. Default value: None",
-                "default": "None",
+                "example": "None",
                 "enum": [
                   "None",
                   "中文",
@@ -2445,7 +2445,7 @@
                 "type": "string",
                 "title": "express",
                 "description": "The express to use for generating the audio. Default value: None",
-                "default": "None",
+                "example": "None",
                 "enum": [
                   "None",
                   "RAP",
@@ -2456,7 +2456,7 @@
                 "type": "number",
                 "title": "temperature",
                 "description": "The randomness and creativity in generating speech within the control model",
-                "default": 0.5,
+                "example": 0.5,
                 "minimum": 0,
                 "maximum": 1,
                 "multipleOf": 0.1
@@ -2465,7 +2465,7 @@
                 "type": "integer",
                 "title": "max length",
                 "description": "max_length can be adjusted according to the text length.",
-                "default": 2048,
+                "example": 2048,
                 "minimum": 0,
                 "maximum": 2048
               },
@@ -2473,7 +2473,7 @@
                 "type": "string",
                 "title": "custom mark",
                 "description": "Add experimental custom_mark, surrounding with '()', for example (温柔)(东北话), it may have an effect.",
-                "default": "",
+                "example": "",
                 "maxLength": 100
               },
               "unload_model": {
