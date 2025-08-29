@@ -10,10 +10,13 @@
       "name": "Chat"
     },
     {
-      "name": "Image Generation Model"
+      "name": "Image"
     },
     {
-      "name": "Video Model"
+      "name": "Video"
+    },
+    {
+      "name": "Audio"
     }
   ],
   "paths": {
@@ -270,7 +273,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "Image Generation Model"
+          "Image"
         ],
         "parameters": [],
         "requestBody": {
@@ -318,7 +321,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "Image Generation Model"
+          "Image"
         ],
         "parameters": [
           {
@@ -446,7 +449,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "Image Generation Model"
+          "Image"
         ],
         "parameters": [
           {
@@ -579,7 +582,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "Video Model"
+          "Video"
         ],
         "parameters": [],
         "requestBody": {
@@ -629,7 +632,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "Video Model"
+          "Video"
         ],
         "parameters": [
           {
@@ -751,7 +754,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "Video Model"
+          "Video"
         ],
         "parameters": [
           {
@@ -957,7 +960,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "Video Model"
+          "Audio"
         ],
         "parameters": [],
         "requestBody": {
@@ -1004,7 +1007,9 @@
         "summary": "Get Audio Generation Result (List)",
         "deprecated": false,
         "description": "",
-        "tags": [],
+        "tags": [
+          "Audio"
+        ],
         "parameters": [
           {
             "name": "pageSize",
@@ -1104,7 +1109,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "Video Model"
+          "Audio"
         ],
         "parameters": [
           {
