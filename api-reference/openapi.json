@@ -2416,7 +2416,8 @@
               "image_url",
               "prompt",
               "audio_url",
-              "num_frames"
+              "num_frames",
+              "frames_per_second"
             ],
             "title": "Wan2_2-S2V-14B",
             "description": ""
@@ -2445,7 +2446,7 @@
                 "example": "Two characters are having a conversation. When one is speaking, the other keeps their mouth closed and doesn't move",
                 "maxLength": 800
               },
-              "audio_url1": {
+              "audio_url": {
                 "type": "string",
                 "title": "Audio Url",
                 "description": "The URL of the audio file",
@@ -2503,6 +2504,7 @@
               "image_url",
               "prompt",
               "audio_url",
+              "audio_url2",
               "num_frames"
             ],
             "title": "InfiniteTalk Multi",
