@@ -1893,7 +1893,7 @@
                 "type": "integer",
                 "title": "Seed",
                 "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
+                "example": 7658656531,
                 "minimum": 0,
                 "maximum": 100000000000000000
               },
@@ -2261,21 +2261,21 @@
                 "type": "string",
                 "title": "Image URL",
                 "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "example": "https://online.genbo.ai/img2video/d0503df2-abf3-424a-b5b1-bbf322cb98bb.png",
+                "example": "https://online.genbo.ai/img2video/35ca7329-6fb3-49ec-a7d2-f197511c56a9.png",
                 "format": "uri"
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The text prompt to guide video generation.",
-                "example": "A female poet is reciting",
+                "example": "A woman with colorful hair talking on a podcast.",
                 "maxLength": 800
               },
               "audio_url": {
                 "type": "string",
                 "title": "Audio Url",
                 "description": "The URL of the audio file",
-                "example": "https://online.genbo.ai/genbo-test/96131313-3214-4355-9bdb-a22cfbe208f6.mp3",
+                "example": "https://online.genbo.ai/img2video/dbc5e6bd-25b6-484b-b7d6-76fda9b53ed1.mp3",
                 "format": "uri"
               },
               "num_frames": {
@@ -2291,7 +2291,7 @@
                 "type": "integer",
                 "title": "Seed",
                 "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
+                "example": 311200663032897,
                 "minimum": 0,
                 "maximum": 100000000000000000,
                 "multipleOf": 1
@@ -2315,6 +2315,197 @@
               "num_frames"
             ],
             "title": "infiniteTalk",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2_2-S2V-14B"
+                ],
+                "example": "Wan2_2-S2V-14B"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/genbo-test/afb51aab-9639-4a18-b753-becf493256e5.jpg",
+                "format": "uri"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "example": "The man is playing the guitar. He looks down at his hands playing the guitar and sings affectionately and gently",
+                "maxLength": 800
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "The URL of the audio file",
+                "example": "https://online.genbo.ai/genbo-test/46b99b71-f7d7-49b6-8eb0-75ffbc5b4831.MP3",
+                "format": "uri"
+              },
+              "num_frames": {
+                "type": "integer",
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 41 to 721. Default value: 145",
+                "example": 77,
+                "minimum": 40,
+                "maximum": 120,
+                "multipleOf": 1
+              },
+              "frames_per_second": {
+                "type": "integer",
+                "title": "Frames per Second",
+                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
+                "example": 16,
+                "minimum": 4,
+                "maximum": 60
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 311200663032897,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "ratio": {
+                "type": "string",
+                "title": "Aspect ratio/resolution",
+                "description": "Resolution of the video to generate. Must be either 480p or 720p. Default value: 480p",
+                "example": "720x1280",
+                "enum": [
+                  "848x480",
+                  "720x1280"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "example": 20,
+                "minimum": 2,
+                "maximum": 40
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale (CFG)",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
+                "example": 1,
+                "minimum": 1,
+                "maximum": 10,
+                "multipleOf": 0.1
+              },
+              "shift": {
+                "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 8",
+                "example": 8,
+                "minimum": 1,
+                "maximum": 10,
+                "multipleOf": 1
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "prompt",
+              "audio_url",
+              "num_frames"
+            ],
+            "title": "Wan2_2-S2V-14B",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "InfiniteTalk Multi"
+                ],
+                "example": "InfiniteTalk Multi"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/genbo-test/e5188e1d-a27e-4c41-9ae1-20012df42906.png",
+                "format": "uri"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "example": "Two characters are having a conversation. When one is speaking, the other keeps their mouth closed and doesn't move",
+                "maxLength": 800
+              },
+              "audio_url1": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "The URL of the audio file",
+                "example": "https://online.genbo.ai/genbo-test/8feb86b2-8d1e-4478-9c38-6a53d51da529.mp3",
+                "format": "uri"
+              },
+              "audio_url2": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "The URL of the audio file",
+                "example": "https://online.genbo.ai/genbo-test/dc0337cb-c77e-4306-8994-83d324f46137.mp3",
+                "format": "uri"
+              },
+              "num_frames": {
+                "type": "integer",
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 41 to 721. Default value: 145",
+                "example": 275,
+                "minimum": 41,
+                "maximum": 721,
+                "multipleOf": 1
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 506201535771240,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "ratio": {
+                "type": "string",
+                "title": "Aspect ratio/resolution",
+                "description": "Resolution of the video to generate. Must be either 480p or 720p. Default value: 480p",
+                "example": "720x1280",
+                "enum": [
+                  "848x480",
+                  "720x1280"
+                ]
+              },
+              "multi_audio_type": {
+                "type": "string",
+                "title":"Multi_audio_type",
+                "description": "The multi_audio_type parameter manages how multiple audio clips are combinChoose 'para' to mix them in parallel-playing all at once, great for blendound sounds with vocals. Pick 'add' to string them sequentially, one aftererfect for segmented speech or ordered audio snippets. It's all about whetant overlap or a continuous flow",
+                "example": "add",
+                "enum": [
+                  "add",
+                  "para"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "prompt",
+              "audio_url",
+              "num_frames"
+            ],
+            "title": "InfiniteTalk Multi",
             "description": ""
           }
         ]
