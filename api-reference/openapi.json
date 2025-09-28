@@ -426,7 +426,7 @@
                     "input": {
                       "cfg": 3,
                       "seed": 32116006431307452,
-                      "model": "qwen-image",
+                      "model": "Qwen-image",
                       "steps": 20,
                       "prompt": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
                       "image_size": "576x1024",
@@ -557,7 +557,7 @@
                     "input": {
                       "cfg": 1,
                       "seed": 3486883881156089,
-                      "model": "FLUX.1 [dev]",
+                      "model": "Flux-dev",
                       "steps": 20,
                       "prompt": "A rubber duck flows in the golden river",
                       "image_size": "1024x576",
@@ -1225,7 +1225,7 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "FLUX.1 [dev]"
+                  "Flux-dev"
                 ]
               },
               "prompt": {
@@ -1294,7 +1294,7 @@
               "model",
               "prompt"
             ],
-            "title": "FLUX.1 [dev]",
+            "title": "Flux-dev",
             "description": ""
           },
           {
@@ -1382,7 +1382,7 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "flux.1-kontext-dev"
+                  "Flux-kontext-dev"
                 ]
               },
               "image_url": {
@@ -1448,7 +1448,7 @@
                 "multipleOf": 0.1
               }
             },
-            "title": "flux.1-kontext-dev",
+            "title": "Flux-kontext-dev",
             "required": [
               "model",
               "prompt",
@@ -1462,9 +1462,9 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "qwen-image"
+                  "Qwen-image"
                 ],
-                "example": "qwen-image"
+                "example": "Qwen-image"
               },
               "prompt": {
                 "type": "string",
@@ -1532,18 +1532,18 @@
               "model",
               "prompt"
             ],
-            "title": "qwen-image",
+            "title": "Qwen-image",
             "description": ""
           },
           {
             "type": "object",
-            "title": "flux.1-krea-dev-I2I",
+            "title": "Flux-krea-dev-I2I",
             "properties": {
               "model": {
                 "type": "string",
-                "example": "flux.1-krea-dev-I2I",
+                "example": "Flux-krea-dev-I2I",
                 "enum": [
-                  "flux.1-krea-dev-I2I"
+                  "Flux-krea-dev-I2I"
                 ]
               },
               "image_url": {
@@ -1618,14 +1618,14 @@
           },
           {
             "type": "object",
-            "title": "flux.1-krea-dev-T2I",
+            "title": "Flux-krea-dev-T2I",
             "properties": {
               "model": {
                 "type": "string",
                 "enum": [
-                  "flux.1-krea-dev-T2I"
+                  "Flux-krea-dev-T2I"
                 ],
-                "example": "flux.1-krea-dev-T2I"
+                "example": "Flux-krea-dev-T2I"
               },
               "prompt": {
                 "type": "string",
@@ -1690,13 +1690,13 @@
           },
           {
             "type": "object",
-            "title": "qwen-image-edit",
+            "title": "Qwen-image-edit",
             "properties": {
               "model": {
                 "type": "string",
-                "example": "qwen-image-edit",
+                "example": "Qwen-image-edit",
                 "enum": [
-                  "qwen-image-edit"
+                  "Qwen-image-edit"
                 ]
               },
               "prompt": {
@@ -1777,364 +1777,92 @@
               "image_url"
             ],
             "description": ""
+          },
+          {
+            "type": "object",
+            "title": "FLUX.1-Lora",
+            "properties": {
+              "model": {
+                "type": "string",
+                "example": "FLUX.1-Lora",
+                "enum": [
+                  "FLUX.1-Lora"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "A flower shop with exquisite windows,Beautiful wooden door,Putting Flowers",
+                "maxLength": 800
+              },
+              "loras": {
+                "type": "string",
+                "example": "",
+                "enum": [
+
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "example": 20,
+                "minimum": 1,
+                "maximum": 50,
+                "multipleOf": 1
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
+                "example": 32116006431307452,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
+                "example": 3.5,
+                "minimum": 0,
+                "maximum": 30,
+                "multipleOf": 0.1
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "example": 1,
+                "minimum": 1,
+                "maximum": 4,
+                "multipleOf": 1
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "example": "custom",
+                "enum": [
+                  "custom",
+                  "1:1 square 1024x1024",
+                  "9:16 portrait 768x1344",
+                  "16:9 landscape 1344x768"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "loras"
+            ],
+            "description": ""
           }
         ]
       },
       "video": {
         "anyOf": [
-          {
-            "type": "object",
-            "properties": {
-              "model": {
-                "type": "string",
-                "enum": [
-                  "Wan2_1-T2V-14B"
-                ]
-              },
-              "prompt": {
-                "type": "string",
-                "title": "Prompt",
-                "description": "The text prompt to guide video generation.",
-                "example": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
-                "maxLength": 800
-              },
-              "negative_prompt": {
-                "type": "string",
-                "title": "Negative Prompt",
-                "description": "Negative prompt for video generation.",
-                "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
-                "maxLength": 800
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000
-              },
-              "num_frames": {
-                "type": "integer",
-                "title": "Number of Frames",
-                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
-                "example": 81,
-                "minimum": 81,
-                "maximum": 160
-              },
-              "frames_per_second": {
-                "type": "integer",
-                "title": "Frames per Second",
-                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
-                "example": 16,
-                "minimum": 1,
-                "maximum": 25
-              },
-              "aspect_ratio": {
-                "type": "string",
-                "title": "Aspect Ratio",
-                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: 'auto'",
-                "example": "1280x720",
-                "enum": [
-                  "1280x720",
-                  "720x1280",
-                  "720x720"
-                ]
-              },
-              "num_inference_steps": {
-                "type": "integer",
-                "title": "Number of Inference Steps",
-                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 5",
-                "example": 5,
-                "minimum": 1,
-                "maximum": 40
-              },
-              "guidance_scale": {
-                "type": "number",
-                "title": "Guidance Scale",
-                "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 30,
-                "multipleOf": 0.1
-              }
-            },
-            "required": [
-              "model",
-              "prompt",
-              "num_frames",
-              "frames_per_second"
-            ],
-            "title": "Wan2_1-T2V-14B",
-            "description": ""
-          },
-          {
-            "type": "object",
-            "properties": {
-              "model": {
-                "type": "string",
-                "enum": [
-                  "Wan2_1-I2V-14B-720P"
-                ]
-              },
-              "prompt": {
-                "type": "string",
-                "title": "Prompt",
-                "description": "The text prompt to guide video generation.",
-                "example": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
-                "maxLength": 800
-              },
-              "negative_prompt": {
-                "type": "string",
-                "title": "Negative Prompt",
-                "description": "Negative prompt for video generation.",
-                "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
-                "maxLength": 800
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 7658656531,
-                "minimum": 0,
-                "maximum": 100000000000000000
-              },
-              "shift": {
-                "type": "number",
-                "title": "Shift",
-                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 2",
-                "example": 2,
-                "minimum": 1,
-                "maximum": 10,
-                "multipleOf": 1
-              },
-              "num_frames": {
-                "type": "integer",
-                "title": "Number of Frames",
-                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
-                "example": 81,
-                "minimum": 16,
-                "maximum": 161
-              },
-              "image_url": {
-                "type": "string",
-                "format": "uri",
-                "title": "Image URL",
-                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "example": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
-                "pattern": "https?://.*\\.(jpeg|png|jpg)"
-              },
-              "frames_per_second": {
-                "type": "integer",
-                "title": "Frames per Second",
-                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
-                "example": 16,
-                "minimum": 5,
-                "maximum": 24
-              },
-              "aspect_ratio": {
-                "type": "string",
-                "title": "Aspect Ratio",
-                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
-                "example": "custom",
-                "enum": [
-                  "custom",
-                  "16:9 landscape 1344x768",
-                  "9:16 portrait 768x1344",
-                  "1:1 square 1024x1024"
-                ]
-              },
-              "num_inference_steps": {
-                "type": "integer",
-                "title": "Number of Inference Steps",
-                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 5",
-                "example": 5,
-                "minimum": 1,
-                "maximum": 40
-              },
-              "guidance_scale": {
-                "type": "number",
-                "title": "Guidance Scale",
-                "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 30,
-                "multipleOf": 0.1
-              }
-            },
-            "required": [
-              "model",
-              "image_url",
-              "prompt",
-              "num_frames",
-              "frames_per_second"
-            ],
-            "title": "Wan2_1-I2V-14B-720P",
-            "description": ""
-          },
-          {
-            "type": "object",
-            "properties": {
-              "model": {
-                "type": "string",
-                "enum": [
-                  "thinksound"
-                ]
-              },
-              "prompt": {
-                "type": "string",
-                "title": "Prompt",
-                "description": "A prompt to guide the audio generation. If not provided, it will be extracted from the video.",
-                "example": "",
-                "maxLength": 800
-              },
-              "cfg_scale": {
-                "type": "number",
-                "title": "CFG Scale",
-                "description": "The classifier-free guidance scale for audio generation. Default value: 6",
-                "example": 6,
-                "minimum": 1,
-                "maximum": 20,
-                "multipleOf": 0.1
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The seed for the random number generator",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 1000000000000000000
-              },
-              "video_url": {
-                "type": "string",
-                "title": "Video Url",
-                "description": "The URL of the video to generate the audio for.",
-                "format": "uri",
-                "example": "https://online.genbo.ai/img2video/f2ba8d17-fb12-48d7-86d1-422cc88ad457.mp4",
-                "pattern": "^(https?://).+\\.(mp4|avi|mov|mkv|gif)$"
-              },
-              "num_inference_steps": {
-                "type": "integer",
-                "title": "Number of Inference Steps",
-                "description": "The number of inference steps for audio generation. Default value: 35",
-                "example": 35,
-                "minimum": 2,
-                "maximum": 100
-              }
-            },
-            "required": [
-              "model",
-              "video_url"
-            ],
-            "title": "thinksound",
-            "description": ""
-          },
-          {
-            "type": "object",
-            "properties": {
-              "model": {
-                "type": "string",
-                "enum": [
-                  "Wan2_2-T2V-14B"
-                ]
-              },
-              "prompt": {
-                "type": "string",
-                "title": "Prompt",
-                "description": "The text prompt to guide video generation.",
-                "example": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
-                "maxLength": 800
-              },
-              "negative_prompt": {
-                "type": "string",
-                "title": "Negative Prompt",
-                "description": "Negative prompt for video generation.",
-                "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
-                "maxLength": 800
-              },
-              "num_frames": {
-                "type": "integer",
-                "title": "Number of Frames",
-                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
-                "example": 81,
-                "minimum": 81,
-                "maximum": 121,
-                "multipleOf": 1
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
-              },
-              "shift": {
-                "type": "number",
-                "title": "Shift",
-                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 8",
-                "example": 8,
-                "minimum": 1,
-                "maximum": 10,
-                "multipleOf": 0.1
-              },
-              "frames_per_second": {
-                "type": "integer",
-                "title": "Frames per Second",
-                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
-                "example": 16,
-                "minimum": 4,
-                "maximum": 60,
-                "multipleOf": 1
-              },
-              "aspect_ratio": {
-                "type": "string",
-                "title": "Aspect Ratio",
-                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: 'auto'",
-                "example": "1280x720",
-                "enum": [
-                  "1280x720",
-                  "720x1280",
-                  "720x720"
-                ]
-              },
-              "num_inference_steps": {
-                "type": "integer",
-                "title": "Number of Inference Steps",
-                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 8",
-                "example": 8,
-                "minimum": 2,
-                "maximum": 40,
-                "multipleOf": 1
-              },
-              "guidance_scale": {
-                "type": "number",
-                "title": "Guidance Scale (1st Stage)",
-                "description": "Classifier-free guidance scale. Higher values give better adherence to the prompt but may decrease quality. Default value: 1",
-                "example": 1,
-                "minimum": 1,
-                "maximum": 10,
-                "multipleOf": 0.1
-              },
-              "guidance_scale_2": {
-                "type": "number",
-                "title": "Guidance Scale (2nd Stage)",
-                "description": "Guidance scale for the second stage of the model. This is used to control the adherence to the prompt in the second stage of the model. Default value: 1",
-                "example": 1,
-                "minimum": 1,
-                "maximum": 10,
-                "multipleOf": 0.1
-              }
-            },
-            "required": [
-              "model",
-              "prompt",
-              "num_frames",
-              "frames_per_second"
-            ],
-            "title": "Wan2_2-T2V-14B",
-            "description": ""
-          },
           {
             "type": "object",
             "properties": {
@@ -2931,6 +2659,414 @@
               "model": {
                 "type": "string",
                 "enum": [
+                  "Wan2.2-14B-Animate-move-720P"
+                ],
+                "example": "Wan2.2-14B-Animate-move-720P"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/img2video/0590789a-9f7e-4bb0-a0ea-a42721041a8a.jpeg",
+                "format": "uri"
+              },
+              "video_url": {
+                "type": "string",
+                "title": "Video Url",
+                "description": "The URL of the video file",
+                "example": "https://online.genbo.ai/genbo-test/7d812791-e4da-4d00-b42d-60d3baa9e59a.mp4",
+                "format": "uri"
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 311200663032897,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 720p",
+                "example": "720p",
+                "enum": [
+                  "720p"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 4",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "shift": {
+                "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 50.0. Default value: 4",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50,
+                "multipleOf": 1
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "video_url"
+            ],
+            "title": "Wan2.2-14B-Animate-move-720P",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2.2-14B-Animate-move-580P"
+                ],
+                "example": "Wan2.2-14B-Animate-move-580P"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/img2video/0590789a-9f7e-4bb0-a0ea-a42721041a8a.jpeg",
+                "format": "uri"
+              },
+              "video_url": {
+                "type": "string",
+                "title": "Video Url",
+                "description": "The URL of the video file",
+                "example": "https://online.genbo.ai/genbo-test/7d812791-e4da-4d00-b42d-60d3baa9e59a.mp4",
+                "format": "uri"
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 311200663032897,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 580p",
+                "example": "580p",
+                "enum": [
+                  "580p"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 4",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "shift": {
+                "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 50.0. Default value: 4",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50,
+                "multipleOf": 1
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "video_url"
+            ],
+            "title": "Wan2.2-14B-Animate-move-580P",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2.2-14B-Animate-move-480P"
+                ],
+                "example": "Wan2.2-14B-Animate-move-480P"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/img2video/0590789a-9f7e-4bb0-a0ea-a42721041a8a.jpeg",
+                "format": "uri"
+              },
+              "video_url": {
+                "type": "string",
+                "title": "Video Url",
+                "description": "The URL of the video file",
+                "example": "https://online.genbo.ai/genbo-test/7d812791-e4da-4d00-b42d-60d3baa9e59a.mp4",
+                "format": "uri"
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 311200663032897,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 480p",
+                "example": "480p",
+                "enum": [
+                  "480p"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 4",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "shift": {
+                "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 50.0. Default value: 4",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50,
+                "multipleOf": 1
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "video_url"
+            ],
+            "title": "Wan2.2-14B-Animate-move-480P",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2.2-14B-Animate-replace-720P"
+                ],
+                "example": "Wan2.2-14B-Animate-replace-720P"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/img2video/0590789a-9f7e-4bb0-a0ea-a42721041a8a.jpeg",
+                "format": "uri"
+              },
+              "video_url": {
+                "type": "string",
+                "title": "Video Url",
+                "description": "The URL of the video file",
+                "example": "https://online.genbo.ai/genbo-test/7d812791-e4da-4d00-b42d-60d3baa9e59a.mp4",
+                "format": "uri"
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 311200663032897,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 720p",
+                "example": "720p",
+                "enum": [
+                  "720p"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 4",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "shift": {
+                "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 50.0. Default value: 4",
+                "example": 5.0,
+                "minimum": 1,
+                "maximum": 10,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "video_url"
+            ],
+            "title": "Wan2.2-14B-Animate-replace-720P",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2.2-14B-Animate-replace-580P"
+                ],
+                "example": "Wan2.2-14B-Animate-replace-580P"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/img2video/0590789a-9f7e-4bb0-a0ea-a42721041a8a.jpeg",
+                "format": "uri"
+              },
+              "video_url": {
+                "type": "string",
+                "title": "Video Url",
+                "description": "The URL of the video file",
+                "example": "https://online.genbo.ai/genbo-test/7d812791-e4da-4d00-b42d-60d3baa9e59a.mp4",
+                "format": "uri"
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 311200663032897,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 580p",
+                "example": "580p",
+                "enum": [
+                  "580p"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 4",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "shift": {
+                "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 50.0. Default value: 4",
+                "example": 5.0,
+                "minimum": 1,
+                "maximum": 10,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "video_url"
+            ],
+            "title": "Wan2.2-14B-Animate-replace-580P",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Wan2.2-14B-Animate-replace-480P"
+                ],
+                "example": "Wan2.2-14B-Animate-replace-480P"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/img2video/0590789a-9f7e-4bb0-a0ea-a42721041a8a.jpeg",
+                "format": "uri"
+              },
+              "video_url": {
+                "type": "string",
+                "title": "Video Url",
+                "description": "The URL of the video file",
+                "example": "https://online.genbo.ai/genbo-test/7d812791-e4da-4d00-b42d-60d3baa9e59a.mp4",
+                "format": "uri"
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 311200663032897,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 480p",
+                "example": "480p",
+                "enum": [
+                  "480p"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 4",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "shift": {
+                "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 50.0. Default value: 4",
+                "example": 5.0,
+                "minimum": 1,
+                "maximum": 10,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "image_url",
+              "video_url"
+            ],
+            "title": "Wan2.2-14B-Animate-replace-480P",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
                   "InfiniteTalk Multi-720P"
                 ],
                 "example": "InfiniteTalk Multi-720P"
@@ -3117,6 +3253,144 @@
               "num_frames"
             ],
             "title": "InfiniteTalk Multi-480P",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "InfiniteTalk-video-720P"
+                ],
+                "example": "InfiniteTalk-video-720P"
+              },
+              "video_url": {
+                "type": "string",
+                "title": "Video URL",
+                "description": "URL of the input video. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://storage.googleapis.com/falserverless/model_tests/video_models/ref_video.mp4",
+                "format": "uri"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "example": "Replace the sound in the video  ",
+                "maxLength": 800
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "The URL of the audio file",
+                "example": "https://online.genbo.ai/genbo-test/dc0337cb-c77e-4306-8994-83d324f46137.mp3",
+                "format": "uri"
+              },
+              "num_frames": {
+                "type": "integer",
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 41 to 241. Default value: 145",
+                "example": 145,
+                "minimum": 41,
+                "maximum": 241,
+                "multipleOf": 1
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 506201535771240,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 720p",
+                "example": "720p",
+                "enum": [
+                  "720p"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "video_url",
+              "prompt",
+              "audio_url",
+              "num_frames"
+            ],
+            "title": "InfiniteTalk-video-720P",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "InfiniteTalk-video-480P"
+                ],
+                "example": "InfiniteTalk-video-480P"
+              },
+              "video_url": {
+                "type": "string",
+                "title": "Video URL",
+                "description": "URL of the input video. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://storage.googleapis.com/falserverless/model_tests/video_models/ref_video.mp4",
+                "format": "uri"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "example": "Replace the sound in the video  ",
+                "maxLength": 800
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "The URL of the audio file",
+                "example": "https://online.genbo.ai/genbo-test/dc0337cb-c77e-4306-8994-83d324f46137.mp3",
+                "format": "uri"
+              },
+              "num_frames": {
+                "type": "integer",
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 41 to 241. Default value: 145",
+                "example": 145,
+                "minimum": 41,
+                "maximum": 241,
+                "multipleOf": 1
+              },
+              "seed": {
+                "type": "integer",
+                "title": "Seed",
+                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
+                "example": 506201535771240,
+                "minimum": 0,
+                "maximum": 100000000000000000,
+                "multipleOf": 1
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 480p",
+                "example": "480p",
+                "enum": [
+                  "480p"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "video_url",
+              "prompt",
+              "audio_url",
+              "num_frames"
+            ],
+            "title": "InfiniteTalk-video-480P",
             "description": ""
           },
           {
