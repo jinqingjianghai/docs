@@ -1232,7 +1232,7 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "example": "A rubber duck flows in the golden river",
+                "example": "A white puppy interacts with small fish in a fish tank with its paws, the black and gray flesh pads of its paws pressed against the glass, and several small tropical fish slowly weave in and out of the foreground of the tank, the surface of the water refracting wobbly patterns of light.",
                 "maxLength": 800
               },
               "negative_prompt": {
@@ -1242,26 +1242,17 @@
                 "example": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
                 "maxLength": 800
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of Stable Diffusion will output the same image every time.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000
-              },
               "image_size": {
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "576x1024",
+                "example": "16:9",
                 "enum": [
-                  "512x512",
-                  "1024x1024",
-                  "768x1024",
-                  "576x1024",
-                  "1024x768",
-                  "1024x576"
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
                 ]
               },
               "num_images": {
@@ -1303,15 +1294,15 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "Hunyuan-DiT v1.2"
+                  "Hunyuan-DiT-v1.2"
                 ],
-                "example": "Hunyuan-DiT v1.2"
+                "example": "Hunyuan-DiT-v1.2"
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "example": "Extreme close-up of a single tiger eye, direct frontal view. Detailed iris and pupil. Sharp focus on eye texture and color. Natural lighting to capture authentic eye shine and depth. The word \"FLUX\" is painted over it in big, white brush strokes with visible texture.",
+                "example": "Front close-up of a girl with tears in her eyes, the texture of her skin is clearly visible.",
                 "maxLength": 800
               },
               "negative_prompt": {
@@ -1321,26 +1312,18 @@
                 "example": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw",
                 "maxLength": 800
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 10000000000000000
-              },
               "image_size": {
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "576x1024",
+                "example": "16:9",
                 "enum": [
-                  "512x512",
-                  "1024x1024",
+                  "1:1",
+                  "3:4",
                   "768x1024",
-                  "576x1024",
-                  "1024x768",
-                  "1024x576"
+                  "9:16",
+                  "4:3",
+                  "16:9"
                 ]
               },
               "num_images": {
@@ -1373,7 +1356,7 @@
               "model",
               "prompt"
             ],
-            "title": "Hunyuan-DiT v1.2",
+            "title": "Hunyuan-DiT-v1.2",
             "description": ""
           },
           {
@@ -1390,36 +1373,28 @@
                 "format": "uri",
                 "title": "Image Url",
                 "description": "URL of image to use for img2img",
-                "example": "https://online.genbo.ai/img2video/412e68c5-1cad-4c0c-8a97-f14c40c412f2.jpg",
+                "example": "https://online.genbo.ai/genbo-test/ae25a6b9-0a87-4152-8967-e97b54591b40.jpeg",
                 "pattern": "https?://.*\\.(jpeg|png|jpg)"
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "example": "小鸟的嘴上加一个树枝",
+                "example": "Add some big trees to the background.",
                 "maxLength": 800
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000
               },
               "resolution_mode": {
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "custom",
+                "example": "auto",
                 "enum": [
-                  "custom",
-                  "1:1 square 1024x1024",
-                  "3:4 portrait 896x1152",
-                  "9:16 portrait 768x1344",
-                  "1024x768",
-                  "16:9 landscape 1344x768"
+                  "auto",
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
                 ]
               },
               "num_images": {
@@ -1436,7 +1411,7 @@
                 "description": "The number of inference steps to perform. Default value: 20",
                 "example": 6,
                 "minimum": 1,
-                "maximum": 50
+                "maximum": 49
               },
               "guidance_scale": {
                 "type": "number",
@@ -1470,7 +1445,7 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "example": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
+                "example": "Anime illustration style, a wide-eyed, happy expression of a cute girl, wearing a piggy hair band shopping in the flower market presents a sweet and lovely, youthful and lively style . The color of the picture is fresh and bright. The background is dominated by a medium landscape composition, the picture is warm and healing.",
                 "maxLength": 800
               },
               "negative_prompt": {
@@ -1480,26 +1455,17 @@
                 "example": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),",
                 "maxLength": 800
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "example": 32116006431307452,
-                "minimum": 0,
-                "maximum": 100000000000000000
-              },
               "image_size": {
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "576x1024",
+                "example": "4:3",
                 "enum": [
-                  "512x512",
-                  "1024x1024",
-                  "768x1024",
-                  "576x1024",
-                  "1024x768",
-                  "1024x576"
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
                 ]
               },
               "num_images": {
@@ -1551,37 +1517,29 @@
                 "format": "uri",
                 "title": "Image Url",
                 "description": "URL of image to use for img2img",
-                "example": "https://img2.baidu.com/it/u=3430653577,2582301365&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+                "example": "https://online.genbo.ai/genbo-test/fcdf5b90-9da8-42a0-bca0-689de3652270.jpeg",
                 "pattern": "https?://.*\\.(jpeg|png|jpg)"
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "example": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
+                "example": "In the pouring rain, a cute anime girl with white cat ears and a fluffy white tail, pink eyes, long white hair, and a long pink dress, her clothes covered in mud, sat sadly on the side of the road.",
                 "maxLength": 800
               },
               "image_size": {
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "custom",
+                "example": "auto",
                 "enum": [
-                  "custom",
-                  "1:1 square 1024x1024",
-                  "3:4 portrait 896x1152",
-                  "9:16 portrait 768x1344",
-                  "4:3 portrait 1152x896",
-                  "16:9 landscape 1344x768"
+                  "auto",
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
                 ]
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000
               },
               "num_images": {
                 "type": "integer",
@@ -1598,6 +1556,15 @@
                 "example": 8,
                 "minimum": 2,
                 "maximum": 50
+              },
+              "strength": {
+                "type": "number",
+                "title": "Strength",
+                "description": "The strength to use for inpainting/image-to-image. Only used if the image_url is provided. 1.0 is completely remakes the image while 0.0 preserves the original. Default value: 0.85",
+                "example": 1,
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.01
               },
               "guidance_scale": {
                 "type": "number",
@@ -1631,30 +1598,21 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "example": "GHIBSKY style, a cyberpunk cat holding a neon sign that says \"SVDQuant is lite and fast!\"",
+                "example": "Cyberpunk, pixel style, a kitten at night with city lights in the background.",
                 "maxLength": 800
               },
               "image_size": {
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "576x1024",
+                "example": "4:3",
                 "enum": [
-                  "512x512",
-                  "1024x1024",
-                  "768x1024",
-                  "576x1024",
-                  "1024x768",
-                  "1024x576"
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
                 ]
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000
               },
               "num_images": {
                 "type": "integer",
@@ -1703,7 +1661,7 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "example": "Remove all UI text elements from the image. Keep the feeling that the characters and scene are in water. Also, remove the green UI elements at the bottom",
+                "example": "Remove the text from the image and replace the background with a seashore.",
                 "maxLength": 800
               },
               "negative_prompt": {
@@ -1717,7 +1675,7 @@
                 "type": "string",
                 "title": "Image Url",
                 "description": "URL of image to use for img2img",
-                "example": "https://online.genbo.ai/img2video/412e68c5-1cad-4c0c-8a97-f14c40c412f2.jpg",
+                "example": "https://online.genbo.ai/genbo-test/921139d1-c2f3-49ed-bf00-d53feb88714e.jpeg",
                 "format": "uri"
               },
               "num_inference_steps": {
@@ -1727,15 +1685,6 @@
                 "example": 20,
                 "minimum": 2,
                 "maximum": 50,
-                "multipleOf": 1
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "example": 32116006431307452,
-                "minimum": 0,
-                "maximum": 100000000000000000,
                 "multipleOf": 1
               },
               "guidance_scale": {
@@ -1760,14 +1709,14 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "custom",
+                "example": "auto",
                 "enum": [
-                  "custom",
-                  "1:1 square 1024x1024",
-                  "3:4 portrait 896x1152",
-                  "9:16 portrait 768x1344",
-                  "4:3 portrait 1152x896",
-                  "16:9 landscape 1344x768"
+                  "auto",
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
                 ]
               }
             },
@@ -1780,13 +1729,95 @@
           },
           {
             "type": "object",
-            "title": "FLUX.1-Lora",
+            "title": "Qwen-image-edit plus-lora ",
             "properties": {
               "model": {
                 "type": "string",
-                "example": "FLUX.1-Lora",
+                "example": "Qwen-image-edit plus-lora ",
                 "enum": [
-                  "FLUX.1-Lora"
+                  "Qwen-image-edit plus-lora "
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Turn the camera to a close-up.",
+                "maxLength": 800
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image Url",
+                "description": "URL of image to use for img2img",
+                "example": "https://online.genbo.ai/genbo-test/921139d1-c2f3-49ed-bf00-d53feb88714e.jpeg",
+                "format": "uri"
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "example": 8,
+                "minimum": 2,
+                "maximum": 50,
+                "multipleOf": 1
+              },
+              "loras": {
+                "type": "string",
+                "example": "",
+                "enum": [
+
+                ]
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
+                "example": 1,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 1
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "example": 1,
+                "minimum": 1,
+                "maximum": 4,
+                "multipleOf": 1
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "example": "auto",
+                "enum": [
+                  "auto",
+                  "1:1",
+                  "3:4",
+                  "4:3",
+                  "16:9",
+                  "9:16"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "image_url",
+              "loras"
+            ],
+            "description": ""
+          },
+          {
+            "type": "object",
+            "title": "Flux.1-Lora",
+            "properties": {
+              "model": {
+                "type": "string",
+                "example": "Flux.1-Lora",
+                "enum": [
+                  "Flux.1-Lora"
                 ]
               },
               "prompt": {
@@ -1812,15 +1843,6 @@
                 "maximum": 50,
                 "multipleOf": 1
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "The same seed and the same prompt given to the same version of the model will output the same image every time.",
-                "example": 32116006431307452,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
-              },
               "guidance_scale": {
                 "type": "number",
                 "title": "Guidance scale",
@@ -1843,12 +1865,13 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "custom",
+                "example": "4:3",
                 "enum": [
-                  "custom",
-                  "1:1 square 1024x1024",
-                  "9:16 portrait 768x1344",
-                  "16:9 landscape 1344x768"
+                  "3:4",
+                  "1:1",
+                  "9:16",
+                  "16:9",
+                  "4:3"
                 ]
               }
             },
@@ -1876,7 +1899,7 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The text prompt to guide video generation.",
-                "example": "The camera advances slowly from far to near.",
+                "example": "The camera slowly advances from far and near, rotating to the right to the front of the figure.",
                 "maxLength": 800
               },
               "negative_prompt": {
@@ -1885,14 +1908,6 @@
                 "description": "Negative prompt for video generation.",
                 "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
                 "maxLength": 800
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000
               },
               "shift": {
                 "type": "number",
@@ -1916,7 +1931,7 @@
                 "format": "uri",
                 "title": "Image URL",
                 "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "example": "https://online.genbo.ai/genbo-test/f9a8103b-b51e-4dbf-8932-cfe6828d3164.jpeg",
+                "example": "https://online.genbo.ai/genbo-test/206bb642-45ea-4440-8aef-85e53e1e7389.jpeg",
                 "pattern": "https?://.*\\.(jpeg|png|jpg)"
               },
               "frames_per_second": {
@@ -1931,22 +1946,22 @@
                 "type": "string",
                 "title": "Resolution",
                 "description": "Resolution of the video to generate. Default value: 480p",
-                "example": "480p",
+                "example": "720",
                 "enum": [
-                  "480p",
-                  "720p"
+                  "480",
+                  "720"
                 ]
               },
               "aspect_ratio": {
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
-                "example": "custom",
+                "example": "auto",
                 "enum": [
-                  "custom",
-                  "16:9 landscape 1344x768",
-                  "9:16 portrait 768x1344",
-                  "1:1 square 1024x1024"
+                  "auto",
+                  "16:9",
+                  "9:16",
+                  "1:1"
                 ]
               },
               "num_inference_steps": {
@@ -1992,7 +2007,7 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "Wan2.2-Smooth-Mix-I2V"
+                  "Wan2.2-I2V-Smooth-Mix"
                 ]
               },
               "prompt": {
@@ -2008,14 +2023,6 @@
                 "description": "Negative prompt for video generation.",
                 "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
                 "maxLength": 800
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000
               },
               "shift": {
                 "type": "number",
@@ -2054,22 +2061,22 @@
                 "type": "string",
                 "title": "Resolution",
                 "description": "Resolution of the video to generate. Default value: 480p",
-                "example": "480p",
+                "example": "480",
                 "enum": [
-                  "480p",
-                  "720p"
+                  "480",
+                  "720"
                 ]
               },
               "aspect_ratio": {
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
-                "example": "custom",
+                "example": "auto",
                 "enum": [
-                  "custom",
-                  "16:9 landscape 1344x768",
-                  "9:16 portrait 768x1344",
-                  "1:1 square 1024x1024"
+                  "auto",
+                  "16:9",
+                  "9:16",
+                  "1:1"
                 ]
               },
               "num_inference_steps": {
@@ -2106,7 +2113,7 @@
               "frames_per_second",
               "model"
             ],
-            "title": "Wan2.2-Smooth-Mix-I2V",
+            "title": "Wan2.2-I2V-Smooth-Mix",
             "description": ""
           },
           {
@@ -2132,14 +2139,6 @@
                 "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
                 "maxLength": 800
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000
-              },
               "image_url": {
                 "type": "string",
                 "format": "uri",
@@ -2162,12 +2161,12 @@
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
-                "example": "custom",
+                "example": "auto",
                 "enum": [
-                  "custom",
-                  "16:9 landscape 1344x768",
-                  "9:16 portrait 768x1344",
-                  "1:1 square 1024x1024"
+                  "auto",
+                  "16:9",
+                  "9:16",
+                  "1:1"
                 ]
               }
             },
@@ -2210,23 +2209,14 @@
                 "example": "https://online.genbo.ai/genbo-test/3de9b0d2-f223-42bc-807a-c9b1053f56e2.mp3",
                 "format": "uri"
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 311200663032897,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
-              },
               "resolution": {
                 "type": "string",
                 "title": "Resolution",
                 "description": "Resolution of the video to generate. Default value: 480p",
-                "example": "480p",
+                "example": "480",
                 "enum": [
-                  "480p",
-                  "720p"
+                  "480",
+                  "720"
                 ]
               }
             },
@@ -2234,8 +2224,7 @@
               "model",
               "image_url",
               "prompt",
-              "audio_url",
-              "num_frames"
+              "audio_url"
             ],
             "title": "InfiniteTalk",
             "description": ""
@@ -2271,16 +2260,7 @@
                 "example": "https://online.genbo.ai/genbo-test/4e979cd0-cf30-4eeb-b436-7cf1a219ce2b.mp3",
                 "format": "uri"
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 311200663032897,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
-              },
-              "guidance_scale": {
+              "cfg": {
                 "type": "number",
                 "title": "Guidance scale (CFG)",
                 "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
@@ -2292,8 +2272,8 @@
               "shift": {
                 "type": "number",
                 "title": "Shift",
-                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 8",
-                "example": 8,
+                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 11",
+                "example": 11,
                 "minimum": 1,
                 "maximum": 100,
                 "multipleOf": 1
@@ -2301,11 +2281,11 @@
               "resolution": {
                 "type": "string",
                 "title": "Resolution",
-                "description": "Resolution of the video to generate. Default value: 480p",
-                "example": "480p",
+                "description": "Resolution of the video to generate. Default value: 480",
+                "example": "480",
                 "enum": [
-                  "480p",
-                  "720p"
+                  "480",
+                  "720"
                 ]
               }
             },
@@ -2313,8 +2293,7 @@
               "model",
               "image_url",
               "prompt",
-              "audio_url",
-              "num_frames"
+              "audio_url"
             ],
             "title": "InfiniteTalk-video",
             "description": ""
@@ -2339,8 +2318,15 @@
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
-                "description": "The text prompt to guide video generation.",
+                "description": "A lion is making a passionate speech.",
                 "example": "A lion is making a passionate speech.",
+                "maxLength": 800
+              },
+              "negative_prompt": {
+                "type": "string",
+                "title": "Negative Prompt",
+                "description": "Negative prompt for video generation.",
+                "example": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
                 "maxLength": 800
               },
               "audio_url": {
@@ -2367,24 +2353,15 @@
                 "minimum": 4,
                 "maximum": 60
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 311200663032897,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
-              },
               "resolution": {
                 "type": "string",
                 "title": "Resolution",
                 "description": "Resolution of the video to generate. Default value: 480p",
-                "example": "480p",
+                "example": "480",
                 "enum": [
-                  "480p",
-                  "580p",
-                  "720p"
+                  "480",
+                  "580",
+                  "720"
                 ]
               },
               "num_inference_steps": {
@@ -2435,7 +2412,7 @@
                 ],
                 "example": "HunyuanVideoFoley"
               },
-              "prompt": {
+              "text_prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The text prompt to guide video generation.",
@@ -2446,7 +2423,7 @@
                 "type": "string",
                 "title": "Audio Url",
                 "description": "Hint: you can drag and drop file(s) here. Accepted file types: video/mp4, video/quicktime, video/x-matroska, video/x-msvideo, image/gif",
-                "example": "https://online.genbo.ai/genbo-test/e59b4e3b-686b-4e58-965c-6da014dd92de.mp4",
+                "example": "https://online.genbo.ai/genbo-test/ceb3408a-519b-45d4-874c-23d6d249726d.mp4",
                 "format": "uri"
               },
               "negative_prompt": {
@@ -2455,24 +2432,6 @@
                 "description": "Negative prompt for video generation.",
                 "example": "noisy, harsh, crash, bang",
                 "maxLength": 800
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 311200663032897,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
-              },
-              "resolution": {
-                "type": "string",
-                "title": "Resolution",
-                "description": "Resolution of the video to generate. Default value: 720p",
-                "example": "720p",
-                "enum": [
-                  "720p"
-                ]
               },
               "num_inference_steps": {
                 "type": "integer",
@@ -2495,8 +2454,7 @@
             "required": [
               "model",
               "video_url",
-              "prompt",
-              "audio_url"
+              "text_prompt"
             ],
             "title": "HunyuanVideoFoley",
             "description": "Use the capabilities of the hunyuan foley model to bring life to your videos by adding sound effect to them."
@@ -2515,34 +2473,25 @@
                 "type": "string",
                 "title": "Image URL",
                 "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "example": "https://online.genbo.ai/genbo-test/3045fe98-6355-4c56-982f-e4d49b7db010.jpeg",
+                "example": "https://online.genbo.ai/genbo-test/cff9f740-b777-4fed-b16d-0bc4e1be03bc.jpeg",
                 "format": "uri"
               },
               "video_url": {
                 "type": "string",
                 "title": "Video Url",
                 "description": "The URL of the video file",
-                "example": "https://online.genbo.ai/genbo-test/921da13f-da8b-4c2f-9578-27db834b5d3d.mp4",
+                "example": "https://online.genbo.ai/genbo-test/84038c6c-f107-46d8-805d-b6ca64788bf2.mp4",
                 "format": "uri"
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 311200663032897,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
               },
               "resolution": {
                 "type": "string",
                 "title": "Resolution",
                 "description": "Resolution of the video to generate. Default value: 480p",
-                "example": "480p",
+                "example": "480",
                 "enum": [
-                  "480p",
-                  "580p",
-                  "720p"
+                  "480",
+                  "580",
+                  "720"
                 ]
               },
               "num_inference_steps": {
@@ -2557,7 +2506,7 @@
                 "type": "number",
                 "title": "Shift",
                 "description": "Shift value for the video. Must be between 1.0 and 50.0. Default value: 4",
-                "example": 4,
+                "example": 5,
                 "minimum": 1,
                 "maximum": 50,
                 "multipleOf": 1
@@ -2585,34 +2534,25 @@
                 "type": "string",
                 "title": "Image URL",
                 "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "example": "https://online.genbo.ai/genbo-test/65b4944e-0306-4c19-9f45-317126d07420.jpeg",
+                "example": "https://online.genbo.ai/genbo-test/8aedf85b-6c0b-452f-b027-91b9b5185e09.jpeg",
                 "format": "uri"
               },
               "video_url": {
                 "type": "string",
                 "title": "Video Url",
                 "description": "The URL of the video file",
-                "example": "https://online.genbo.ai/genbo-test/bceb003b-0624-4c0b-8d35-ef58b690036b.mp4",
+                "example": "https://online.genbo.ai/genbo-test/1fcbaec9-dc43-4609-a57f-94026a8f1009.mp4",
                 "format": "uri"
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 311200663032897,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
               },
               "resolution": {
                 "type": "string",
                 "title": "Resolution",
                 "description": "Resolution of the video to generate. Default value: 480p",
-                "example": "480p",
+                "example": "480",
                 "enum": [
-                  "480p",
-                  "580p",
-                  "720p"
+                  "480",
+                  "580",
+                  "720"
                 ]
               },
               "num_inference_steps": {
@@ -2658,25 +2598,16 @@
                 "example": "https://online.genbo.ai/genbo-test/a216f94c-a8fd-46f6-866c-1c6645049cf5.mp4",
                 "format": "uri"
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 311200663032897,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
-              },
               "resolution": {
                 "type": "string",
                 "title": "Resolution",
                 "description": "Resolution of the video to generate. Default value: 720p",
-                "example": "720p",
+                "example": "720",
                 "enum": [
-                  "720p",
-                  "1080p",
-                  "2k",
-                  "4k"
+                  "720",
+                  "1080",
+                  "1440",
+                  "2160"
                 ]
               }
             },
@@ -2701,7 +2632,7 @@
                 "type": "string",
                 "title": "Image URL",
                 "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "example": "https://online.genbo.ai/genbo-test/e6110c09-a685-4e8e-9632-53586c261199.jpeg",
+                "example": "https://online.genbo.ai/genbo-test/20950db4-1886-4756-8bcb-64513c370e89.jpeg",
                 "format": "uri"
               },
               "prompt": {
@@ -2715,14 +2646,14 @@
                 "type": "string",
                 "title": "Audio Url",
                 "description": "The URL of the audio file",
-                "example": "https://online.genbo.ai/genbo-test/320f91b0-acb5-46a7-80d5-aa09dcfe42e7.mp3",
+                "example": "https://online.genbo.ai/genbo-test/16defc3f-3182-438f-b7eb-8393f29f8d03.mp3",
                 "format": "uri"
               },
-              "audio_url2": {
+              "audio_url_2": {
                 "type": "string",
                 "title": "Audio Url",
                 "description": "The URL of the audio file",
-                "example": "https://online.genbo.ai/genbo-test/02242530-72ff-4f76-9df3-94a831a2cde2.mp3",
+                "example": "https://online.genbo.ai/genbo-test/f7b269ad-45ca-4eb1-a6b1-2b20ecba823f.mp3",
                 "format": "uri"
               },
               "num_frames": {
@@ -2734,23 +2665,14 @@
                 "maximum": 721,
                 "multipleOf": 1
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 506201535771240,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
-              },
               "resolution": {
                 "type": "string",
                 "title": "Resolution",
                 "description": "Resolution of the video to generate. Default value: 480p",
-                "example": "480p",
+                "example": "720",
                 "enum": [
-                  "480p",
-                  "720p"
+                  "480",
+                  "720"
                 ]
               },
               "multi_audio_type": {
@@ -2769,8 +2691,7 @@
               "image_url",
               "prompt",
               "audio_url",
-              "audio_url2",
-              "num_frames"
+              "audio_url_2"
             ],
             "title": "InfiniteTalk Multi",
             "description": ""
@@ -2781,14 +2702,14 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "Wan2.2-14B-T2V-720P"
+                  "Wan2.2-14B-T2V"
                 ]
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The text prompt to guide video generation.",
-                "example": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
+                "example": "A robot cooking in the kitchen.",
                 "maxLength": 800
               },
               "negative_prompt": {
@@ -2805,15 +2726,6 @@
                 "example": 81,
                 "minimum": 81,
                 "maximum": 121,
-                "multipleOf": 1
-              },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000,
                 "multipleOf": 1
               },
               "shift": {
@@ -2838,11 +2750,21 @@
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: 'auto'",
-                "example": "1280x720",
+                "example": "16:9",
                 "enum": [
-                  "1280x720",
-                  "720x1280",
-                  "720x720"
+                  "16:9",
+                  "9:16",
+                  "1:1"
+                ]
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 480p",
+                "example": "720",
+                "enum": [
+                  "480",
+                  "720"
                 ]
               },
               "num_inference_steps": {
@@ -2879,7 +2801,7 @@
               "num_frames",
               "frames_per_second"
             ],
-            "title": "Wan2.2-14B-T2V-720P",
+            "title": "Wan2.2-14B-T2V",
             "description": ""
           },
           {
@@ -2888,7 +2810,7 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "Wan2.2-Smooth-Mix-T2V"
+                  "Wan2.2-T2V-Smooth-Mix"
                 ]
               },
               "prompt": {
@@ -2914,14 +2836,15 @@
                 "maximum": 121,
                 "multipleOf": 1
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 480p",
+                "example": "720",
+                "enum": [
+                  "480",
+                  "720"
+                ]
               },
               "shift": {
                 "type": "number",
@@ -2972,11 +2895,11 @@
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
-                "example": "16:9 landscape 1344x768",
+                "example": "16:9",
                 "enum": [
-                  "16:9 landscape 1344x768",
-                  "9:16 portrait 768x1344",
-                  "1:1 square 1024x1024"
+                  "16:9",
+                  "9:16",
+                  "1:1"
                 ]
               }
             },
@@ -2986,7 +2909,7 @@
               "num_frames",
               "frames_per_second"
             ],
-            "title": "Wan2.2-Smooth-Mix-T2V",
+            "title": "Wan2.2-T2V-Smooth-Mix",
             "description": ""
           },
           {
@@ -3005,24 +2928,25 @@
                 "example": "A robot cooking in the kitchen.",
                 "maxLength": 800
               },
-              "seed": {
-                "type": "integer",
-                "title": "Seed",
-                "description": "Random seed for reproducibility. If None, a random seed is chosen.",
-                "example": 1,
-                "minimum": 0,
-                "maximum": 100000000000000000,
-                "multipleOf": 1
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 480p",
+                "example": "720",
+                "enum": [
+                  "480",
+                  "720"
+                ]
               },
               "aspect_ratio": {
                 "type": "string",
                 "title": "Aspect Ratio",
                 "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
-                "example": "16:9 landscape 1344x768",
+                "example": "16:9",
                 "enum": [
-                  "16:9 landscape 1344x768",
-                  "9:16 portrait 768x1344",
-                  "1:1 square 1024x1024"
+                  "16:9",
+                  "9:16",
+                  "1:1"
                 ]
               }
             },
@@ -3043,100 +2967,110 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "Step Audio"
+                  "SoulX-Podcast-Single"
                 ],
-                "example": "Step Audio"
+                "example": "SoulX-Podcast-Single"
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "example": "对这个世界如果你有太多的抱怨,跌倒了就不敢继续往前走",
+                "example": "[S1] Soft rain falls like whispered secrets, painting the air in silver haze.Through the gentle drizzle, a lone figure carries a quiet dream onward.",
                 "maxLength": 800
               },
               "audio_url": {
                 "type": "string",
                 "title": "Audio Url",
                 "description": "URL of audio to use for audio2audio",
-                "example": "https://online.genbo.ai/genbo-test/5ada6cf3-9cd6-40bc-ac62-d5ec45dae2ce.mp3",
+                "example": "https://online.genbo.ai/img2video/68ea2fc1-d8be-4c7f-a17f-5aa435c3b1dc.mp3",
                 "format": "uri"
               },
-              "emotion": {
-                "type": "string",
-                "title": "emotion",
-                "description": "The emotion to use for generating the audio. Default value: None",
-                "example": "None",
-                "enum": [
-                  "None",
-                  "高兴1",
-                  "生气1",
-                  "撒娇1",
-                  "悲伤1"
-                ]
-              },
-              "language": {
+              "choose_language": {
                 "type": "string",
                 "title": "language",
                 "description": "The language to use for generating the audio. Default value: None",
-                "example": "None",
+                "example": 1,
                 "enum": [
-                  "None",
-                  "中文",
-                  "英文",
-                  "日语",
-                  "韩语",
-                  "四川话",
-                  "粤语"
-                ]
-              },
-              "express": {
-                "type": "string",
-                "title": "express",
-                "description": "The express to use for generating the audio. Default value: None",
-                "example": "None",
-                "enum": [
-                  "None",
-                  "RAP",
-                  "哼唱"
+                  1,
+                  2
                 ]
               },
               "temperature": {
                 "type": "number",
                 "title": "temperature",
                 "description": "The randomness and creativity in generating speech within the control model",
-                "example": 0.5,
+                "example": 0.6,
                 "minimum": 0,
                 "maximum": 1,
                 "multipleOf": 0.1
-              },
-              "max_length": {
-                "type": "integer",
-                "title": "max length",
-                "description": "max_length can be adjusted according to the text length.",
-                "example": 2048,
-                "minimum": 0,
-                "maximum": 2048
-              },
-              "tags": {
-                "type": "string",
-                "title": "custom mark",
-                "description": "Add experimental custom_mark, surrounding with '()', for example (温柔)(东北话), it may have an effect.",
-                "example": "",
-                "maxLength": 100
-              },
-              "unload_model": {
-                "type": "boolean",
-                "title": "Unload model",
-                "description": "Optional unload_model to choose whether to unload the model to accelerate inference speed.",
-                "example": false
               }
             },
-            "required": [
+             "required": [
               "model",
               "prompt",
               "audio_url"
             ],
-            "title": "Step Audio",
+            "title": "SoulX-Podcast-Single",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "SoulX-Podcast-Multi"
+                ],
+                "example": "SoulX-Podcast-Multi"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "[S1] Hey, have you seen John anywhere today?\n[S2] <|laughter|>Yeah, I just saw him a few minutes ago.\n[S1] Oh really? <|breathing|>Where was he hanging out?\n[S2] Over at the badminton court, looking pretty busy.",
+                "maxLength": 800
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "URL of audio to use for audio2audio",
+                "example": "https://online.genbo.ai/img2video/68ea2fc1-d8be-4c7f-a17f-5aa435c3b1dc.mp3",
+                "format": "uri"
+              },
+              "audio_url_2": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "URL of audio to use for audio2audio",
+                "example": "https://online.genbo.ai/img2video/a8f6494e-8ff1-4bb0-a1a0-df1f72ed5e30.wav",
+                "format": "uri"
+              },
+              "choose_language": {
+                "type": "string",
+                "title": "language",
+                "description": "The language to use for generating the audio. Default value: None",
+                "example": 1,
+                "enum": [
+                  1,
+                  2
+                ]
+              },
+              "temperature": {
+                "type": "number",
+                "title": "temperature",
+                "description": "The randomness and creativity in generating speech within the control model",
+                "example": 0.6,
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.1
+              }
+            },
+             "required": [
+              "model",
+              "prompt",
+              "audio_url",
+              "audio_url_2"
+             ],
+            "title": "SoulX-Podcast-Multi",
             "description": ""
           },
           {
@@ -3153,30 +3087,30 @@
                 "type": "string",
                 "title": "Prompt",
                 "description": "The prompt to generate the image with",
-                "example": "[s1] What are you leaning so close for?\n[s2] I never noticed you had this watch before.\n[s1] I’ve had it for ages—you just never looked carefully enough before.\n[s2] Well, I’m looking carefully now.",
+                "example": "[s1] Hey, have you seen John anywhere today?\n[s2] Yeah, I just saw him a few minutes ago.\n[[s1] Oh really? Where was he hanging out?\n[s2] Over at the badminton court, looking pretty busy.",
                 "maxLength": 800
               },
-              "first_audio_url": {
+              "audio_url": {
                 "type": "string",
                 "title": "Audio Url",
                 "description": "The audio url of the first speaker.",
                 "example": "https://online.genbo.ai/img2video/e9dc3840-817c-43e0-a79b-4342f3835e13.MP3",
                 "format": "uri"
               },
-              "second_audio_url": {
+              "audio_url_2": {
                 "type": "string",
                 "title": "Audio Url",
                 "description": "The audio url of the second speaker.",
                 "example": "https://online.genbo.ai/img2video/2ec8cb80-2627-45f1-baa9-8068fb441029.wav",
                 "format": "uri"
               },
-              "first_emotional_prompt": {
+              "prompt_2": {
                 "type": "string",
                 "title": "emotion",
                 "description": "Emotional reference prompt words for Audio 1.",
                 "example": "Laugh, laugh heartily"
               },
-              "second_emotional_prompt": {
+              "prompt_3": {
                 "type": "string",
                 "title": "emotion",
                 "description": "Emotional reference prompt words for Audio 2.",
@@ -3218,13 +3152,13 @@
                 "multipleOf": 0.1
               },
 
-              "use_emo_text ": {
+              "use_emo_text": {
                 "type": "boolean",
                 "title": "Use_emo_text ",
                 "description": "Whether to enable prompt words to control emotions.",
                 "example": true
               },
-              "use_random ": {
+              "use_random": {
                 "type": "boolean",
                 "title": "Use_random ",
                 "description": "Control whether the first audio enables random behavior (such as random seed generation, random shuffling of data, random voice style, etc.)",
@@ -3246,12 +3180,96 @@
             "required": [
               "model",
               "prompt",
-              "first_audio_url",
-              "second_audio_url",
-              "first_emotional_prompt",
-              "second_emotional_prompt"
+              "audio_url",
+              "audio_url_2",
+              "prompt_2",
+              "prompt_3"
             ],
             "title": "IndexTTS2 Multi",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "IndexTTS2 Single"
+                ],
+                "example": "IndexTTS2 Single"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Soft rain falls like whispered secrets, painting the air in silver haze.Through the gentle drizzle, a lone figure carries a quiet dream onward.",
+                "maxLength": 800
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "The audio url of the first speaker.",
+                "example": "https://online.genbo.ai/img2video/2ec8cb80-2627-45f1-baa9-8068fb441029.wav",
+                "format": "uri"
+              },
+              "prompt_2": {
+                "type": "string",
+                "title": "emotion",
+                "description": "Emotional reference prompt words for Audio 1.",
+                "example": "distressing"
+              },
+              "temperature": {
+                "type": "number",
+                "title": "temperature",
+                "description": "The randomness and creativity in generating speech within the control model",
+                "example": 0.8,
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.1
+              },
+              "max_length": {
+                "type": "integer",
+                "title": "max length",
+                "description": "max_length can be adjusted according to the text length.",
+                "example": 1500,
+                "minimum": 0,
+                "maximum": 3000
+              },
+              "Emo_alpha": {
+                "type": "integer",
+                "title": "max length",
+                "description": "max_length can be adjusted according to the text length.",
+                "example": 1,
+                "minimum": 0,
+                "maximum": 2,
+                "multipleOf": 0.1
+              },
+              "use_emo_text": {
+                "type": "boolean",
+                "title": "Use_emo_text ",
+                "description": "Whether to enable prompt words to control emotions.",
+                "example": true
+              },
+              "use_random": {
+                "type": "boolean",
+                "title": "Use_random ",
+                "description": "Control whether the first audio enables random behavior (such as random seed generation, random shuffling of data, random voice style, etc.)",
+                "example": false
+              },
+              "unload_model": {
+                "type": "boolean",
+                "title": "Unload model",
+                "description": "Optional unload_model to choose whether to unload the model to accelerate inference speed.",
+                "example": false
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "audio_url",
+              "prompt_2"
+            ],
+            "title": "IndexTTS2 Single",
             "description": ""
           }
         ]
