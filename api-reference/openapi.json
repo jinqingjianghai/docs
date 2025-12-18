@@ -1294,6 +1294,133 @@
               "model": {
                 "type": "string",
                 "enum": [
+                  "Flux.2-dev"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Inside a grand Gothic castle room, sunlight filters through immense stained-glass rose windows, casting soft patches of light. A young woman in an amber-yellow velvet gown sits gracefully against a carved high-back chair. With her head slightly bowed, her slender fingers thoughtfully trace the edge of a bone-china tea tray on the side table, her expression serene with a hint of melancholy.",
+                "maxLength": 800
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "example": "16:9",
+                "enum": [
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
+                ]
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "example": 1,
+                "minimum": 1,
+                "maximum": 4
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "example": 20,
+                "minimum": 1,
+                "maximum": 50
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale (CFG)",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt.",
+                "example": 4,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "prompt"
+            ],
+            "title": "Flux.2-dev",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "title": "Flux.2-edit",
+            "properties": {
+              "model": {
+                "type": "string",
+                "example": "Flux.2-edit",
+                "enum": [
+                  "Flux.2-edit"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "He face was painted in various colors with the words 'Genbo is here' written on it.",
+                "maxLength": 800
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image Url",
+                "description": "URL of image to use for img2img",
+                "example": "https://online.genbo.ai/img2video/739e6583-44b0-462a-8698-8f9c262b53b4.png",
+                "format": "uri"
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "example": 20,
+                "minimum": 2,
+                "maximum": 50,
+                "multipleOf": 1
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
+                "example": 1,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "example": "auto",
+                "enum": [
+                  "auto",
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "image_url"
+            ],
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
                   "Hunyuan-DiT-v1.2"
                 ],
                 "example": "Hunyuan-DiT-v1.2"
@@ -1729,13 +1856,13 @@
           },
           {
             "type": "object",
-            "title": "Qwen-image-edit plus-lora ",
+            "title": "Qwen-image-edit-plus-lora ",
             "properties": {
               "model": {
                 "type": "string",
-                "example": "Qwen-image-edit plus-lora ",
+                "example": "Qwen-image-edit-plus-lora ",
                 "enum": [
-                  "Qwen-image-edit plus-lora "
+                  "Qwen-image-edit-plus-lora "
                 ]
               },
               "prompt": {
