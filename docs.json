@@ -2,6 +2,10 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Genbo",
+  "appearance": {
+    "default": "light",
+    "strict": true
+  },
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -54,6 +58,14 @@
               "api-reference/audio/audio-generations",
               "api-reference/audio/get-result-single",
               "api-reference/audio/get-result-list"
+            ]
+          },
+          {
+            "group": "3D",
+            "pages": [
+              "api-reference/3d/3d-generations",
+              "api-reference/3d/get-result-single",
+              "api-reference/3d/get-result-list"
             ]
           },
           {

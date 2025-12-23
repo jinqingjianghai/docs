@@ -20,6 +20,9 @@
     },
     {
       "name": "Audio"
+    },
+    {
+      "name": "3D"
     }
   ],
   "paths": {
@@ -351,94 +354,166 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "task_id": {
-                        "type": "string"
-                      },
-                      "task_status": {
-                        "type": "string",
-                        "title": "Task Status"
-                      },
-                      "fail_reason": {
-                        "type": "string",
-                        "title": "Failure Reason"
-                      },
-                      "task_result": {
-                        "type": [
-                          "object",
-                          "null"
-                        ],
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
                         "properties": {
-                          "url": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
                             },
-                            "title": "Generated Image URL"
-                          }
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
+                            }
                         },
                         "required": [
-                          "url"
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
                         ]
-                      },
-                      "created_at": {
-                        "type": "integer",
-                        "title": "Task Creation Time (s)"
-                      },
-                      "updated_at": {
-                        "type": "integer",
-                        "title": "Task Update Time (s)"
-                      },
-                      "input": {
-                        "$ref": "#/components/schemas/image"
-                      }
                     },
-                    "required": [
-                      "task_id",
-                      "task_status",
-                      "fail_reason",
-                      "task_result",
-                      "created_at",
-                      "updated_at",
-                      "input"
-                    ]
-                  }
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
                 },
-                "example": [
-                  {
-                    "task_id": "155a9c76-e0de-4393-a1a8-976621bbee31",
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
                     "task_result": {
-                      "url": [
-                        "https://online.genbo.ai/genbo/5ee3894a-eb3e-42e4-8751-eee894c34093.png"
-                      ]
+                        "url": [
+                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                        ]
                     },
-                    "created_at": 1755582493,
-                    "updated_at": 1755582538,
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
                     "input": {
-                      "cfg": 3,
-                      "seed": 32116006431307452,
-                      "model": "Qwen-image",
-                      "steps": 20,
-                      "prompt": "cute anime girl with massive fennec ears and a big fluffy fox tail with long wavy blonde hair between eyes and large blue eyes blonde colored eyelashes chubby wearing oversized clothes summer uniform long blue maxi skirt muddy clothes happy sitting on the side of the road in a run down dark gritty cyberpunk city with neon and a crumbling skyscraper in the rain at night while dipping her feet in a river of water she is holding a sign that says 'ComfyUI is the best' written in cursive",
-                      "image_size": "576x1024",
-                      "num_images": 1,
-                      "negative_prompt": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),"
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
                     }
-                  }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
                 ]
-              }
             },
-            "headers": {}
-          }
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
         },
         "security": [
           {
@@ -459,7 +534,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "Task ID",
+            "description": "TASK ID",
             "required": true,
             "example": "dad377bc-2e5b-4804-8fe2-62467e798301",
             "schema": {
@@ -469,109 +544,166 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
                     "data": {
-                      "type": "object",
-                      "properties": {
-                        "task_id": {
-                          "type": "string"
-                        },
-                        "task_status": {
-                          "type": "string",
-                          "title": "Task Status"
-                        },
-                        "fail_reason": {
-                          "type": "string",
-                          "title": "Failure Reason"
-                        },
-                        "task_result": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "url": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "title": "Generated Image URL"
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
                             }
-                          },
-                          "required": [
-                            "url"
-                          ]
                         },
-                        "created_at": {
-                          "type": "integer",
-                          "title": "Task Creation Time (s)"
-                        },
-                        "updated_at": {
-                          "type": "integer",
-                          "title": "Task Update Time (s)"
-                        },
-                        "input": {
-                          "$ref": "#/components/schemas/image"
-                        }
-                      },
-                      "required": [
-                        "task_id",
-                        "task_status",
-                        "fail_reason",
-                        "task_result",
-                        "created_at",
-                        "updated_at",
-                        "input"
-                      ]
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
+                        ]
                     },
                     "success": {
-                      "type": "boolean"
+                        "type": "boolean"
                     },
                     "message": {
-                      "type": "string"
+                        "type": "string"
                     }
-                  },
-                  "required": [
+                },
+                "required": [
                     "data",
                     "success",
                     "message"
-                  ]
-                },
-                "example": {
-                  "data": {
+                ]
+            },
+            "example": {
+                "data": {
                     "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
                     "task_result": {
-                      "url": [
-                        "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
-                      ]
+                        "url": [
+                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                        ]
                     },
                     "created_at": 1755572353,
                     "updated_at": 1755572402,
                     "input": {
-                      "cfg": 1,
-                      "seed": 3486883881156089,
-                      "model": "Flux-dev",
-                      "steps": 20,
-                      "prompt": "A rubber duck flows in the golden river",
-                      "image_size": "1024x576",
-                      "num_images": 1,
-                      "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
                     }
-                  },
-                  "message": "",
-                  "success": true
-                }
-              }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
             },
-            "headers": {}
-          }
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
         },
         "security": [
           {
@@ -662,88 +794,166 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "task_id": {
-                        "type": "string"
-                      },
-                      "task_status": {
-                        "type": "string",
-                        "title": "Task Status"
-                      },
-                      "fail_reason": {
-                        "type": "string",
-                        "title": "Failure Reason"
-                      },
-                      "task_result": {
-                        "type": [
-                          "object",
-                          "null"
-                        ],
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
                         "properties": {
-                          "url": {
-                            "type": "string",
-                            "title": "Video URL"
-                          }
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
+                            }
                         },
                         "required": [
-                          "url"
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
                         ]
-                      },
-                      "created_at": {
-                        "type": "integer",
-                        "title": "Task Creation Time (s)"
-                      },
-                      "updated_at": {
-                        "type": "integer",
-                        "title": "Task Update Time (s)"
-                      },
-                      "input": {
-                        "$ref": "#/components/schemas/video"
-                      }
                     },
-                    "required": [
-                      "task_id",
-                      "task_status",
-                      "fail_reason",
-                      "task_result",
-                      "created_at",
-                      "updated_at",
-                      "input"
-                    ]
-                  }
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
                 },
-                "example": [
-                  {
-                    "task_id": "340f3c8f-e8e0-488b-8e8b-d1e209edd745",
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
                     "task_result": {
-                      "url": "https://online.genbo.ai/genbo/47712e2e-724e-489e-a933-98cb1f5817a1.mp4"
+                        "url": [
+                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                        ]
                     },
-                    "created_at": 1754119419,
-                    "updated_at": 1754119520,
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
                     "input": {
-                      "model": "Wan2_1-T2V-14B",
-                      "prompt": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
-                      "negative_prompt": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
-                      "seed": 1,
-                      "aspect_ratio": "1280x720",
-                      "steps": 5,
-                      "cfg": 1
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
                     }
-                  }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
                 ]
-              }
             },
-            "headers": {}
-          }
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
         },
         "security": [
           {
@@ -764,7 +974,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "Task ID",
+            "description": "任务id",
             "required": true,
             "example": "2189c7a5-18f2-443c-a6eb-5c8be012e15b",
             "schema": {
@@ -774,103 +984,166 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
                     "data": {
-                      "type": "object",
-                      "properties": {
-                        "task_id": {
-                          "type": "string"
-                        },
-                        "task_status": {
-                          "type": "string",
-                          "title": "Task Status"
-                        },
-                        "fail_reason": {
-                          "type": "string",
-                          "title": "Failure Reason"
-                        },
-                        "task_result": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "url": {
-                              "type": "string",
-                              "title": ""
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
                             }
-                          },
-                          "required": [
-                            "url"
-                          ]
                         },
-                        "created_at": {
-                          "type": "integer",
-                          "title": "Task Creation Time (s)"
-                        },
-                        "updated_at": {
-                          "type": "integer",
-                          "title": "Task Update Time (s)"
-                        },
-                        "input": {
-                          "$ref": "#/components/schemas/video"
-                        }
-                      },
-                      "required": [
-                        "task_id",
-                        "task_status",
-                        "fail_reason",
-                        "task_result",
-                        "created_at",
-                        "updated_at",
-                        "input"
-                      ]
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
+                        ]
                     },
                     "success": {
-                      "type": "boolean"
+                        "type": "boolean"
                     },
                     "message": {
-                      "type": "string"
+                        "type": "string"
                     }
-                  },
-                  "required": [
+                },
+                "required": [
                     "data",
                     "success",
                     "message"
-                  ]
-                },
-                "example": {
-                  "data": {
-                    "task_id": "98b9e109-56d6-498c-8c98-a936f7c998c6",
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
                     "task_result": {
-                      "url": "https://online.genbo.ai/genbo/c9937897-937d-43b8-862b-60fc6ea06c57.mp4"
+                        "url": [
+                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                        ]
                     },
-                    "created_at": 1754119392,
-                    "updated_at": 1754119704,
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
                     "input": {
-                      "model": "Wan2_1-T2V-14B",
-                      "prompt": "a robot is running through a futuristic cyberpunk city with neon signs and darkness with bright HDR lights",
-                      "negative_prompt": "vivid color tone, overexposed, static, blurry details, subtitles, style, artwork, painting, frame, still, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, deformed, extra fingers, poorly drawn hands, poorly drawn face, distorted, disfigured, malformed limbs, fused fingers, motionless scene, messy background, three legs, crowded background, walking backward",
-                      "seed": 1,
-                      "aspect_ratio": "1280x720",
-                      "steps": 5,
-                      "cfg": 1
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
                     }
-                  },
-                  "message": "",
-                  "success": true
-                }
-              }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
             },
-            "headers": {}
-          }
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
         },
         "security": [
           {
@@ -1040,67 +1313,166 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "task_id": {
-                        "type": "string"
-                      },
-                      "task_status": {
-                        "type": "string",
-                        "title": "Task Status"
-                      },
-                      "fail_reason": {
-                        "type": "string",
-                        "title": "Failure Reason"
-                      },
-                      "task_result": {
-                        "type": [
-                          "object",
-                          "null"
-                        ],
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
                         "properties": {
-                          "url": {
-                            "type": "string",
-                            "title": ""
-                          }
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
+                            }
                         },
                         "required": [
-                          "url"
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
                         ]
-                      },
-                      "created_at": {
-                        "type": "integer",
-                        "title": "Task Creation Time (s)"
-                      },
-                      "updated_at": {
-                        "type": "integer",
-                        "title": "Task Update Time (s)"
-                      },
-                      "input": {
-                        "$ref": "#/components/schemas/audio"
-                      }
                     },
-                    "required": [
-                      "task_id",
-                      "task_status",
-                      "fail_reason",
-                      "task_result",
-                      "created_at",
-                      "updated_at",
-                      "input"
-                    ]
-                  }
-                }
-              }
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
             },
-            "headers": {}
-          }
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                        "url": [
+                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                        ]
+                    },
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
+                    "input": {
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                    }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
         },
         "security": [
           {
@@ -1131,80 +1503,604 @@
         ],
         "responses": {
           "200": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                        "url": [
+                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                        ]
+                    },
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
+                    "input": {
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                    }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/v1/3d/generations": {
+      "post": {
+        "summary": "Submit 3D Task",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "3D"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/3d"
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "task_id": {
-                          "type": "string"
-                        },
-                        "task_status": {
-                          "type": "string",
-                          "title": "Task Status"
-                        },
-                        "fail_reason": {
-                          "type": "string",
-                          "title": "Failure Reason"
-                        },
-                        "task_result": {
-                          "type": [
-                            "object",
-                            "null"
-                          ],
-                          "properties": {
-                            "url": {
-                              "type": "string",
-                              "title": ""
-                            }
-                          },
-                          "required": [
-                            "url"
-                          ]
-                        },
-                        "created_at": {
-                          "type": "integer",
-                          "title": "Task Creation Time (s)"
-                        },
-                        "updated_at": {
-                          "type": "integer",
-                          "title": "Task Update Time (s)"
-                        },
-                        "input": {
-                          "$ref": "#/components/schemas/audio"
-                        }
-                      },
-                      "required": [
-                        "task_id",
-                        "task_status",
-                        "fail_reason",
-                        "task_result",
-                        "created_at",
-                        "updated_at",
-                        "input"
-                      ]
-                    },
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "message": {
+                    "task_id": {
                       "type": "string"
                     }
                   },
                   "required": [
-                    "data",
-                    "success",
-                    "message"
+                    "task_id"
                   ]
+                },
+                "example": {
+                  "task_id": "<string>"
                 }
               }
             },
             "headers": {}
           }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "Get 3D Generation Result (List)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Audio"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": 10,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "Page Number",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                        "url": [
+                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                        ]
+                    },
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
+                    "input": {
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                    }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/v1/3d/generations/{id}": {
+      "get": {
+        "summary": "Get 3D Generation Result (Single)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "3D"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Task ID",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": {
+                        "url": [
+                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                        ]
+                    },
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
+                    "input": {
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                    }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
         },
         "security": [
           {
@@ -1286,6 +2182,59 @@
               "prompt"
             ],
             "title": "Flux-dev",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Z-image-turbo"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Hyper-realistic close-up portrait of an Irish Gael elder, wearing a hand-knitted Aran sweater and a Celtic knot pendant. Weathered skin, deep wrinkles, silver hair moving in soft Atlantic wind. Ocean-blue eyes, calm and wise. Misty Irish coastline in the blurred background—stone fences, green fields, sea cliffs.  ultra-sharp details, soft natural light, shallow depth of field, cinematic 8K texture.",
+                "maxLength": 800
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "example": "16:9",
+                "enum": [
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
+                ]
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "example": 1,
+                "minimum": 1,
+                "maximum": 4
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 9",
+                "example": 9,
+                "minimum": 1,
+                "maximum": 50
+              }
+            },
+            "required": [
+              "model",
+              "prompt"
+            ],
+            "title": "Z-image-turbo",
             "description": ""
           },
           {
@@ -1892,7 +2841,6 @@
                 "type": "string",
                 "example": "",
                 "enum": [
-
                 ]
               },
               "guidance_scale": {
@@ -1958,7 +2906,6 @@
                 "type": "string",
                 "example": "",
                 "enum": [
-
                 ]
               },
               "num_inference_steps": {
@@ -2126,6 +3073,74 @@
               "model"
             ],
             "title": "Wan2.2-14B-I2V",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "SteadyDancer"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "example": "A gorilla.",
+                "maxLength": 800
+              },
+              "video_url": {
+                "type": "string",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/genbo-test/bceb003b-0624-4c0b-8d35-ef58b690036b.mp4",
+                "format": "uri"
+              },
+              "shift": {
+                "type": "number",
+                "title": "Shift",
+                "description": "Shift value for the video. Must be between 1.0 and 10.0. Default value: 5.0",
+                "example": 5.0,
+                "minimum": 1,
+                "maximum": 10,
+                "multipleOf": 0.1
+              },
+              "image_url": {
+                "type": "string",
+                "format": "uri",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/genbo-test/65b4944e-0306-4c19-9f45-317126d07420.jpeg",
+                "pattern": "https?://.*\\.(jpeg|png|jpg)"
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 480p",
+                "example": "180",
+                "enum": [
+                  "480",
+                  "720"
+                ]
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Number of Inference Steps",
+                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 6",
+                "example": 4,
+                "minimum": 1,
+                "maximum": 50
+              }
+            },
+            "required": [
+              "image_url",
+              "prompt",
+              "video_url",
+              "model"
+            ],
+            "title": "SteadyDancer",
             "description": ""
           },
           {
@@ -3132,7 +4147,7 @@
                 "multipleOf": 0.1
               }
             },
-             "required": [
+            "required": [
               "model",
               "prompt",
               "audio_url"
@@ -3191,12 +4206,12 @@
                 "multipleOf": 0.1
               }
             },
-             "required": [
+            "required": [
               "model",
               "prompt",
               "audio_url",
               "audio_url_2"
-             ],
+            ],
             "title": "SoulX-Podcast-Multi",
             "description": ""
           },
@@ -3278,7 +4293,6 @@
                 "maximum": 2,
                 "multipleOf": 0.1
               },
-
               "use_emo_text": {
                 "type": "boolean",
                 "title": "Use_emo_text ",
@@ -3397,6 +4411,60 @@
               "prompt_2"
             ],
             "title": "IndexTTS2 Single",
+            "description": ""
+          }
+        ]
+      },
+      "3d": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "SAM-3D-Objects"
+                ],
+                "example": "SAM-3D-Objects"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image Url",
+                "description": "URL of audio to use for  img2img",
+                "example": "https://online.genbo.ai/genbo-test/7078eb23-cb01-4a0c-b74a-928f4d5fe3aa.png",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "model",
+              "image_url"
+            ],
+            "title": "SAM-3D-Objects",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "SAM-3D-Body"
+                ],
+                "example": "SAM-3D-Body"
+              },
+              "image_url": {
+                "type": "string",
+                "title": "Image Url",
+                "description": "URL of audio to use for  img2img",
+                "example": "https://online.genbo.ai/genbo-test/0fd49f62-c49a-411b-93f6-0640048bfbe6.png",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "model",
+              "image_url"
+            ],
+            "title": "SAM-3D-Body",
             "description": ""
           }
         ]
