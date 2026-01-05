@@ -69,6 +69,14 @@
             ]
           },
           {
+            "group": "Lora",
+            "pages": [
+              "api-reference/lora/lora-generations",
+              "api-reference/lora/get-result-single",
+              "api-reference/lora/get-result-list"
+            ]
+          },
+          {
             "group": "Upload",
             "pages": [
               "api-reference/upload/upload-files"

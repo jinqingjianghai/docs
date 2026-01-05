@@ -23,6 +23,9 @@
     },
     {
       "name": "3D"
+    },
+    {
+      "name": "Lora"
     }
   ],
   "paths": {
@@ -45,8 +48,8 @@
                     "type": "string",
                     "description": "Corresponding Model Name. ",
                     "enum": [
-                      "DeepSeek-R1-0528",
-                      "DeepSeek-V3.1"
+                      "GLM-4.6V",
+                      "MiniMax-M2"
                     ]
                   },
                   "messages": {
@@ -66,6 +69,16 @@
                         "content": {
                           "type": "string",
                           "description": "The contents of the message."
+                        },
+                        "image_url": {
+                          "type": "string",
+                          "description": "Either a URL of the image or the base64 encoded image data. For model deepseek-ai/DeepSeek-OCR, PDF files are also supported via URL or base64; other models accept images only. TeleAI/TeleMM only support the base64 encoded image data.",
+                          "example": "https://sf-maas-uat-prod.oss-cn-shanghai.aliyuncs.com/dog.png"
+                        },
+                         "video_url": {
+                          "type": "string",
+                          "description": "Either a URL of the video or the base64 encoded video data.",
+                          "example": "data:video/mp4;base64,"
                         }
                       }
                     },
@@ -150,7 +163,7 @@
                 ]
               },
               "example": {
-                "model": ["DeepSeek-R1-0528","DeepSeek-V3.1"],
+                "model": ["GLM-4.6V","MiniMax-M2"],
                 "messages": [
                   {
                     "role": "user",
@@ -239,7 +252,7 @@
                   "id": "<string>",
                   "object": "chat.completion",
                   "created": 1752470588,
-                  "model": ["DeepSeek-R1-0528","DeepSeek-V3.1"],
+                  "model": ["GLM-4.6V","MiniMax-M2"],
                   "choices": [
                     {
                       "index": 0,
@@ -624,11 +637,11 @@
                     "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
-                    "task_result": {
-                        "url": [
-                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
-                        ]
-                    },
+                    "task_result": [
+                      {
+                        "url": "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                    }
+                    ],
                     "created_at": 1755572353,
                     "updated_at": 1755572402,
                     "input": {
@@ -874,11 +887,11 @@
                     "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
-                    "task_result": {
-                        "url": [
-                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
-                        ]
-                    },
+                    "task_result": [
+                      {
+                        "url": "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                    }
+                    ],
                     "created_at": 1755572353,
                     "updated_at": 1755572402,
                     "input": {
@@ -1064,11 +1077,11 @@
                     "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
-                    "task_result": {
-                        "url": [
-                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
-                        ]
-                    },
+                    "task_result": [
+                    {
+                        "url": "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                    }
+                    ],
                     "created_at": 1755572353,
                     "updated_at": 1755572402,
                     "input": {
@@ -1393,11 +1406,10 @@
                     "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
-                    "task_result": {
-                        "url": [
+                    "task_result": [{
+                        "url":
                             "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
-                        ]
-                    },
+                    }],
                     "created_at": 1755572353,
                     "updated_at": 1755572402,
                     "input": {
@@ -1583,11 +1595,11 @@
                     "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
-                    "task_result": {
-                        "url": [
-                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
-                        ]
-                    },
+                    "task_result": [
+                      {
+                        "url": "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                    }
+                    ],
                     "created_at": 1755572353,
                     "updated_at": 1755572402,
                     "input": {
@@ -1725,7 +1737,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "Audio"
+          "3D"
         ],
         "parameters": [
           {
@@ -1831,11 +1843,11 @@
                     "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
-                    "task_result": {
-                        "url": [
-                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
-                        ]
-                    },
+                    "task_result": [
+                      {
+                        "url": "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                    }
+                    ],
                     "created_at": 1755572353,
                     "updated_at": 1755572402,
                     "input": {
@@ -2021,11 +2033,449 @@
                     "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
                     "task_status": "SUCCESS",
                     "fail_reason": "",
-                    "task_result": {
-                        "url": [
-                            "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                    "task_result": [
+                      {
+                        "url": "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                    }
+                    ],
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
+                    "input": {
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                    }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
                         ]
                     },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/v1/lora/generations": {
+      "post": {
+        "summary": "Submit Lora Task",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Lora"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/lora"
+              },
+              "examples": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "task_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "task_id"
+                  ]
+                },
+                "example": {
+                  "task_id": "<string>"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "Get LORA Generation Result (List)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Lora"
+        ],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": 10,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "Page Number",
+            "required": true,
+            "example": 1,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result":[
+                      {
+                        "url": "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                    }
+                    ],
+                    "created_at": 1755572353,
+                    "updated_at": 1755572402,
+                    "input": {
+                        "cfg": 1,
+                        "seed": 3486883881156089,
+                        "model": "Flux-dev",
+                        "steps": 20,
+                        "prompt": "A rubber duck flows in the golden river",
+                        "image_size": "1024x576",
+                        "num_images": 1,
+                        "negative_prompt": "(worst quality:2),embedding:EasyNegative_v1,embedding:ng_deepnegative_v1_75t,embedding:negative_hand_v1,nsfw"
+                    }
+                },
+                "message": "",
+                "success": true
+            }
+        }
+    },
+    "headers": {}
+},
+          "404": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "FAILURE",
+                    "fail_reason": ""
+                },
+                "message": "The user has not submitted this task before, please check request routing or task ID",
+                "success": false
+            }
+        }
+    },
+    "headers": {}
+}
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
+      }
+    },
+    "/v1/lora/generations/{id}": {
+      "get": {
+        "summary": "Get Lora Generation Result (Single)",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Lora"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Task ID",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+    "description": "",
+    "content": {
+        "application/json": {
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "task_id": {
+                                "type": "string",
+                                "description": "Task ID"
+                            },
+                            "task_status": {
+                                "type": "string",
+                                "description": "Task status"
+                            },
+                            "fail_reason": {
+                                "type": "string",
+                                "description": "Failure reason, present only when failed"
+                            },
+                            "task_result": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "Generated image URL(s)"
+                                    }
+                                },
+                                "required": [
+                                    "url"
+                                ]
+                            },
+                            "created_at": {
+                                "type": "integer",
+                                "description": "Task creation time (Unix timestamp, in seconds)"
+                            },
+                            "updated_at": {
+                                "type": "integer",
+                                "description": "Task update time (Unix timestamp, in seconds)"
+                            },
+                            "input": {
+                                "$ref": "#/components/schemas/image",
+                                "description": "Task input parameters (JSON object)"
+                            }
+                        },
+                        "required": [
+                            "task_id",
+                            "task_status",
+                            "fail_reason",
+                            "task_result",
+                            "created_at",
+                            "updated_at",
+                            "input"
+                        ]
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "success",
+                    "message"
+                ]
+            },
+            "example": {
+                "data": {
+                    "task_id": "6e260716-a0f5-450a-96d8-11a0ef1da495",
+                    "task_status": "SUCCESS",
+                    "fail_reason": "",
+                    "task_result": [
+                        {
+                        "url": "https://online.genbo.ai/genbo/c80209cd-87ef-4756-ac7c-f368dc993592.png"
+                    }
+                    ],
                     "created_at": 1755572353,
                     "updated_at": 1755572402,
                     "input": {
@@ -2113,6 +2563,45 @@
   "webhooks": {},
   "components": {
     "schemas": {
+      "chat": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Qwen-Image-i2L"
+                ],
+                "example": "Qwen-Image-i2L"
+              },
+              "data_url": {
+                "type": "string",
+                "title": "Zip Url",
+                "description": "URL of zip to use for img2lora",
+                "example": "https://online.genbo.ai/genbo-test/f6067366-f061-4755-a42b-73add3bf2e62.zip",
+                "format": "uri"
+              },
+              "model_type": {
+                "type": "string",
+                "title": "Model Type",
+                "description": "Qwen-Image-i2L-Style and Qwen-Image-i2L-Coarse+Fine+Bias",
+                "example": "Qwen-Image-i2L-Style",
+                "enum": [
+                  "Qwen-Image-i2L-Style",
+                  "Qwen-Image-i2L-Coarse+Fine+Bias"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "data_url"
+            ],
+            "title": "Qwen-Image-i2L",
+            "description": ""
+          }
+        ]
+      },
       "image": {
         "anyOf": [
           {
@@ -3073,6 +3562,143 @@
               "model"
             ],
             "title": "Wan2.2-14B-I2V",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "TurboDiffusion-Wan2.2-14B-I2V"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "example": "A cute and adorable golden furry little dog baby is sitting on a magic broom and flying close to the ground at an extremely fast speed. The objects on both sides are dashing backward, becoming a bunch of blurry and illusory images.",
+                "maxLength": 800
+              },
+              "num_frames": {
+                "type": "integer",
+                "title": "Number of Frames",
+                "description": "Number of frames to generate. Must be between 81 to 121 (inclusive). Default value: 81",
+                "example": 81,
+                "minimum": 81,
+                "maximum": 121
+              },
+              "image_url": {
+                "type": "string",
+                "format": "uri",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/genbo-test/f1da17f9-15db-489b-9ed7-9e2c9605e256.png",
+                "pattern": "https?://.*\\.(jpeg|png|jpg)"
+              },
+              "frames_per_second": {
+                "type": "integer",
+                "title": "Frames per Second",
+                "description": "Frames per second of the generated video. Must be between 4 to 60. When using interpolation and adjust_fps_for_interpolation is set to true (default true,) the final FPS will be multiplied by the number of interpolated frames plus one. For example, if the generated frames per second is 16 and the number of interpolated frames is 1, the final frames per second will be 32. If adjust_fps_for_interpolation is set to false, this value will be used as-is. Default value: 16",
+                "example": 16,
+                "minimum": 4,
+                "maximum": 60
+              },
+              "resolution": {
+                "type": "string",
+                "title": "Resolution",
+                "description": "Resolution of the video to generate. Default value: 480p",
+                "example": "720",
+                "enum": [
+                  "480",
+                  "720"
+                ]
+              },
+              "aspect_ratio": {
+                "type": "string",
+                "title": "Aspect Ratio",
+                "description": "Aspect ratio of the generated video. If 'auto', the aspect ratio will be determined automatically based on the input image. Default value: auto",
+                "example": "auto",
+                "enum": [
+                  "auto",
+                  "16:9",
+                  "9:16",
+                  "1:1"
+                ]
+              }
+            },
+            "required": [
+              "image_url",
+              "prompt",
+              "num_frames",
+              "frames_per_second",
+              "model"
+            ],
+            "title": "TurboDiffusion-Wan2.2-14B-I2V",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Qwen-Image-Layered"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "example": "",
+                "maxLength": 800
+              },
+              "negative_prompt": {
+                "type": "string",
+                "title": "Negative Prompt",
+                "description": "Negative prompt for video generation.",
+                "example": "Ugly, low quality",
+                "maxLength": 800
+              },
+              "image_url": {
+                "type": "string",
+                "format": "uri",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/genbo-test/0803b11c-53f7-45da-99f3-15d8234a0c83.png",
+                "pattern": "https?://.*\\.(jpeg|png|jpg)"
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Number of Inference Steps",
+                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 6",
+                "example": 20,
+                "minimum": 2,
+                "maximum": 50
+              },
+              "num_layers": {
+                "type": "integer",
+                "title": "Number of Layers",
+                "description": "The number of layers to generate. Default value: 2",
+                "example": 2,
+                "minimum": 1,
+                "maximum": 10
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance Scale ",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 2.5",
+                "example": 2.5,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "image_url",
+              "model"
+            ],
+            "title": "Qwen-Image-Layered",
             "description": ""
           },
           {
@@ -4161,6 +4787,338 @@
               "model": {
                 "type": "string",
                 "enum": [
+                  "chatterbox-text"
+                ],
+                "example": "chatterbox-text"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Soft rain falls like whispered secrets, painting the air in silver haze.Through the gentle drizzle, a lone figure carries a quiet dream onward.",
+                "maxLength": 800
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "URL of audio to use for audio2audio",
+                "example": "https://online.genbo.ai/img2video/08c29a04-3992-4092-9880-8b6c565dd5c1.wav",
+                "format": "uri"
+              },
+              "temperature": {
+                "type": "number",
+                "title": "temperature",
+                "description": "The randomness and creativity in generating speech within the control model",
+                "example": 0.7,
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.1
+              },
+              "exaggeration": {
+                "type": "number",
+                "title": "Exaggeration ",
+                "description": "Exaggeration factor for the generated speech (0.0 = no exaggeration, 1.0 = maximum exaggeration). Default value: 0.4",
+                "example": 0.4,
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.1
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale (CFG)",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 0.5",
+                "example": 0.5,
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "audio_url",
+              "exaggeration",
+              "guidance_scale"
+            ],
+            "title": "chatterbox-text",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "chatterbox-text-multilingual"
+                ],
+                "example": "chatterbox-text-multilingual"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Soft rain falls like whispered secrets, painting the air in silver haze.Through the gentle drizzle, a lone figure carries a quiet dream onward.",
+                "maxLength": 800
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "URL of audio to use for audio2audio",
+                "example": "None",
+                "format": "uri"
+              },
+              "narrator_voice": {
+                "type": "string",
+                "title": "Voice",
+                "description": "Some sample audio files of TTS are available. You can choose to generate audio with the corresponding voice tone.Default value: 'None'",
+                "example": "None",
+                "enum": [
+                  "None",
+                  "Masculine rough voice",
+                  "Males with a British accent and a gentle tone",
+                  "A magnetic male voice",
+                  "Female voice 1",
+                  "Female voice 2",
+                  "English male voice",
+                  "English female voice",
+                  "Excited tone",
+                  "zh_animeman_sichuan",
+                  "Male Voice 1",
+                  "Male Voice 2"
+                ]
+              },
+              "language": {
+                "type": "string",
+                "title": "Language ",
+                "description": "The language of the input text.Default value: 'English'",
+                "example": "English",
+                "enum": [
+                  "Chinese",
+                  "English",
+                  "Arabic",
+                  "Danish",
+                  "German",
+                  "Greek",
+                  "Spanish",
+                  "Finnish",
+                  "French",
+                  "Hebrew",
+                  "Hindi",
+                  "Italian",
+                  "Japanese",
+                  "Korean",
+                  "Malay",
+                  "Dutch",
+                  "Norwegian",
+                  "Polish",
+                  "Portuguese",
+                  "Russian",
+                  "Swedish",
+                  "Swahili",
+                  "Turkish"
+                ]
+              },
+              "temperature": {
+                "type": "number",
+                "title": "temperature",
+                "description": "The randomness and creativity in generating speech within the control model",
+                "example": 0.7,
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.1
+              },
+              "exaggeration": {
+                "type": "number",
+                "title": "Exaggeration ",
+                "description": "Exaggeration factor for the generated speech (0.0 = no exaggeration, 1.0 = maximum exaggeration). Default value: 0.4",
+                "example": 0.4,
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.1
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale (CFG)",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 0.5",
+                "example": 0.5,
+                "minimum": 0,
+                "maximum": 1,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "audio_url",
+              "exaggeration",
+              "guidance_scale"
+            ],
+            "title": "chatterbox-text-multilingual",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "FunAudioLLM-natural language"
+                ],
+                "example": "FunAudioLLM-natural language"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Only when you get through those helpless moments will you find that you are not as lonely and vulnerable as you imagined. It turns out that one person can also live as a mighty army.",
+                "maxLength": 800
+              },
+              "mood": {
+                "type": "string",
+                "title": "Mood",
+                "description": "The prompt supports entering instructions to control the emotion and style of speech (such as 'read in a gentle tone'), which is used to refine the speech performance.",
+                "example": "Theo 'kela', is a calm, passionate rebel leader. Fights with fervor for justice, but struggles with impulsiveness.",
+                "maxLength": 800
+              },
+
+              "speed": {
+                "type": "number",
+                "title": "Speed",
+                "description": "The speed of the generated speech.",
+                "example": 1,
+                "minimum": 0,
+                "maximum": 5,
+                "multipleOf": 0.5
+              },
+              "speaker_name": {
+                "type": "string",
+                "title": "Speaker Name ",
+                "description": "The speaker name to generate speech. Default value: Male voice in Chinese",
+                "example": "中文男",
+                "enum": [
+                  "中文男",
+                  "中文女",
+                  "日语男",
+                  "粤语女",
+                  "英文女",
+                  "英文男",
+                  "韩语女"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "mood"
+            ],
+            "title": "FunAudioLLM-natural language",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "FunAudioLLM-Translation"
+                ],
+                "example": "FunAudioLLM-Translation"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Translate the text into Chinese",
+                "maxLength": 800
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "URL of audio to use for audio2audio",
+                "example": "https://online.genbo.ai/genbo-test/b5e34810-a73f-4770-b781-ffcd9f91921b.mp3",
+                "format": "uri"
+              },
+              "speed": {
+                "type": "number",
+                "title": "Speed",
+                "description": "The speed of the generated speech.",
+                "example": 1,
+                "minimum": 0,
+                "maximum": 5,
+                "multipleOf": 0.5
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "audio_url"
+            ],
+            "title": "FunAudioLLM-Translation",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "FunAudioLLM-Speech-to-Text"
+                ],
+                "example": "FunAudioLLM-Speech-to-Text"
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Audio Url",
+                "description": "URL of audio to use for audio2audio",
+                "example": "https://online.genbo.ai/genbo-test/b5e34810-a73f-4770-b781-ffcd9f91921b.mp3",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "model",
+              "audio_url"
+            ],
+            "title": "FunAudioLLM-Speech-to-Text",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "chatterbox-speech"
+                ],
+                "example": "chatterbox-speech"
+              },
+              "audio_url": {
+                "type": "string",
+                "title": "Source Audio Url",
+                "description": "The audio url of the second speaker.",
+                "example": "https://online.genbo.ai/genbo-test/b5e34810-a73f-4770-b781-ffcd9f91921b.mp3",
+                "format": "uri"
+              },
+              "audio_url_2": {
+                "type": "string",
+                "title": "Target Voice Audio Url",
+                "description": "Optional URL to an audio file to use as a reference for the generated speech. If provided, the model will try to match the style and tone of the reference audio.",
+                "example": "https://online.genbo.ai/genbo-test/b5e34810-a73f-4770-b781-ffcd9f91921b.mp3",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "model",
+              "audio_url"
+            ],
+            "title": "chatterbox-speech",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
                   "SoulX-Podcast-Multi"
                 ],
                 "example": "SoulX-Podcast-Multi"
@@ -4465,6 +5423,45 @@
               "image_url"
             ],
             "title": "SAM-3D-Body",
+            "description": ""
+          }
+        ]
+      },
+      "lora": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Qwen-Image-i2L"
+                ],
+                "example": "Qwen-Image-i2L"
+              },
+              "data_url": {
+                "type": "string",
+                "title": "Zip Url",
+                "description": "URL of zip to use for img2lora",
+                "example": "https://online.genbo.ai/genbo-test/f6067366-f061-4755-a42b-73add3bf2e62.zip",
+                "format": "uri"
+              },
+              "model_type": {
+                "type": "string",
+                "title": "Model Type",
+                "description": "Qwen-Image-i2L-Style and Qwen-Image-i2L-Coarse+Fine+Bias",
+                "example": "Qwen-Image-i2L-Style",
+                "enum": [
+                  "Qwen-Image-i2L-Style",
+                  "Qwen-Image-i2L-Coarse+Fine+Bias"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "data_url"
+            ],
+            "title": "Qwen-Image-i2L",
             "description": ""
           }
         ]
