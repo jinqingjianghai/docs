@@ -3068,6 +3068,76 @@
           },
           {
             "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "Qwen-image-2512"
+                ],
+                "example": "Qwen-image-2512"
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Anime illustration style, a short-haired girl with a focused and slightly cool expression, wearing headphones, standing alone on an overpass after the rain. Neon lights reflect on the wet streets, creating a modern, light sci-fi mood with a touch of solitude. The color scheme is dominated by cool tones with pops of high-saturation lighting. A medium shot composition emphasizes a calm, restrained atmosphere with strong emotional tension.",
+                "maxLength": 800
+              },
+              "negative_prompt": {
+                "type": "string",
+                "title": "Negative Prompt",
+                "description": "The negative prompt for the generation",
+                "example": "Low resolution, low image quality, limb deformity, finger deformity, picture oversaturation, wax figure effect, no details on the face, overly smooth, and the picture has an AI feel. The composition is chaotic. The text is blurry and distorted",
+                "maxLength": 800
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "example": "4:3",
+                "enum": [
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "4:3",
+                  "16:9"
+                ]
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "example": 1,
+                "minimum": 1,
+                "maximum": 4
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "example": 4,
+                "minimum": 2,
+                "maximum": 50
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
+                "example": 1,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "model",
+              "prompt"
+            ],
+            "title": "Qwen-image-2512",
+            "description": ""
+          },
+          {
+            "type": "object",
             "title": "Flux-krea-dev-I2I",
             "properties": {
               "model": {
@@ -3274,9 +3344,9 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "auto",
+                "example": "default",
                 "enum": [
-                  "auto",
+                  "default",
                   "1:1",
                   "3:4",
                   "9:16",
@@ -3340,6 +3410,80 @@
                 "minimum": 0,
                 "maximum": 20,
                 "multipleOf": 1
+              },
+              "num_images": {
+                "type": "integer",
+                "title": "Num Images",
+                "description": "The number of images to generate. Default value: 1",
+                "example": 1,
+                "minimum": 1,
+                "maximum": 4,
+                "multipleOf": 1
+              },
+              "image_size": {
+                "type": "string",
+                "title": "Image Size",
+                "description": "The size of the generated image.",
+                "example": "default",
+                "enum": [
+                  "default",
+                  "1:1",
+                  "3:4",
+                  "4:3",
+                  "16:9",
+                  "9:16"
+                ]
+              }
+            },
+            "required": [
+              "model",
+              "prompt",
+              "image_url",
+              "loras"
+            ],
+            "description": ""
+          },
+          {
+            "type": "object",
+            "title": "Qwen-image-lora",
+            "properties": {
+              "model": {
+                "type": "string",
+                "example": "Qwen-image-lora",
+                "enum": [
+                  "Qwen-image-lora"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The prompt to generate the image with",
+                "example": "Anime illustration style, a wide-eyed, happy expression of a cute girl, wearing a piggy hair band shopping in the flower market presents a sweet and lovely, youthful and lively style . The color of the picture is fresh and bright. The background is dominated by a medium landscape composition, the picture is warm and healing.",
+                "maxLength": 800
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Num Inference Steps",
+                "description": "The number of inference steps to perform. Default value: 20",
+                "example": 20,
+                "minimum": 2,
+                "maximum": 50,
+                "multipleOf": 1
+              },
+              "loras": {
+                "type": "string",
+                "example": "",
+                "enum": [
+                ]
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance scale",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 3",
+                "example": 2.5,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
               },
               "num_images": {
                 "type": "integer",
@@ -3699,6 +3843,49 @@
               "model"
             ],
             "title": "Qwen-Image-Layered",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
+                  "TransnetV2"
+                ]
+              },
+              "video_url": {
+                "type": "string",
+                "format": "uri",
+                "title": "Video URL",
+                "description": "URL of the input video.",
+                "example": "https://online.genbo.ai/genbo-test/1d1a8511-8ade-48aa-ac4f-881bf7af53e3.mp4",
+                "pattern": "Hint: you can drag and drop file(s) here. Accepted file types: video/mp4, video/quicktime, video/x-matroska, video/x-msvideo, image/gif"
+              },
+              "threshold ": {
+                "type": "number",
+                "title": "Number of Threshold ",
+                "description": "Scene detection threshold. Default value: 0.5",
+                "example": 0.50,
+                "minimum": 0.1,
+                "maximum": 1,
+                "multipleOf": 0.01
+              },
+              "min_scene_length": {
+                "type": "number",
+                "title": "Min Scene Length ",
+                "description": "Minimum scene length in frames. Default value: 30",
+                "example": 30,
+                "minimum": 1,
+                "maximum": 300,
+                "multipleOf": 1
+              }
+            },
+            "required": [
+              "video_url",
+              "model"
+            ],
+            "title": "TransnetV2",
             "description": ""
           },
           {
