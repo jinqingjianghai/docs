@@ -3344,9 +3344,9 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "default",
+                "example": "auto",
                 "enum": [
-                  "default",
+                  "auto",
                   "1:1",
                   "3:4",
                   "9:16",
@@ -3424,9 +3424,9 @@
                 "type": "string",
                 "title": "Image Size",
                 "description": "The size of the generated image.",
-                "example": "default",
+                "example": "auto",
                 "enum": [
-                  "default",
+                  "auto",
                   "1:1",
                   "3:4",
                   "4:3",
