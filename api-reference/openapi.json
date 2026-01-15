@@ -3136,9 +3136,9 @@
               "model": {
                 "type": "string",
                 "enum": [
-                  "Qwen-image-2512"
+                  "Qwen-Image-2512"
                 ],
-                "example": "Qwen-image-2512"
+                "example": "Qwen-Image-2512"
               },
               "prompt": {
                 "type": "string",
@@ -3197,7 +3197,7 @@
               "model",
               "prompt"
             ],
-            "title": "Qwen-image-2512",
+            "title": "Qwen-Image-2512",
             "description": ""
           },
           {
