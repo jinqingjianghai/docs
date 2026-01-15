@@ -2679,6 +2679,70 @@
               "model": {
                 "type": "string",
                 "enum": [
+                  "Qwen-Image-Layered"
+                ]
+              },
+              "prompt": {
+                "type": "string",
+                "title": "Prompt",
+                "description": "The text prompt to guide video generation.",
+                "example": "",
+                "maxLength": 800
+              },
+              "negative_prompt": {
+                "type": "string",
+                "title": "Negative Prompt",
+                "description": "Negative prompt for video generation.",
+                "example": "Ugly, low quality",
+                "maxLength": 800
+              },
+              "image_url": {
+                "type": "string",
+                "format": "uri",
+                "title": "Image URL",
+                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
+                "example": "https://online.genbo.ai/genbo-test/0803b11c-53f7-45da-99f3-15d8234a0c83.png",
+                "pattern": "https?://.*\\.(jpeg|png|jpg)"
+              },
+              "num_inference_steps": {
+                "type": "integer",
+                "title": "Number of Inference Steps",
+                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 6",
+                "example": 20,
+                "minimum": 2,
+                "maximum": 50
+              },
+              "num_layers": {
+                "type": "integer",
+                "title": "Number of Layers",
+                "description": "The number of layers to generate. Default value: 2",
+                "example": 2,
+                "minimum": 1,
+                "maximum": 10
+              },
+              "guidance_scale": {
+                "type": "number",
+                "title": "Guidance Scale ",
+                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 2.5",
+                "example": 2.5,
+                "minimum": 0,
+                "maximum": 20,
+                "multipleOf": 0.1
+              }
+            },
+            "required": [
+              "image_url",
+              "model"
+            ],
+            "title": "Qwen-Image-Layered",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "enum": [
                   "Z-image-turbo"
                 ]
               },
@@ -3779,70 +3843,6 @@
               "model"
             ],
             "title": "TurboDiffusion-Wan2.2-14B-I2V",
-            "description": ""
-          },
-          {
-            "type": "object",
-            "properties": {
-              "model": {
-                "type": "string",
-                "enum": [
-                  "Qwen-Image-Layered"
-                ]
-              },
-              "prompt": {
-                "type": "string",
-                "title": "Prompt",
-                "description": "The text prompt to guide video generation.",
-                "example": "",
-                "maxLength": 800
-              },
-              "negative_prompt": {
-                "type": "string",
-                "title": "Negative Prompt",
-                "description": "Negative prompt for video generation.",
-                "example": "Ugly, low quality",
-                "maxLength": 800
-              },
-              "image_url": {
-                "type": "string",
-                "format": "uri",
-                "title": "Image URL",
-                "description": "URL of the input image. If the input image does not match the chosen aspect ratio, it is resized and center cropped.",
-                "example": "https://online.genbo.ai/genbo-test/0803b11c-53f7-45da-99f3-15d8234a0c83.png",
-                "pattern": "https?://.*\\.(jpeg|png|jpg)"
-              },
-              "num_inference_steps": {
-                "type": "integer",
-                "title": "Number of Inference Steps",
-                "description": "Number of inference steps for sampling. Higher values give better quality but take longer. Default value: 6",
-                "example": 20,
-                "minimum": 2,
-                "maximum": 50
-              },
-              "num_layers": {
-                "type": "integer",
-                "title": "Number of Layers",
-                "description": "The number of layers to generate. Default value: 2",
-                "example": 2,
-                "minimum": 1,
-                "maximum": 10
-              },
-              "guidance_scale": {
-                "type": "number",
-                "title": "Guidance Scale ",
-                "description": "The CFG (Classifier Free Guidance) scale is a measure of how close you want the model to stick to your prompt when looking for a related image to show you. Default value: 2.5",
-                "example": 2.5,
-                "minimum": 0,
-                "maximum": 20,
-                "multipleOf": 0.1
-              }
-            },
-            "required": [
-              "image_url",
-              "model"
-            ],
-            "title": "Qwen-Image-Layered",
             "description": ""
           },
           {
