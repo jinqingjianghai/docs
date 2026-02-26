@@ -77,6 +77,12 @@
             ]
           },
           {
+            "group": "Model",
+            "pages": [
+              "api-reference/model/model-search"
+            ]
+          },
+          {
             "group": "Upload",
             "pages": [
               "api-reference/upload/upload-files"
