@@ -52,7 +52,12 @@
                     "description": "Corresponding Model Name. ",
                     "enum": [
                       "GLM-4.6V",
-                      "MiniMax-M2"
+                      "MiniMax-M2",
+                      "DeepSeek-R1-0528",
+                      "DeepSeek-V3.2",
+                      "GLM-5.1",
+                      "Qwen-Image",
+                      "MiniMax-M2.5"
                     ]
                   },
                   "messages": {
@@ -138,6 +143,10 @@
                     "type": "string",
                     "description": "A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse."
                   },
+                  "think": {
+                    "type": "string",
+                    "description": "Provider-specific thinking control string. Leave empty to use model default.\n\nCopy one value by model:\n- kimi2.5: chat_template_kwargs={\"thinking\":true} or chat_template_kwargs={\"thinking\":false}\n- glm5.1 / deepseekV3.2: thinking={\"type\":\"enabled\"} or thinking={\"type\":\"disabled\"}\n- qwen / minimax2.5: enable_thinking=true or enable_thinking=false\n\nFor minimax2.5, reasoning_split=false is recommended together.\nReasoning content stays in normal content (not reasoning_details).\nMiniMax-M2.x may still output <think>...</think> even when disabling thinking (best-effort only)."
+                  },
                   "response_format": {
                     "type": "object",
                     "properties": {},
@@ -166,10 +175,8 @@
                 ]
               },
               "example": {
-                "model": [
-                  "GLM-4.6V",
-                  "MiniMax-M2"
-                ],
+                "model": "GLM-4.6V",
+                "think": "thinking={\"type\":\"enabled\"}",
                 "messages": [
                   {
                     "role": "user",
@@ -267,7 +274,6 @@
                       "index": 0,
                       "message": {
                         "role": "assistant",
-                        "reasoning_content": null,
                         "content": "<string>",
                         "tool_calls": []
                       },
