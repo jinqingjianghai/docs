@@ -1,11 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
   "name": "Genbo",
-  "appearance": {
-    "default": "light",
-    "strict": true
-  },
+  "theme": "mint",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -15,12 +11,11 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "GUIDES",
+        "tab": "Guides",
         "groups": [
           {
-            "group":"GUIDES",
-            "pages":
-            [
+            "group": "Getting Started",
+            "pages": [
               "guides/introduction",
               "guides/quickstart"
             ]
@@ -32,9 +27,7 @@
         "groups": [
           {
             "group": "Chat",
-            "pages": [
-              "api-reference/chat/chat-completions"
-            ]
+            "pages": ["api-reference/chat/chat-completions"]
           },
           {
             "group": "Image",
@@ -78,17 +71,45 @@
           },
           {
             "group": "Model",
-            "pages": [
-              "api-reference/model/model-search"
-            ]
+            "pages": ["api-reference/model/model-search"]
           },
           {
             "group": "Upload",
+            "pages": ["api-reference/upload/upload-files"]
+          }
+        ]
+      },
+      {
+        "tab": "Scenario Examples",
+        "groups": [
+          {
+            "group": "Guides",
             "pages": [
-              "api-reference/upload/upload-files"
+              "scenario-examples/introduction",
+              "scenario-examples/claude-code",
+              "scenario-examples/continue-plugin",
+              "scenario-examples/roo-code"
             ]
           }
         ]
+      },
+      {
+        "tab": "Release Notes",
+        "pages": [
+          "release-notes/introduction",
+          "release-notes/2026-04-24",
+          "release-notes/2026-03-28",
+          "release-notes/2026-02-12",
+          "release-notes/2026-01-05"
+        ]
+      },
+      {
+        "tab": "Terms & Conditions",
+        "pages": ["terms-and-conditions/introduction"]
+      },
+      {
+        "tab": "Privacy Policy",
+        "pages": ["privacy-policy/introduction"]
       }
     ]
   },

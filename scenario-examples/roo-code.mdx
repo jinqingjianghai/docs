@@ -1,0 +1,42 @@
+---
+title: Roo Code (Roo Code)
+---
+
+### Roo Code (formerly Roo Code)
+
+Configure Roo Code to connect to the API.
+
+## 1. Install Roo Code
+
+Install the **Roo Code** extension from the VS Code marketplace.
+
+## 2. Configuration
+
+1. Open Roo Code from the sidebar
+2. Click "or use without an account"
+3. Select **OpenAI Compatible** as the API provider
+4. Fill in the following:
+
+| Field | Value |
+|-------|-------|
+| Base URL | `https://api.genbo.ai/v1` |
+| API Key | Your API key |
+| Model | `MiniMax-M2.5` or any supported model name |
+
+5. Click **Save** and start chatting.
+
+## Multiple Configurations
+
+You can create multiple configurations for different models:
+
+```json
+{
+  "name": "MiniMax-M2.5",
+  "provider": "openai",
+  "model": "MiniMax-M2.5",
+  "apiKey": "YOUR_API_KEY",
+  "baseURL": "https://api.genbo.ai/v1"
+}
+```
+
+Create separate profiles for each model (GLM-5.1, MiniMax-M2.5, etc.) to quickly switch between them.

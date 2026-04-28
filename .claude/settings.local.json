@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import sys,json; json.load\\(sys.stdin\\); print\\('JSON valid'\\)\")",
+      "WebFetch(domain:docs.siliconflow.cn)",
+      "WebFetch(domain:docs.siliconflow.com)",
+      "Bash(python3 -m json.tool)",
+      "Bash(python3 *)",
+      "Bash(node *)"
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+---
+title: Claude Code + CC-Switch
+---
+
+### Claude Code with CC-Switch
+
+Install Claude Code and configure it with CC-Switch for API routing.
+
+## 1. Install Claude Code
+
+**macOS / Linux / WSL:**
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+**Windows PowerShell:**
+
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+**Windows CMD:**
+
+```cmd
+curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
+```
+
+> **Note:** If you see `'irm' is not recognized`, you are in CMD, not PowerShell. If you see `The token '&&' is not a valid statement separator`, you are in PowerShell, not CMD.
+
+## 2. Install CC-Switch
+
+Download CC-Switch from [GitHub releases](https://github.com/farion1231/cc-switch/releases) and install it.
+
+Open CC-Switch:
+
+1. Select **自定义供应商 (Custom Provider)**
+2. Fill in the base URL: `https://api.genbo.ai/v1`
+3. Enter your API Key
+4. In Advanced options, add the model name, e.g. `MiniMax-M2.5`
+5. Save
+
+## 3. Edit Configuration
+
+Create or edit `~/.claude.json` (Windows: `用户目录/.claude.json`):
+
+```json
+{
+  "hasCompletedOnboarding": true
+}
+```
+
+## 4. Alternative: Manual Config
+
+Edit `~/.claude/settings.json` (macOS/Linux) or `~/.claude/settings.json` (Windows):
+
+```json
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "YOUR_API_KEY",
+    "ANTHROPIC_BASE_URL": "https://api.genbo.ai/v1",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "MiniMax-M2.5",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "MiniMax-M2.5",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "MiniMax-M2.5",
+    "ANTHROPIC_MODEL": "MiniMax-M2.5",
+    "ANTHROPIC_REASONING_MODEL": "MiniMax-M2.5",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
+```
+
+Then run `claude` from a terminal to start.
