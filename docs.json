@@ -94,16 +94,6 @@
         ]
       },
       {
-        "tab": "Release Notes",
-        "pages": [
-          "release-notes/introduction",
-          "release-notes/2026-04-24",
-          "release-notes/2026-03-28",
-          "release-notes/2026-02-12",
-          "release-notes/2026-01-05"
-        ]
-      },
-      {
         "tab": "Terms & Conditions",
         "pages": ["terms-and-conditions/introduction"]
       },
